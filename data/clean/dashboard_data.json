@@ -1,0 +1,2876 @@
+{
+  "generated_at": "2026-03-20T08:32:43.242820",
+  "facebook": {
+    "stats_2025": {
+      "pocet_prispevku": 132,
+      "celkovy_dosah": 72666,
+      "celkove_zhlednuti": 162765,
+      "celkove_reakce": 4338,
+      "celkove_komentare": 781,
+      "celkove_sdileni": 308,
+      "celkove_kliknuti": 8154,
+      "celkovy_engagement": 5427,
+      "engagement_per_post": 41.1,
+      "dosah_per_post": 550.5
+    },
+    "stats_2026": {
+      "pocet_prispevku": 184,
+      "celkovy_dosah": 216140,
+      "celkove_zhlednuti": 350098,
+      "celkove_reakce": 5349,
+      "celkove_komentare": 297,
+      "celkove_sdileni": 222,
+      "celkove_kliknuti": 17158,
+      "celkovy_engagement": 5868,
+      "engagement_per_post": 31.9,
+      "dosah_per_post": 1174.7
+    },
+    "daily_2025": [
+      {
+        "datum": "2025-01-03",
+        "dosah": 329,
+        "engagement": 4
+      },
+      {
+        "datum": "2025-01-10",
+        "dosah": 356,
+        "engagement": 7
+      },
+      {
+        "datum": "2025-01-12",
+        "dosah": 700,
+        "engagement": 9
+      },
+      {
+        "datum": "2025-01-19",
+        "dosah": 323,
+        "engagement": 10
+      },
+      {
+        "datum": "2025-01-24",
+        "dosah": 692,
+        "engagement": 41
+      },
+      {
+        "datum": "2025-01-25",
+        "dosah": 287,
+        "engagement": 4
+      },
+      {
+        "datum": "2025-01-28",
+        "dosah": 245,
+        "engagement": 10
+      },
+      {
+        "datum": "2025-02-01",
+        "dosah": 0,
+        "engagement": 0
+      },
+      {
+        "datum": "2025-02-02",
+        "dosah": 1269,
+        "engagement": 362
+      },
+      {
+        "datum": "2025-02-05",
+        "dosah": 17,
+        "engagement": 16
+      },
+      {
+        "datum": "2025-02-07",
+        "dosah": 2645,
+        "engagement": 372
+      },
+      {
+        "datum": "2025-02-08",
+        "dosah": 315,
+        "engagement": 18
+      },
+      {
+        "datum": "2025-02-10",
+        "dosah": 2521,
+        "engagement": 163
+      },
+      {
+        "datum": "2025-02-13",
+        "dosah": 2107,
+        "engagement": 45
+      },
+      {
+        "datum": "2025-02-15",
+        "dosah": 860,
+        "engagement": 83
+      },
+      {
+        "datum": "2025-02-16",
+        "dosah": 1155,
+        "engagement": 65
+      },
+      {
+        "datum": "2025-02-19",
+        "dosah": 372,
+        "engagement": 12
+      },
+      {
+        "datum": "2025-02-20",
+        "dosah": 483,
+        "engagement": 19
+      },
+      {
+        "datum": "2025-02-22",
+        "dosah": 1211,
+        "engagement": 34
+      },
+      {
+        "datum": "2025-02-23",
+        "dosah": 2822,
+        "engagement": 169
+      },
+      {
+        "datum": "2025-02-24",
+        "dosah": 1532,
+        "engagement": 65
+      },
+      {
+        "datum": "2025-02-25",
+        "dosah": 6112,
+        "engagement": 428
+      },
+      {
+        "datum": "2025-02-26",
+        "dosah": 3891,
+        "engagement": 148
+      },
+      {
+        "datum": "2025-02-27",
+        "dosah": 4021,
+        "engagement": 118
+      },
+      {
+        "datum": "2025-02-28",
+        "dosah": 4066,
+        "engagement": 102
+      },
+      {
+        "datum": "2025-03-01",
+        "dosah": 2862,
+        "engagement": 71
+      },
+      {
+        "datum": "2025-03-02",
+        "dosah": 5117,
+        "engagement": 138
+      },
+      {
+        "datum": "2025-03-03",
+        "dosah": 2802,
+        "engagement": 58
+      },
+      {
+        "datum": "2025-03-04",
+        "dosah": 3554,
+        "engagement": 101
+      },
+      {
+        "datum": "2025-03-05",
+        "dosah": 4665,
+        "engagement": 439
+      },
+      {
+        "datum": "2025-03-06",
+        "dosah": 2718,
+        "engagement": 75
+      },
+      {
+        "datum": "2025-03-07",
+        "dosah": 6117,
+        "engagement": 1902
+      },
+      {
+        "datum": "2025-03-08",
+        "dosah": 2929,
+        "engagement": 178
+      },
+      {
+        "datum": "2025-03-09",
+        "dosah": 1317,
+        "engagement": 56
+      },
+      {
+        "datum": "2025-03-11",
+        "dosah": 516,
+        "engagement": 30
+      },
+      {
+        "datum": "2025-03-18",
+        "dosah": 425,
+        "engagement": 14
+      },
+      {
+        "datum": "2025-03-21",
+        "dosah": 194,
+        "engagement": 3
+      },
+      {
+        "datum": "2025-03-27",
+        "dosah": 941,
+        "engagement": 53
+      },
+      {
+        "datum": "2025-03-29",
+        "dosah": 178,
+        "engagement": 5
+      }
+    ],
+    "daily_2026": [
+      {
+        "datum": "2026-01-06",
+        "dosah": 731,
+        "engagement": 18
+      },
+      {
+        "datum": "2026-01-07",
+        "dosah": 847,
+        "engagement": 98
+      },
+      {
+        "datum": "2026-01-13",
+        "dosah": 1501,
+        "engagement": 32
+      },
+      {
+        "datum": "2026-01-16",
+        "dosah": 335,
+        "engagement": 13
+      },
+      {
+        "datum": "2026-01-17",
+        "dosah": 679,
+        "engagement": 12
+      },
+      {
+        "datum": "2026-01-19",
+        "dosah": 357,
+        "engagement": 8
+      },
+      {
+        "datum": "2026-01-20",
+        "dosah": 338,
+        "engagement": 12
+      },
+      {
+        "datum": "2026-01-21",
+        "dosah": 450,
+        "engagement": 7
+      },
+      {
+        "datum": "2026-01-22",
+        "dosah": 412,
+        "engagement": 5
+      },
+      {
+        "datum": "2026-01-27",
+        "dosah": 1173,
+        "engagement": 35
+      },
+      {
+        "datum": "2026-01-28",
+        "dosah": 632,
+        "engagement": 24
+      },
+      {
+        "datum": "2026-01-30",
+        "dosah": 1573,
+        "engagement": 44
+      },
+      {
+        "datum": "2026-01-31",
+        "dosah": 527,
+        "engagement": 31
+      },
+      {
+        "datum": "2026-02-02",
+        "dosah": 643,
+        "engagement": 15
+      },
+      {
+        "datum": "2026-02-03",
+        "dosah": 1045,
+        "engagement": 14
+      },
+      {
+        "datum": "2026-02-04",
+        "dosah": 518,
+        "engagement": 9
+      },
+      {
+        "datum": "2026-02-05",
+        "dosah": 642,
+        "engagement": 8
+      },
+      {
+        "datum": "2026-02-06",
+        "dosah": 572,
+        "engagement": 17
+      },
+      {
+        "datum": "2026-02-07",
+        "dosah": 1504,
+        "engagement": 27
+      },
+      {
+        "datum": "2026-02-10",
+        "dosah": 1083,
+        "engagement": 43
+      },
+      {
+        "datum": "2026-02-11",
+        "dosah": 2487,
+        "engagement": 24
+      },
+      {
+        "datum": "2026-02-14",
+        "dosah": 1810,
+        "engagement": 134
+      },
+      {
+        "datum": "2026-02-15",
+        "dosah": 3948,
+        "engagement": 103
+      },
+      {
+        "datum": "2026-02-16",
+        "dosah": 1601,
+        "engagement": 106
+      },
+      {
+        "datum": "2026-02-17",
+        "dosah": 2235,
+        "engagement": 48
+      },
+      {
+        "datum": "2026-02-18",
+        "dosah": 4925,
+        "engagement": 429
+      },
+      {
+        "datum": "2026-02-19",
+        "dosah": 1932,
+        "engagement": 77
+      },
+      {
+        "datum": "2026-02-20",
+        "dosah": 4531,
+        "engagement": 108
+      },
+      {
+        "datum": "2026-02-21",
+        "dosah": 9359,
+        "engagement": 209
+      },
+      {
+        "datum": "2026-02-22",
+        "dosah": 1185,
+        "engagement": 22
+      },
+      {
+        "datum": "2026-02-23",
+        "dosah": 8623,
+        "engagement": 244
+      },
+      {
+        "datum": "2026-02-24",
+        "dosah": 8419,
+        "engagement": 218
+      },
+      {
+        "datum": "2026-02-25",
+        "dosah": 10650,
+        "engagement": 233
+      },
+      {
+        "datum": "2026-02-26",
+        "dosah": 15306,
+        "engagement": 235
+      },
+      {
+        "datum": "2026-02-27",
+        "dosah": 6818,
+        "engagement": 106
+      },
+      {
+        "datum": "2026-02-28",
+        "dosah": 15550,
+        "engagement": 301
+      },
+      {
+        "datum": "2026-03-01",
+        "dosah": 22225,
+        "engagement": 370
+      },
+      {
+        "datum": "2026-03-02",
+        "dosah": 9690,
+        "engagement": 222
+      },
+      {
+        "datum": "2026-03-03",
+        "dosah": 12658,
+        "engagement": 301
+      },
+      {
+        "datum": "2026-03-04",
+        "dosah": 7469,
+        "engagement": 103
+      },
+      {
+        "datum": "2026-03-05",
+        "dosah": 14102,
+        "engagement": 229
+      },
+      {
+        "datum": "2026-03-06",
+        "dosah": 27501,
+        "engagement": 1371
+      },
+      {
+        "datum": "2026-03-07",
+        "dosah": 2917,
+        "engagement": 56
+      },
+      {
+        "datum": "2026-03-08",
+        "dosah": 2122,
+        "engagement": 63
+      },
+      {
+        "datum": "2026-03-10",
+        "dosah": 1316,
+        "engagement": 35
+      },
+      {
+        "datum": "2026-03-11",
+        "dosah": 690,
+        "engagement": 39
+      },
+      {
+        "datum": "2026-03-15",
+        "dosah": 509,
+        "engagement": 10
+      }
+    ],
+    "indian_factor_2026": {
+      "posts_with_indian": 7,
+      "posts_without": 177,
+      "avg_reach_indian": 739.8571428571429,
+      "avg_reach_other": 1198.6420454545455
+    }
+  },
+  "instagram": {
+    "stats_2025": {
+      "pocet_prispevku": 136,
+      "celkovy_dosah": 1032819,
+      "celkove_zobrazeni": 1673782,
+      "celkove_lajky": 67215,
+      "celkove_komentare": 297,
+      "celkove_sdileni": 1172,
+      "celkove_ulozeni": 427,
+      "celkovy_engagement": 69111,
+      "engagement_per_post": 508.2,
+      "dosah_per_post": 7594.3
+    },
+    "stats_2026": {
+      "pocet_prispevku": 214,
+      "celkovy_dosah": 901763,
+      "celkove_zobrazeni": 1547821,
+      "celkove_lajky": 40944,
+      "celkove_komentare": 554,
+      "celkove_sdileni": 2346,
+      "celkove_ulozeni": 1686,
+      "celkovy_engagement": 45530,
+      "engagement_per_post": 212.8,
+      "dosah_per_post": 4213.8
+    },
+    "daily_2025": [
+      {
+        "datum": "2025-01-03",
+        "dosah": 863,
+        "zobrazeni": 1374,
+        "engagement": 32
+      },
+      {
+        "datum": "2025-01-10",
+        "dosah": 3867,
+        "zobrazeni": 16693,
+        "engagement": 155
+      },
+      {
+        "datum": "2025-01-12",
+        "dosah": 764,
+        "zobrazeni": 1317,
+        "engagement": 35
+      },
+      {
+        "datum": "2025-01-25",
+        "dosah": 547,
+        "zobrazeni": 824,
+        "engagement": 24
+      },
+      {
+        "datum": "2025-01-28",
+        "dosah": 1687,
+        "zobrazeni": 3136,
+        "engagement": 122
+      },
+      {
+        "datum": "2025-02-02",
+        "dosah": 5450,
+        "zobrazeni": 8777,
+        "engagement": 667
+      },
+      {
+        "datum": "2025-02-05",
+        "dosah": 2577,
+        "zobrazeni": 4961,
+        "engagement": 123
+      },
+      {
+        "datum": "2025-02-08",
+        "dosah": 18661,
+        "zobrazeni": 35262,
+        "engagement": 1236
+      },
+      {
+        "datum": "2025-02-10",
+        "dosah": 23695,
+        "zobrazeni": 33899,
+        "engagement": 1045
+      },
+      {
+        "datum": "2025-02-13",
+        "dosah": 873,
+        "zobrazeni": 1616,
+        "engagement": 19
+      },
+      {
+        "datum": "2025-02-15",
+        "dosah": 6450,
+        "zobrazeni": 10353,
+        "engagement": 273
+      },
+      {
+        "datum": "2025-02-16",
+        "dosah": 32677,
+        "zobrazeni": 54445,
+        "engagement": 1292
+      },
+      {
+        "datum": "2025-02-19",
+        "dosah": 1168,
+        "zobrazeni": 2003,
+        "engagement": 79
+      },
+      {
+        "datum": "2025-02-20",
+        "dosah": 14950,
+        "zobrazeni": 18191,
+        "engagement": 386
+      },
+      {
+        "datum": "2025-02-22",
+        "dosah": 1058,
+        "zobrazeni": 1969,
+        "engagement": 48
+      },
+      {
+        "datum": "2025-02-23",
+        "dosah": 1018,
+        "zobrazeni": 1707,
+        "engagement": 42
+      },
+      {
+        "datum": "2025-02-24",
+        "dosah": 1650,
+        "zobrazeni": 3267,
+        "engagement": 100
+      },
+      {
+        "datum": "2025-02-25",
+        "dosah": 79565,
+        "zobrazeni": 171629,
+        "engagement": 4341
+      },
+      {
+        "datum": "2025-02-26",
+        "dosah": 21053,
+        "zobrazeni": 34455,
+        "engagement": 813
+      },
+      {
+        "datum": "2025-02-27",
+        "dosah": 131419,
+        "zobrazeni": 223700,
+        "engagement": 8875
+      },
+      {
+        "datum": "2025-02-28",
+        "dosah": 208498,
+        "zobrazeni": 314694,
+        "engagement": 14692
+      },
+      {
+        "datum": "2025-03-01",
+        "dosah": 6819,
+        "zobrazeni": 12489,
+        "engagement": 350
+      },
+      {
+        "datum": "2025-03-02",
+        "dosah": 191359,
+        "zobrazeni": 274646,
+        "engagement": 16370
+      },
+      {
+        "datum": "2025-03-03",
+        "dosah": 77327,
+        "zobrazeni": 111245,
+        "engagement": 2461
+      },
+      {
+        "datum": "2025-03-04",
+        "dosah": 44926,
+        "zobrazeni": 69360,
+        "engagement": 1736
+      },
+      {
+        "datum": "2025-03-05",
+        "dosah": 5714,
+        "zobrazeni": 10102,
+        "engagement": 275
+      },
+      {
+        "datum": "2025-03-06",
+        "dosah": 7216,
+        "zobrazeni": 12846,
+        "engagement": 341
+      },
+      {
+        "datum": "2025-03-07",
+        "dosah": 23089,
+        "zobrazeni": 51594,
+        "engagement": 902
+      },
+      {
+        "datum": "2025-03-08",
+        "dosah": 21349,
+        "zobrazeni": 31756,
+        "engagement": 1030
+      },
+      {
+        "datum": "2025-03-09",
+        "dosah": 90449,
+        "zobrazeni": 145899,
+        "engagement": 9089
+      },
+      {
+        "datum": "2025-03-11",
+        "dosah": 674,
+        "zobrazeni": 1057,
+        "engagement": 23
+      },
+      {
+        "datum": "2025-03-12",
+        "dosah": 2577,
+        "zobrazeni": 3653,
+        "engagement": 73
+      },
+      {
+        "datum": "2025-03-18",
+        "dosah": 804,
+        "zobrazeni": 1434,
+        "engagement": 70
+      },
+      {
+        "datum": "2025-03-21",
+        "dosah": 749,
+        "zobrazeni": 1019,
+        "engagement": 11
+      },
+      {
+        "datum": "2025-03-27",
+        "dosah": 1277,
+        "zobrazeni": 2410,
+        "engagement": 85
+      }
+    ],
+    "daily_2026": [
+      {
+        "datum": "2026-01-06",
+        "dosah": 704,
+        "zobrazeni": 1949,
+        "engagement": 49
+      },
+      {
+        "datum": "2026-01-07",
+        "dosah": 4142,
+        "zobrazeni": 6161,
+        "engagement": 137
+      },
+      {
+        "datum": "2026-01-13",
+        "dosah": 1001,
+        "zobrazeni": 2735,
+        "engagement": 90
+      },
+      {
+        "datum": "2026-01-16",
+        "dosah": 564,
+        "zobrazeni": 1433,
+        "engagement": 48
+      },
+      {
+        "datum": "2026-01-17",
+        "dosah": 571,
+        "zobrazeni": 1476,
+        "engagement": 48
+      },
+      {
+        "datum": "2026-01-19",
+        "dosah": 2373,
+        "zobrazeni": 5345,
+        "engagement": 188
+      },
+      {
+        "datum": "2026-01-20",
+        "dosah": 619,
+        "zobrazeni": 1693,
+        "engagement": 68
+      },
+      {
+        "datum": "2026-01-21",
+        "dosah": 508,
+        "zobrazeni": 1164,
+        "engagement": 29
+      },
+      {
+        "datum": "2026-01-22",
+        "dosah": 515,
+        "zobrazeni": 1142,
+        "engagement": 35
+      },
+      {
+        "datum": "2026-01-27",
+        "dosah": 4611,
+        "zobrazeni": 8346,
+        "engagement": 212
+      },
+      {
+        "datum": "2026-01-28",
+        "dosah": 743,
+        "zobrazeni": 1242,
+        "engagement": 38
+      },
+      {
+        "datum": "2026-01-30",
+        "dosah": 527,
+        "zobrazeni": 1508,
+        "engagement": 42
+      },
+      {
+        "datum": "2026-01-31",
+        "dosah": 4496,
+        "zobrazeni": 6106,
+        "engagement": 120
+      },
+      {
+        "datum": "2026-02-02",
+        "dosah": 503,
+        "zobrazeni": 1291,
+        "engagement": 42
+      },
+      {
+        "datum": "2026-02-03",
+        "dosah": 863,
+        "zobrazeni": 1821,
+        "engagement": 35
+      },
+      {
+        "datum": "2026-02-04",
+        "dosah": 471,
+        "zobrazeni": 1107,
+        "engagement": 22
+      },
+      {
+        "datum": "2026-02-05",
+        "dosah": 493,
+        "zobrazeni": 1085,
+        "engagement": 27
+      },
+      {
+        "datum": "2026-02-06",
+        "dosah": 4326,
+        "zobrazeni": 7668,
+        "engagement": 283
+      },
+      {
+        "datum": "2026-02-07",
+        "dosah": 1536,
+        "zobrazeni": 3076,
+        "engagement": 97
+      },
+      {
+        "datum": "2026-02-10",
+        "dosah": 1277,
+        "zobrazeni": 2442,
+        "engagement": 64
+      },
+      {
+        "datum": "2026-02-11",
+        "dosah": 4684,
+        "zobrazeni": 10659,
+        "engagement": 202
+      },
+      {
+        "datum": "2026-02-14",
+        "dosah": 3418,
+        "zobrazeni": 7492,
+        "engagement": 188
+      },
+      {
+        "datum": "2026-02-15",
+        "dosah": 1405,
+        "zobrazeni": 3509,
+        "engagement": 80
+      },
+      {
+        "datum": "2026-02-16",
+        "dosah": 597,
+        "zobrazeni": 1306,
+        "engagement": 25
+      },
+      {
+        "datum": "2026-02-17",
+        "dosah": 15350,
+        "zobrazeni": 25704,
+        "engagement": 326
+      },
+      {
+        "datum": "2026-02-18",
+        "dosah": 41642,
+        "zobrazeni": 84056,
+        "engagement": 1929
+      },
+      {
+        "datum": "2026-02-19",
+        "dosah": 1280,
+        "zobrazeni": 2862,
+        "engagement": 53
+      },
+      {
+        "datum": "2026-02-20",
+        "dosah": 1942,
+        "zobrazeni": 4285,
+        "engagement": 101
+      },
+      {
+        "datum": "2026-02-21",
+        "dosah": 8785,
+        "zobrazeni": 18221,
+        "engagement": 399
+      },
+      {
+        "datum": "2026-02-22",
+        "dosah": 4986,
+        "zobrazeni": 10361,
+        "engagement": 179
+      },
+      {
+        "datum": "2026-02-23",
+        "dosah": 10134,
+        "zobrazeni": 22045,
+        "engagement": 562
+      },
+      {
+        "datum": "2026-02-24",
+        "dosah": 17920,
+        "zobrazeni": 37944,
+        "engagement": 1345
+      },
+      {
+        "datum": "2026-02-25",
+        "dosah": 46048,
+        "zobrazeni": 92202,
+        "engagement": 2219
+      },
+      {
+        "datum": "2026-02-26",
+        "dosah": 44241,
+        "zobrazeni": 75430,
+        "engagement": 1369
+      },
+      {
+        "datum": "2026-02-27",
+        "dosah": 35740,
+        "zobrazeni": 56952,
+        "engagement": 1068
+      },
+      {
+        "datum": "2026-02-28",
+        "dosah": 47784,
+        "zobrazeni": 77076,
+        "engagement": 1367
+      },
+      {
+        "datum": "2026-03-01",
+        "dosah": 141068,
+        "zobrazeni": 250929,
+        "engagement": 6480
+      },
+      {
+        "datum": "2026-03-02",
+        "dosah": 50743,
+        "zobrazeni": 73351,
+        "engagement": 2939
+      },
+      {
+        "datum": "2026-03-03",
+        "dosah": 91218,
+        "zobrazeni": 138715,
+        "engagement": 1890
+      },
+      {
+        "datum": "2026-03-04",
+        "dosah": 39354,
+        "zobrazeni": 58944,
+        "engagement": 1015
+      },
+      {
+        "datum": "2026-03-05",
+        "dosah": 65390,
+        "zobrazeni": 104708,
+        "engagement": 1744
+      },
+      {
+        "datum": "2026-03-06",
+        "dosah": 71736,
+        "zobrazeni": 145404,
+        "engagement": 5928
+      },
+      {
+        "datum": "2026-03-07",
+        "dosah": 16266,
+        "zobrazeni": 30561,
+        "engagement": 1335
+      },
+      {
+        "datum": "2026-03-08",
+        "dosah": 102675,
+        "zobrazeni": 146015,
+        "engagement": 6233
+      },
+      {
+        "datum": "2026-03-10",
+        "dosah": 3180,
+        "zobrazeni": 5068,
+        "engagement": 116
+      },
+      {
+        "datum": "2026-03-11",
+        "dosah": 2525,
+        "zobrazeni": 4006,
+        "engagement": 166
+      },
+      {
+        "datum": "2026-03-15",
+        "dosah": 809,
+        "zobrazeni": 1226,
+        "engagement": 12
+      }
+    ],
+    "indian_factor_2026": {
+      "posts_with_indian": 17,
+      "posts_without": 197,
+      "avg_reach_indian": 12945.0,
+      "avg_reach_other": 3460.395939086294
+    }
+  },
+  "youtube": {
+    "stats_2025": {
+      "pocet_videi": 264,
+      "celkove_zhlednuti": 73088,
+      "doba_sledovani_hodin": 11837.6115,
+      "odberatele": 263,
+      "zobrazeni": 798930
+    },
+    "stats_2026": {
+      "pocet_videi": 282,
+      "celkove_zhlednuti": 127401,
+      "doba_sledovani_hodin": 25501.4109,
+      "odberatele": 562,
+      "zobrazeni": 1230143
+    },
+    "daily_2025": [
+      {
+        "datum": "2025-01-01",
+        "zhlednuti": 5
+      },
+      {
+        "datum": "2025-01-02",
+        "zhlednuti": 18
+      },
+      {
+        "datum": "2025-01-03",
+        "zhlednuti": 7
+      },
+      {
+        "datum": "2025-01-04",
+        "zhlednuti": 11
+      },
+      {
+        "datum": "2025-01-05",
+        "zhlednuti": 16
+      },
+      {
+        "datum": "2025-01-06",
+        "zhlednuti": 15
+      },
+      {
+        "datum": "2025-01-07",
+        "zhlednuti": 23
+      },
+      {
+        "datum": "2025-01-08",
+        "zhlednuti": 10
+      },
+      {
+        "datum": "2025-01-09",
+        "zhlednuti": 9
+      },
+      {
+        "datum": "2025-01-10",
+        "zhlednuti": 16
+      },
+      {
+        "datum": "2025-01-11",
+        "zhlednuti": 13
+      },
+      {
+        "datum": "2025-01-12",
+        "zhlednuti": 20
+      },
+      {
+        "datum": "2025-01-13",
+        "zhlednuti": 18
+      },
+      {
+        "datum": "2025-01-14",
+        "zhlednuti": 16
+      },
+      {
+        "datum": "2025-01-15",
+        "zhlednuti": 12
+      },
+      {
+        "datum": "2025-01-16",
+        "zhlednuti": 14
+      },
+      {
+        "datum": "2025-01-17",
+        "zhlednuti": 7
+      },
+      {
+        "datum": "2025-01-18",
+        "zhlednuti": 11
+      },
+      {
+        "datum": "2025-01-19",
+        "zhlednuti": 18
+      },
+      {
+        "datum": "2025-01-20",
+        "zhlednuti": 21
+      },
+      {
+        "datum": "2025-01-21",
+        "zhlednuti": 16
+      },
+      {
+        "datum": "2025-01-22",
+        "zhlednuti": 11
+      },
+      {
+        "datum": "2025-01-23",
+        "zhlednuti": 17
+      },
+      {
+        "datum": "2025-01-24",
+        "zhlednuti": 11
+      },
+      {
+        "datum": "2025-01-25",
+        "zhlednuti": 27
+      },
+      {
+        "datum": "2025-01-26",
+        "zhlednuti": 14
+      },
+      {
+        "datum": "2025-01-27",
+        "zhlednuti": 23
+      },
+      {
+        "datum": "2025-01-28",
+        "zhlednuti": 29
+      },
+      {
+        "datum": "2025-01-29",
+        "zhlednuti": 22
+      },
+      {
+        "datum": "2025-01-30",
+        "zhlednuti": 27
+      },
+      {
+        "datum": "2025-01-31",
+        "zhlednuti": 11
+      },
+      {
+        "datum": "2025-02-01",
+        "zhlednuti": 29
+      },
+      {
+        "datum": "2025-02-02",
+        "zhlednuti": 32
+      },
+      {
+        "datum": "2025-02-03",
+        "zhlednuti": 45
+      },
+      {
+        "datum": "2025-02-04",
+        "zhlednuti": 26
+      },
+      {
+        "datum": "2025-02-05",
+        "zhlednuti": 12
+      },
+      {
+        "datum": "2025-02-06",
+        "zhlednuti": 22
+      },
+      {
+        "datum": "2025-02-07",
+        "zhlednuti": 17
+      },
+      {
+        "datum": "2025-02-08",
+        "zhlednuti": 6
+      },
+      {
+        "datum": "2025-02-09",
+        "zhlednuti": 7
+      },
+      {
+        "datum": "2025-02-10",
+        "zhlednuti": 6
+      },
+      {
+        "datum": "2025-02-11",
+        "zhlednuti": 10
+      },
+      {
+        "datum": "2025-02-12",
+        "zhlednuti": 13
+      },
+      {
+        "datum": "2025-02-13",
+        "zhlednuti": 19
+      },
+      {
+        "datum": "2025-02-14",
+        "zhlednuti": 15
+      },
+      {
+        "datum": "2025-02-15",
+        "zhlednuti": 9
+      },
+      {
+        "datum": "2025-02-16",
+        "zhlednuti": 10
+      },
+      {
+        "datum": "2025-02-17",
+        "zhlednuti": 53
+      },
+      {
+        "datum": "2025-02-18",
+        "zhlednuti": 49
+      },
+      {
+        "datum": "2025-02-19",
+        "zhlednuti": 55
+      },
+      {
+        "datum": "2025-02-20",
+        "zhlednuti": 53
+      },
+      {
+        "datum": "2025-02-21",
+        "zhlednuti": 52
+      },
+      {
+        "datum": "2025-02-22",
+        "zhlednuti": 52
+      },
+      {
+        "datum": "2025-02-23",
+        "zhlednuti": 49
+      },
+      {
+        "datum": "2025-02-24",
+        "zhlednuti": 77
+      },
+      {
+        "datum": "2025-02-25",
+        "zhlednuti": 122
+      },
+      {
+        "datum": "2025-02-26",
+        "zhlednuti": 4664
+      },
+      {
+        "datum": "2025-02-27",
+        "zhlednuti": 6055
+      },
+      {
+        "datum": "2025-02-28",
+        "zhlednuti": 6827
+      },
+      {
+        "datum": "2025-03-01",
+        "zhlednuti": 6442
+      },
+      {
+        "datum": "2025-03-02",
+        "zhlednuti": 7956
+      },
+      {
+        "datum": "2025-03-03",
+        "zhlednuti": 2948
+      },
+      {
+        "datum": "2025-03-04",
+        "zhlednuti": 4375
+      },
+      {
+        "datum": "2025-03-05",
+        "zhlednuti": 5708
+      },
+      {
+        "datum": "2025-03-06",
+        "zhlednuti": 4702
+      },
+      {
+        "datum": "2025-03-07",
+        "zhlednuti": 7594
+      },
+      {
+        "datum": "2025-03-08",
+        "zhlednuti": 3495
+      },
+      {
+        "datum": "2025-03-09",
+        "zhlednuti": 2173
+      },
+      {
+        "datum": "2025-03-10",
+        "zhlednuti": 1256
+      },
+      {
+        "datum": "2025-03-11",
+        "zhlednuti": 772
+      },
+      {
+        "datum": "2025-03-12",
+        "zhlednuti": 350
+      },
+      {
+        "datum": "2025-03-13",
+        "zhlednuti": 319
+      },
+      {
+        "datum": "2025-03-14",
+        "zhlednuti": 173
+      },
+      {
+        "datum": "2025-03-15",
+        "zhlednuti": 184
+      },
+      {
+        "datum": "2025-03-16",
+        "zhlednuti": 232
+      },
+      {
+        "datum": "2025-03-17",
+        "zhlednuti": 164
+      },
+      {
+        "datum": "2025-03-18",
+        "zhlednuti": 84
+      },
+      {
+        "datum": "2025-03-19",
+        "zhlednuti": 61
+      },
+      {
+        "datum": "2025-03-20",
+        "zhlednuti": 80
+      },
+      {
+        "datum": "2025-03-21",
+        "zhlednuti": 61
+      },
+      {
+        "datum": "2025-03-22",
+        "zhlednuti": 98
+      },
+      {
+        "datum": "2025-03-23",
+        "zhlednuti": 63
+      },
+      {
+        "datum": "2025-03-24",
+        "zhlednuti": 70
+      },
+      {
+        "datum": "2025-03-25",
+        "zhlednuti": 81
+      },
+      {
+        "datum": "2025-03-26",
+        "zhlednuti": 68
+      },
+      {
+        "datum": "2025-03-27",
+        "zhlednuti": 46
+      },
+      {
+        "datum": "2025-03-28",
+        "zhlednuti": 43
+      },
+      {
+        "datum": "2025-03-29",
+        "zhlednuti": 51
+      },
+      {
+        "datum": "2025-03-30",
+        "zhlednuti": 46
+      },
+      {
+        "datum": "2025-03-31",
+        "zhlednuti": 47
+      },
+      {
+        "datum": "2025-04-01",
+        "zhlednuti": 34
+      },
+      {
+        "datum": "2025-04-02",
+        "zhlednuti": 74
+      },
+      {
+        "datum": "2025-04-03",
+        "zhlednuti": 177
+      },
+      {
+        "datum": "2025-04-04",
+        "zhlednuti": 91
+      },
+      {
+        "datum": "2025-04-05",
+        "zhlednuti": 56
+      },
+      {
+        "datum": "2025-04-06",
+        "zhlednuti": 58
+      },
+      {
+        "datum": "2025-04-07",
+        "zhlednuti": 29
+      },
+      {
+        "datum": "2025-04-08",
+        "zhlednuti": 17
+      },
+      {
+        "datum": "2025-04-09",
+        "zhlednuti": 27
+      },
+      {
+        "datum": "2025-04-10",
+        "zhlednuti": 25
+      },
+      {
+        "datum": "2025-04-11",
+        "zhlednuti": 27
+      },
+      {
+        "datum": "2025-04-12",
+        "zhlednuti": 25
+      },
+      {
+        "datum": "2025-04-13",
+        "zhlednuti": 36
+      },
+      {
+        "datum": "2025-04-14",
+        "zhlednuti": 22
+      },
+      {
+        "datum": "2025-04-15",
+        "zhlednuti": 26
+      },
+      {
+        "datum": "2025-04-16",
+        "zhlednuti": 31
+      },
+      {
+        "datum": "2025-04-17",
+        "zhlednuti": 19
+      },
+      {
+        "datum": "2025-04-18",
+        "zhlednuti": 25
+      },
+      {
+        "datum": "2025-04-19",
+        "zhlednuti": 23
+      },
+      {
+        "datum": "2025-04-20",
+        "zhlednuti": 22
+      },
+      {
+        "datum": "2025-04-21",
+        "zhlednuti": 31
+      },
+      {
+        "datum": "2025-04-22",
+        "zhlednuti": 43
+      },
+      {
+        "datum": "2025-04-23",
+        "zhlednuti": 22
+      },
+      {
+        "datum": "2025-04-24",
+        "zhlednuti": 11
+      },
+      {
+        "datum": "2025-04-25",
+        "zhlednuti": 33
+      },
+      {
+        "datum": "2025-04-26",
+        "zhlednuti": 24
+      },
+      {
+        "datum": "2025-04-27",
+        "zhlednuti": 22
+      },
+      {
+        "datum": "2025-04-28",
+        "zhlednuti": 17
+      },
+      {
+        "datum": "2025-04-29",
+        "zhlednuti": 18
+      },
+      {
+        "datum": "2025-04-30",
+        "zhlednuti": 11
+      },
+      {
+        "datum": "2025-05-01",
+        "zhlednuti": 14
+      },
+      {
+        "datum": "2025-05-02",
+        "zhlednuti": 17
+      },
+      {
+        "datum": "2025-05-03",
+        "zhlednuti": 13
+      },
+      {
+        "datum": "2025-05-04",
+        "zhlednuti": 24
+      },
+      {
+        "datum": "2025-05-05",
+        "zhlednuti": 17
+      },
+      {
+        "datum": "2025-05-06",
+        "zhlednuti": 14
+      },
+      {
+        "datum": "2025-05-07",
+        "zhlednuti": 21
+      },
+      {
+        "datum": "2025-05-08",
+        "zhlednuti": 25
+      },
+      {
+        "datum": "2025-05-09",
+        "zhlednuti": 15
+      },
+      {
+        "datum": "2025-05-10",
+        "zhlednuti": 13
+      },
+      {
+        "datum": "2025-05-11",
+        "zhlednuti": 8
+      },
+      {
+        "datum": "2025-05-12",
+        "zhlednuti": 21
+      },
+      {
+        "datum": "2025-05-13",
+        "zhlednuti": 15
+      },
+      {
+        "datum": "2025-05-14",
+        "zhlednuti": 22
+      },
+      {
+        "datum": "2025-05-15",
+        "zhlednuti": 23
+      },
+      {
+        "datum": "2025-05-16",
+        "zhlednuti": 19
+      },
+      {
+        "datum": "2025-05-17",
+        "zhlednuti": 10
+      },
+      {
+        "datum": "2025-05-18",
+        "zhlednuti": 12
+      },
+      {
+        "datum": "2025-05-19",
+        "zhlednuti": 8
+      },
+      {
+        "datum": "2025-05-20",
+        "zhlednuti": 10
+      },
+      {
+        "datum": "2025-05-21",
+        "zhlednuti": 13
+      },
+      {
+        "datum": "2025-05-22",
+        "zhlednuti": 9
+      },
+      {
+        "datum": "2025-05-23",
+        "zhlednuti": 9
+      },
+      {
+        "datum": "2025-05-24",
+        "zhlednuti": 9
+      },
+      {
+        "datum": "2025-05-25",
+        "zhlednuti": 17
+      },
+      {
+        "datum": "2025-05-26",
+        "zhlednuti": 14
+      },
+      {
+        "datum": "2025-05-27",
+        "zhlednuti": 16
+      },
+      {
+        "datum": "2025-05-28",
+        "zhlednuti": 25
+      },
+      {
+        "datum": "2025-05-29",
+        "zhlednuti": 21
+      },
+      {
+        "datum": "2025-05-30",
+        "zhlednuti": 20
+      },
+      {
+        "datum": "2025-05-31",
+        "zhlednuti": 18
+      },
+      {
+        "datum": "2025-06-01",
+        "zhlednuti": 32
+      },
+      {
+        "datum": "2025-06-02",
+        "zhlednuti": 18
+      },
+      {
+        "datum": "2025-06-03",
+        "zhlednuti": 18
+      },
+      {
+        "datum": "2025-06-04",
+        "zhlednuti": 24
+      },
+      {
+        "datum": "2025-06-05",
+        "zhlednuti": 11
+      },
+      {
+        "datum": "2025-06-06",
+        "zhlednuti": 13
+      },
+      {
+        "datum": "2025-06-07",
+        "zhlednuti": 7
+      },
+      {
+        "datum": "2025-06-08",
+        "zhlednuti": 12
+      },
+      {
+        "datum": "2025-06-09",
+        "zhlednuti": 18
+      },
+      {
+        "datum": "2025-06-10",
+        "zhlednuti": 19
+      },
+      {
+        "datum": "2025-06-11",
+        "zhlednuti": 16
+      },
+      {
+        "datum": "2025-06-12",
+        "zhlednuti": 23
+      },
+      {
+        "datum": "2025-06-13",
+        "zhlednuti": 21
+      },
+      {
+        "datum": "2025-06-14",
+        "zhlednuti": 18
+      },
+      {
+        "datum": "2025-06-15",
+        "zhlednuti": 22
+      },
+      {
+        "datum": "2025-06-16",
+        "zhlednuti": 15
+      },
+      {
+        "datum": "2025-06-17",
+        "zhlednuti": 16
+      },
+      {
+        "datum": "2025-06-18",
+        "zhlednuti": 19
+      },
+      {
+        "datum": "2025-06-19",
+        "zhlednuti": 8
+      },
+      {
+        "datum": "2025-06-20",
+        "zhlednuti": 21
+      },
+      {
+        "datum": "2025-06-21",
+        "zhlednuti": 24
+      },
+      {
+        "datum": "2025-06-22",
+        "zhlednuti": 20
+      },
+      {
+        "datum": "2025-06-23",
+        "zhlednuti": 21
+      },
+      {
+        "datum": "2025-06-24",
+        "zhlednuti": 20
+      },
+      {
+        "datum": "2025-06-25",
+        "zhlednuti": 22
+      },
+      {
+        "datum": "2025-06-26",
+        "zhlednuti": 21
+      },
+      {
+        "datum": "2025-06-27",
+        "zhlednuti": 20
+      },
+      {
+        "datum": "2025-06-28",
+        "zhlednuti": 23
+      },
+      {
+        "datum": "2025-06-29",
+        "zhlednuti": 14
+      },
+      {
+        "datum": "2025-06-30",
+        "zhlednuti": 16
+      },
+      {
+        "datum": "2025-07-01",
+        "zhlednuti": 20
+      },
+      {
+        "datum": "2025-07-02",
+        "zhlednuti": 8
+      },
+      {
+        "datum": "2025-07-03",
+        "zhlednuti": 26
+      },
+      {
+        "datum": "2025-07-04",
+        "zhlednuti": 15
+      },
+      {
+        "datum": "2025-07-05",
+        "zhlednuti": 28
+      },
+      {
+        "datum": "2025-07-06",
+        "zhlednuti": 21
+      },
+      {
+        "datum": "2025-07-07",
+        "zhlednuti": 20
+      },
+      {
+        "datum": "2025-07-08",
+        "zhlednuti": 16
+      },
+      {
+        "datum": "2025-07-09",
+        "zhlednuti": 44
+      },
+      {
+        "datum": "2025-07-10",
+        "zhlednuti": 27
+      },
+      {
+        "datum": "2025-07-11",
+        "zhlednuti": 18
+      },
+      {
+        "datum": "2025-07-12",
+        "zhlednuti": 31
+      },
+      {
+        "datum": "2025-07-13",
+        "zhlednuti": 24
+      },
+      {
+        "datum": "2025-07-14",
+        "zhlednuti": 20
+      },
+      {
+        "datum": "2025-07-15",
+        "zhlednuti": 25
+      },
+      {
+        "datum": "2025-07-16",
+        "zhlednuti": 19
+      },
+      {
+        "datum": "2025-07-17",
+        "zhlednuti": 19
+      },
+      {
+        "datum": "2025-07-18",
+        "zhlednuti": 9
+      },
+      {
+        "datum": "2025-07-19",
+        "zhlednuti": 18
+      },
+      {
+        "datum": "2025-07-20",
+        "zhlednuti": 24
+      },
+      {
+        "datum": "2025-07-21",
+        "zhlednuti": 19
+      },
+      {
+        "datum": "2025-07-22",
+        "zhlednuti": 14
+      },
+      {
+        "datum": "2025-07-23",
+        "zhlednuti": 15
+      },
+      {
+        "datum": "2025-07-24",
+        "zhlednuti": 19
+      },
+      {
+        "datum": "2025-07-25",
+        "zhlednuti": 13
+      },
+      {
+        "datum": "2025-07-26",
+        "zhlednuti": 20
+      },
+      {
+        "datum": "2025-07-27",
+        "zhlednuti": 15
+      },
+      {
+        "datum": "2025-07-28",
+        "zhlednuti": 15
+      },
+      {
+        "datum": "2025-07-29",
+        "zhlednuti": 7
+      },
+      {
+        "datum": "2025-07-30",
+        "zhlednuti": 11
+      },
+      {
+        "datum": "2025-07-31",
+        "zhlednuti": 28
+      },
+      {
+        "datum": "2025-08-01",
+        "zhlednuti": 18
+      },
+      {
+        "datum": "2025-08-02",
+        "zhlednuti": 16
+      },
+      {
+        "datum": "2025-08-03",
+        "zhlednuti": 14
+      },
+      {
+        "datum": "2025-08-04",
+        "zhlednuti": 32
+      },
+      {
+        "datum": "2025-08-05",
+        "zhlednuti": 10
+      },
+      {
+        "datum": "2025-08-06",
+        "zhlednuti": 11
+      },
+      {
+        "datum": "2025-08-07",
+        "zhlednuti": 17
+      },
+      {
+        "datum": "2025-08-08",
+        "zhlednuti": 22
+      },
+      {
+        "datum": "2025-08-09",
+        "zhlednuti": 15
+      },
+      {
+        "datum": "2025-08-10",
+        "zhlednuti": 8
+      },
+      {
+        "datum": "2025-08-11",
+        "zhlednuti": 12
+      },
+      {
+        "datum": "2025-08-12",
+        "zhlednuti": 11
+      },
+      {
+        "datum": "2025-08-13",
+        "zhlednuti": 22
+      },
+      {
+        "datum": "2025-08-14",
+        "zhlednuti": 17
+      },
+      {
+        "datum": "2025-08-15",
+        "zhlednuti": 19
+      },
+      {
+        "datum": "2025-08-16",
+        "zhlednuti": 13
+      },
+      {
+        "datum": "2025-08-17",
+        "zhlednuti": 20
+      },
+      {
+        "datum": "2025-08-18",
+        "zhlednuti": 7
+      },
+      {
+        "datum": "2025-08-19",
+        "zhlednuti": 13
+      },
+      {
+        "datum": "2025-08-20",
+        "zhlednuti": 8
+      },
+      {
+        "datum": "2025-08-21",
+        "zhlednuti": 15
+      },
+      {
+        "datum": "2025-08-22",
+        "zhlednuti": 13
+      },
+      {
+        "datum": "2025-08-23",
+        "zhlednuti": 13
+      },
+      {
+        "datum": "2025-08-24",
+        "zhlednuti": 10
+      },
+      {
+        "datum": "2025-08-25",
+        "zhlednuti": 9
+      },
+      {
+        "datum": "2025-08-26",
+        "zhlednuti": 10
+      },
+      {
+        "datum": "2025-08-27",
+        "zhlednuti": 14
+      },
+      {
+        "datum": "2025-08-28",
+        "zhlednuti": 26
+      },
+      {
+        "datum": "2025-08-29",
+        "zhlednuti": 8
+      },
+      {
+        "datum": "2025-08-30",
+        "zhlednuti": 14
+      },
+      {
+        "datum": "2025-08-31",
+        "zhlednuti": 32
+      },
+      {
+        "datum": "2025-09-01",
+        "zhlednuti": 15
+      },
+      {
+        "datum": "2025-09-02",
+        "zhlednuti": 15
+      },
+      {
+        "datum": "2025-09-03",
+        "zhlednuti": 11
+      },
+      {
+        "datum": "2025-09-04",
+        "zhlednuti": 11
+      },
+      {
+        "datum": "2025-09-05",
+        "zhlednuti": 14
+      },
+      {
+        "datum": "2025-09-06",
+        "zhlednuti": 11
+      },
+      {
+        "datum": "2025-09-07",
+        "zhlednuti": 16
+      },
+      {
+        "datum": "2025-09-08",
+        "zhlednuti": 31
+      },
+      {
+        "datum": "2025-09-09",
+        "zhlednuti": 8
+      },
+      {
+        "datum": "2025-09-10",
+        "zhlednuti": 13
+      },
+      {
+        "datum": "2025-09-11",
+        "zhlednuti": 6
+      },
+      {
+        "datum": "2025-09-12",
+        "zhlednuti": 16
+      },
+      {
+        "datum": "2025-09-13",
+        "zhlednuti": 3
+      },
+      {
+        "datum": "2025-09-14",
+        "zhlednuti": 13
+      },
+      {
+        "datum": "2025-09-15",
+        "zhlednuti": 10
+      },
+      {
+        "datum": "2025-09-16",
+        "zhlednuti": 28
+      },
+      {
+        "datum": "2025-09-17",
+        "zhlednuti": 5
+      },
+      {
+        "datum": "2025-09-18",
+        "zhlednuti": 6
+      },
+      {
+        "datum": "2025-09-19",
+        "zhlednuti": 8
+      },
+      {
+        "datum": "2025-09-20",
+        "zhlednuti": 6
+      },
+      {
+        "datum": "2025-09-21",
+        "zhlednuti": 2
+      },
+      {
+        "datum": "2025-09-22",
+        "zhlednuti": 9
+      },
+      {
+        "datum": "2025-09-23",
+        "zhlednuti": 7
+      },
+      {
+        "datum": "2025-09-24",
+        "zhlednuti": 12
+      },
+      {
+        "datum": "2025-09-25",
+        "zhlednuti": 4
+      },
+      {
+        "datum": "2025-09-26",
+        "zhlednuti": 7
+      },
+      {
+        "datum": "2025-09-27",
+        "zhlednuti": 6
+      },
+      {
+        "datum": "2025-09-28",
+        "zhlednuti": 16
+      },
+      {
+        "datum": "2025-09-29",
+        "zhlednuti": 10
+      },
+      {
+        "datum": "2025-09-30",
+        "zhlednuti": 3
+      },
+      {
+        "datum": "2025-10-01",
+        "zhlednuti": 5
+      },
+      {
+        "datum": "2025-10-02",
+        "zhlednuti": 8
+      },
+      {
+        "datum": "2025-10-03",
+        "zhlednuti": 1
+      },
+      {
+        "datum": "2025-10-04",
+        "zhlednuti": 4
+      },
+      {
+        "datum": "2025-10-05",
+        "zhlednuti": 7
+      },
+      {
+        "datum": "2025-10-06",
+        "zhlednuti": 6
+      },
+      {
+        "datum": "2025-10-07",
+        "zhlednuti": 4
+      },
+      {
+        "datum": "2025-10-08",
+        "zhlednuti": 11
+      },
+      {
+        "datum": "2025-10-09",
+        "zhlednuti": 15
+      },
+      {
+        "datum": "2025-10-10",
+        "zhlednuti": 13
+      },
+      {
+        "datum": "2025-10-11",
+        "zhlednuti": 5
+      },
+      {
+        "datum": "2025-10-12",
+        "zhlednuti": 14
+      },
+      {
+        "datum": "2025-10-13",
+        "zhlednuti": 2
+      },
+      {
+        "datum": "2025-10-14",
+        "zhlednuti": 3
+      },
+      {
+        "datum": "2025-10-15",
+        "zhlednuti": 24
+      },
+      {
+        "datum": "2025-10-16",
+        "zhlednuti": 20
+      },
+      {
+        "datum": "2025-10-17",
+        "zhlednuti": 8
+      },
+      {
+        "datum": "2025-10-18",
+        "zhlednuti": 13
+      },
+      {
+        "datum": "2025-10-19",
+        "zhlednuti": 3
+      },
+      {
+        "datum": "2025-10-20",
+        "zhlednuti": 6
+      },
+      {
+        "datum": "2025-10-21",
+        "zhlednuti": 11
+      },
+      {
+        "datum": "2025-10-22",
+        "zhlednuti": 22
+      },
+      {
+        "datum": "2025-10-23",
+        "zhlednuti": 23
+      },
+      {
+        "datum": "2025-10-24",
+        "zhlednuti": 12
+      },
+      {
+        "datum": "2025-10-25",
+        "zhlednuti": 16
+      },
+      {
+        "datum": "2025-10-26",
+        "zhlednuti": 15
+      },
+      {
+        "datum": "2025-10-27",
+        "zhlednuti": 3
+      },
+      {
+        "datum": "2025-10-28",
+        "zhlednuti": 19
+      },
+      {
+        "datum": "2025-10-29",
+        "zhlednuti": 5
+      },
+      {
+        "datum": "2025-10-30",
+        "zhlednuti": 14
+      },
+      {
+        "datum": "2025-10-31",
+        "zhlednuti": 7
+      },
+      {
+        "datum": "2025-11-01",
+        "zhlednuti": 11
+      },
+      {
+        "datum": "2025-11-02",
+        "zhlednuti": 23
+      },
+      {
+        "datum": "2025-11-03",
+        "zhlednuti": 10
+      },
+      {
+        "datum": "2025-11-04",
+        "zhlednuti": 10
+      },
+      {
+        "datum": "2025-11-05",
+        "zhlednuti": 4
+      },
+      {
+        "datum": "2025-11-06",
+        "zhlednuti": 10
+      },
+      {
+        "datum": "2025-11-07",
+        "zhlednuti": 15
+      },
+      {
+        "datum": "2025-11-08",
+        "zhlednuti": 6
+      },
+      {
+        "datum": "2025-11-09",
+        "zhlednuti": 9
+      },
+      {
+        "datum": "2025-11-10",
+        "zhlednuti": 15
+      },
+      {
+        "datum": "2025-11-11",
+        "zhlednuti": 7
+      },
+      {
+        "datum": "2025-11-12",
+        "zhlednuti": 18
+      },
+      {
+        "datum": "2025-11-13",
+        "zhlednuti": 11
+      },
+      {
+        "datum": "2025-11-14",
+        "zhlednuti": 4
+      },
+      {
+        "datum": "2025-11-15",
+        "zhlednuti": 4
+      },
+      {
+        "datum": "2025-11-16",
+        "zhlednuti": 7
+      },
+      {
+        "datum": "2025-11-17",
+        "zhlednuti": 19
+      },
+      {
+        "datum": "2025-11-18",
+        "zhlednuti": 18
+      },
+      {
+        "datum": "2025-11-19",
+        "zhlednuti": 18
+      },
+      {
+        "datum": "2025-11-20",
+        "zhlednuti": 10
+      },
+      {
+        "datum": "2025-11-21",
+        "zhlednuti": 12
+      },
+      {
+        "datum": "2025-11-22",
+        "zhlednuti": 3
+      },
+      {
+        "datum": "2025-11-23",
+        "zhlednuti": 8
+      },
+      {
+        "datum": "2025-11-24",
+        "zhlednuti": 17
+      },
+      {
+        "datum": "2025-11-25",
+        "zhlednuti": 20
+      },
+      {
+        "datum": "2025-11-26",
+        "zhlednuti": 9
+      },
+      {
+        "datum": "2025-11-27",
+        "zhlednuti": 10
+      },
+      {
+        "datum": "2025-11-28",
+        "zhlednuti": 21
+      },
+      {
+        "datum": "2025-11-29",
+        "zhlednuti": 9
+      },
+      {
+        "datum": "2025-11-30",
+        "zhlednuti": 18
+      },
+      {
+        "datum": "2025-12-01",
+        "zhlednuti": 9
+      },
+      {
+        "datum": "2025-12-02",
+        "zhlednuti": 8
+      },
+      {
+        "datum": "2025-12-03",
+        "zhlednuti": 6
+      },
+      {
+        "datum": "2025-12-04",
+        "zhlednuti": 12
+      },
+      {
+        "datum": "2025-12-05",
+        "zhlednuti": 14
+      },
+      {
+        "datum": "2025-12-06",
+        "zhlednuti": 16
+      },
+      {
+        "datum": "2025-12-07",
+        "zhlednuti": 7
+      },
+      {
+        "datum": "2025-12-08",
+        "zhlednuti": 11
+      },
+      {
+        "datum": "2025-12-09",
+        "zhlednuti": 17
+      },
+      {
+        "datum": "2025-12-10",
+        "zhlednuti": 15
+      },
+      {
+        "datum": "2025-12-11",
+        "zhlednuti": 7
+      },
+      {
+        "datum": "2025-12-12",
+        "zhlednuti": 6
+      },
+      {
+        "datum": "2025-12-13",
+        "zhlednuti": 8
+      },
+      {
+        "datum": "2025-12-14",
+        "zhlednuti": 9
+      },
+      {
+        "datum": "2025-12-15",
+        "zhlednuti": 6
+      },
+      {
+        "datum": "2025-12-16",
+        "zhlednuti": 3
+      },
+      {
+        "datum": "2025-12-17",
+        "zhlednuti": 4
+      },
+      {
+        "datum": "2025-12-18",
+        "zhlednuti": 12
+      },
+      {
+        "datum": "2025-12-19",
+        "zhlednuti": 2
+      },
+      {
+        "datum": "2025-12-20",
+        "zhlednuti": 8
+      },
+      {
+        "datum": "2025-12-21",
+        "zhlednuti": 13
+      },
+      {
+        "datum": "2025-12-22",
+        "zhlednuti": 5
+      },
+      {
+        "datum": "2025-12-23",
+        "zhlednuti": 7
+      },
+      {
+        "datum": "2025-12-24",
+        "zhlednuti": 10
+      },
+      {
+        "datum": "2025-12-25",
+        "zhlednuti": 8
+      },
+      {
+        "datum": "2025-12-26",
+        "zhlednuti": 9
+      },
+      {
+        "datum": "2025-12-27",
+        "zhlednuti": 14
+      },
+      {
+        "datum": "2025-12-28",
+        "zhlednuti": 10
+      },
+      {
+        "datum": "2025-12-29",
+        "zhlednuti": 10
+      },
+      {
+        "datum": "2025-12-30",
+        "zhlednuti": 3
+      },
+      {
+        "datum": "2025-12-31",
+        "zhlednuti": 9
+      }
+    ],
+    "daily_2026": [
+      {
+        "datum": "2026-01-01",
+        "zhlednuti": 12
+      },
+      {
+        "datum": "2026-01-02",
+        "zhlednuti": 15
+      },
+      {
+        "datum": "2026-01-03",
+        "zhlednuti": 14
+      },
+      {
+        "datum": "2026-01-04",
+        "zhlednuti": 12
+      },
+      {
+        "datum": "2026-01-05",
+        "zhlednuti": 17
+      },
+      {
+        "datum": "2026-01-06",
+        "zhlednuti": 6
+      },
+      {
+        "datum": "2026-01-07",
+        "zhlednuti": 15
+      },
+      {
+        "datum": "2026-01-08",
+        "zhlednuti": 16
+      },
+      {
+        "datum": "2026-01-09",
+        "zhlednuti": 9
+      },
+      {
+        "datum": "2026-01-10",
+        "zhlednuti": 11
+      },
+      {
+        "datum": "2026-01-11",
+        "zhlednuti": 25
+      },
+      {
+        "datum": "2026-01-12",
+        "zhlednuti": 14
+      },
+      {
+        "datum": "2026-01-13",
+        "zhlednuti": 7
+      },
+      {
+        "datum": "2026-01-14",
+        "zhlednuti": 7
+      },
+      {
+        "datum": "2026-01-15",
+        "zhlednuti": 10
+      },
+      {
+        "datum": "2026-01-16",
+        "zhlednuti": 16
+      },
+      {
+        "datum": "2026-01-17",
+        "zhlednuti": 7
+      },
+      {
+        "datum": "2026-01-18",
+        "zhlednuti": 15
+      },
+      {
+        "datum": "2026-01-19",
+        "zhlednuti": 21
+      },
+      {
+        "datum": "2026-01-20",
+        "zhlednuti": 10
+      },
+      {
+        "datum": "2026-01-21",
+        "zhlednuti": 18
+      },
+      {
+        "datum": "2026-01-22",
+        "zhlednuti": 44
+      },
+      {
+        "datum": "2026-01-23",
+        "zhlednuti": 16
+      },
+      {
+        "datum": "2026-01-24",
+        "zhlednuti": 24
+      },
+      {
+        "datum": "2026-01-25",
+        "zhlednuti": 25
+      },
+      {
+        "datum": "2026-01-26",
+        "zhlednuti": 17
+      },
+      {
+        "datum": "2026-01-27",
+        "zhlednuti": 45
+      },
+      {
+        "datum": "2026-01-28",
+        "zhlednuti": 39
+      },
+      {
+        "datum": "2026-01-29",
+        "zhlednuti": 14
+      },
+      {
+        "datum": "2026-01-30",
+        "zhlednuti": 43
+      },
+      {
+        "datum": "2026-01-31",
+        "zhlednuti": 26
+      },
+      {
+        "datum": "2026-02-01",
+        "zhlednuti": 17
+      },
+      {
+        "datum": "2026-02-02",
+        "zhlednuti": 10
+      },
+      {
+        "datum": "2026-02-03",
+        "zhlednuti": 8
+      },
+      {
+        "datum": "2026-02-04",
+        "zhlednuti": 11
+      },
+      {
+        "datum": "2026-02-05",
+        "zhlednuti": 10
+      },
+      {
+        "datum": "2026-02-06",
+        "zhlednuti": 8
+      },
+      {
+        "datum": "2026-02-07",
+        "zhlednuti": 12
+      },
+      {
+        "datum": "2026-02-08",
+        "zhlednuti": 22
+      },
+      {
+        "datum": "2026-02-09",
+        "zhlednuti": 249
+      },
+      {
+        "datum": "2026-02-10",
+        "zhlednuti": 849
+      },
+      {
+        "datum": "2026-02-11",
+        "zhlednuti": 1279
+      },
+      {
+        "datum": "2026-02-12",
+        "zhlednuti": 169
+      },
+      {
+        "datum": "2026-02-13",
+        "zhlednuti": 37
+      },
+      {
+        "datum": "2026-02-14",
+        "zhlednuti": 27
+      },
+      {
+        "datum": "2026-02-15",
+        "zhlednuti": 18
+      },
+      {
+        "datum": "2026-02-16",
+        "zhlednuti": 24
+      },
+      {
+        "datum": "2026-02-17",
+        "zhlednuti": 18
+      },
+      {
+        "datum": "2026-02-18",
+        "zhlednuti": 24
+      },
+      {
+        "datum": "2026-02-19",
+        "zhlednuti": 23
+      },
+      {
+        "datum": "2026-02-20",
+        "zhlednuti": 18
+      },
+      {
+        "datum": "2026-02-21",
+        "zhlednuti": 32
+      },
+      {
+        "datum": "2026-02-22",
+        "zhlednuti": 61
+      },
+      {
+        "datum": "2026-02-23",
+        "zhlednuti": 88
+      },
+      {
+        "datum": "2026-02-24",
+        "zhlednuti": 1651
+      },
+      {
+        "datum": "2026-02-25",
+        "zhlednuti": 12446
+      },
+      {
+        "datum": "2026-02-26",
+        "zhlednuti": 8936
+      },
+      {
+        "datum": "2026-02-27",
+        "zhlednuti": 8732
+      },
+      {
+        "datum": "2026-02-28",
+        "zhlednuti": 9199
+      },
+      {
+        "datum": "2026-03-01",
+        "zhlednuti": 10300
+      },
+      {
+        "datum": "2026-03-02",
+        "zhlednuti": 3723
+      },
+      {
+        "datum": "2026-03-03",
+        "zhlednuti": 10592
+      },
+      {
+        "datum": "2026-03-04",
+        "zhlednuti": 15614
+      },
+      {
+        "datum": "2026-03-05",
+        "zhlednuti": 16695
+      },
+      {
+        "datum": "2026-03-06",
+        "zhlednuti": 13842
+      },
+      {
+        "datum": "2026-03-07",
+        "zhlednuti": 5517
+      },
+      {
+        "datum": "2026-03-08",
+        "zhlednuti": 2457
+      },
+      {
+        "datum": "2026-03-09",
+        "zhlednuti": 1123
+      },
+      {
+        "datum": "2026-03-10",
+        "zhlednuti": 573
+      },
+      {
+        "datum": "2026-03-11",
+        "zhlednuti": 655
+      },
+      {
+        "datum": "2026-03-12",
+        "zhlednuti": 304
+      },
+      {
+        "datum": "2026-03-13",
+        "zhlednuti": 315
+      },
+      {
+        "datum": "2026-03-14",
+        "zhlednuti": 327
+      },
+      {
+        "datum": "2026-03-15",
+        "zhlednuti": 238
+      },
+      {
+        "datum": "2026-03-16",
+        "zhlednuti": 217
+      },
+      {
+        "datum": "2026-03-17",
+        "zhlednuti": 202
+      },
+      {
+        "datum": "2026-03-18",
+        "zhlednuti": 159
+      }
+    ],
+    "indian_factor_2026": {
+      "videos_with_indian": 17,
+      "videos_without": 265,
+      "avg_views_indian": 797.1176470588235,
+      "avg_views_other": 429.5924528301887
+    }
+  },
+  "efficiency": {
+    "Facebook_2025": {
+      "platforma": "Facebook",
+      "rok": 2025,
+      "prispevky": 132,
+      "engagement_total": 5427,
+      "dosah_total": 72666,
+      "engagement_per_post": 41.1,
+      "dosah_per_post": 550.5
+    },
+    "Facebook_2026": {
+      "platforma": "Facebook",
+      "rok": 2026,
+      "prispevky": 184,
+      "engagement_total": 5868,
+      "dosah_total": 216140,
+      "engagement_per_post": 31.9,
+      "dosah_per_post": 1174.7
+    },
+    "Instagram_2025": {
+      "platforma": "Instagram",
+      "rok": 2025,
+      "prispevky": 136,
+      "engagement_total": 69111,
+      "dosah_total": 1032819,
+      "engagement_per_post": 508.2,
+      "dosah_per_post": 7594.3
+    },
+    "Instagram_2026": {
+      "platforma": "Instagram",
+      "rok": 2026,
+      "prispevky": 214,
+      "engagement_total": 45530,
+      "dosah_total": 901763,
+      "engagement_per_post": 212.8,
+      "dosah_per_post": 4213.8
+    },
+    "YouTube_2025": {
+      "platforma": "YouTube",
+      "rok": 2025,
+      "prispevky": 264,
+      "zhlednuti_total": 73088,
+      "zhlednuti_per_video": 276.8
+    },
+    "YouTube_2026": {
+      "platforma": "YouTube",
+      "rok": 2026,
+      "prispevky": 282,
+      "zhlednuti_total": 127401,
+      "zhlednuti_per_video": 451.8
+    }
+  },
+  "top3_moments": [
+    {
+      "platforma": "Instagram",
+      "nazev": "Bylo pro mě velkou ctí zahájit partii úřadujícího mistra světa Gukeshe na Prague International Chess Festivalu, největší",
+      "dosah": 95748,
+      "engagement": 5967,
+      "datum": "2026-03-08",
+      "link": "https://www.instagram.com/reel/DVov0sMgtfX/",
+      "indian": [
+        "Gukesh"
+      ]
+    },
+    {
+      "platforma": "Instagram",
+      "nazev": "📸 Pia’s move, Divya’s focus, and David’s selfies. And that’s just a glimpse of our photo highlights. Dive in! You can fi",
+      "dosah": 45081,
+      "engagement": 608,
+      "datum": "2026-03-01",
+      "link": "https://www.instagram.com/p/DVW-MaeDCRU/",
+      "indian": []
+    },
+    {
+      "platforma": "Instagram",
+      "nazev": "The next big event coming your way is Prague Masters 2026. The World Champion D Gukesh and defending Champion Aravindh C",
+      "dosah": 39396,
+      "engagement": 2051,
+      "datum": "2026-02-18",
+      "link": "https://www.instagram.com/p/DU5hpTskcHL/",
+      "indian": [
+        "Gukesh"
+      ]
+    }
+  ]
+}
