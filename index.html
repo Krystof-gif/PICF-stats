@@ -91,309 +91,6 @@ body { background: var(--bg); color: var(--text); font-family: var(--font-body);
     background: var(--card);
 }
 
-/* ── NAVIGATION ── */
-.main-nav {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background: rgba(14,14,14,0.92);
-    backdrop-filter: blur(8px);
-    border-bottom: 1px solid var(--border);
-}
-.nav-inner {
-    display: flex;
-    gap: 0;
-    overflow-x: auto;
-    scrollbar-width: none;
-}
-.nav-inner::-webkit-scrollbar { display: none; }
-.nav-tab {
-    font-family: var(--font-body);
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 0.3px;
-    padding: 16px 24px;
-    color: var(--text-dim);
-    background: none;
-    border: none;
-    cursor: pointer;
-    position: relative;
-    white-space: nowrap;
-    transition: color 0.2s;
-}
-.nav-tab:hover { color: var(--text-muted); }
-.nav-tab.active { color: var(--gold); }
-.nav-tab.active::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 24px;
-    right: 24px;
-    height: 2px;
-    background: var(--gold);
-}
-@media (max-width: 640px) {
-    .nav-tab { padding: 14px 16px; font-size: 12px; }
-}
-
-/* ── CARDS ── */
-.card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: 24px;
-    transition: border-color 0.2s, background 0.2s;
-}
-.card:hover {
-    border-color: var(--border-light);
-    background: var(--card-hover);
-}
-.card-label {
-    font-family: var(--font-mono);
-    font-size: 10px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--text-dim);
-    margin-bottom: 8px;
-}
-.card-value {
-    font-family: var(--font-display);
-    font-size: 32px;
-    font-weight: 700;
-    color: #fff;
-    line-height: 1.1;
-}
-.card-sub {
-    font-size: 12px;
-    color: var(--text-dim);
-    margin-top: 6px;
-}
-
-/* ── GRIDS ── */
-.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-.grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
-@media (max-width: 900px) {
-    .grid-4 { grid-template-columns: repeat(2, 1fr); }
-    .grid-3 { grid-template-columns: 1fr; }
-}
-@media (max-width: 640px) {
-    .grid-4 { grid-template-columns: 1fr 1fr; }
-    .grid-2 { grid-template-columns: 1fr; }
-}
-
-/* ── SECTIONS ── */
-.tab-panel { display: none; }
-.tab-panel.active { display: block; }
-.section { padding: 48px 0; border-bottom: 1px solid var(--border); }
-.section:last-child { border-bottom: none; }
-.section-label {
-    font-family: var(--font-mono);
-    font-size: 10px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 8px;
-}
-.section-title {
-    font-family: var(--font-display);
-    font-size: clamp(20px, 3vw, 28px);
-    font-weight: 700;
-    color: #fff;
-    margin-bottom: 6px;
-}
-.section-desc {
-    color: var(--text-muted);
-    font-size: 14px;
-    max-width: 600px;
-    margin-bottom: 32px;
-}
-
-/* ── UTILITIES ── */
-.up { color: var(--green); }
-.down { color: var(--red-light); }
-.gold-text { color: var(--gold); }
-.red-text { color: var(--red); }
-.mono { font-family: var(--font-mono); }
-.serif { font-family: var(--font-display); }
-.small { font-size: 12px; }
-.muted { color: var(--text-muted); }
-.dim { color: var(--text-dim); }
-.mt-32 { margin-top: 32px; }
-.mb-16 { margin-bottom: 16px; }
-.mb-24 { margin-bottom: 24px; }
-.mb-32 { margin-bottom: 32px; }
-
-/* ── STAT BLOCK (for platform tabs) ── */
-.stat-block {
-    padding: 14px;
-    background: rgba(255,255,255,0.02);
-    border: 1px solid var(--border);
-    border-radius: 4px;
-}
-.stat-block .label { font-size: 11px; color: var(--text-dim); margin-bottom: 4px; }
-.stat-block .value { font-family: var(--font-display); font-size: 20px; font-weight: 700; color: #fff; }
-.stat-block .delta { font-size: 11px; margin-top: 2px; }
-
-/* ── PLATFORM TABS (inner) ── */
-.ptab-row { display: flex; gap: 2px; margin-bottom: 24px; }
-.ptab {
-    font-size: 12px;
-    font-weight: 600;
-    padding: 8px 18px;
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    background: transparent;
-    color: var(--text-dim);
-    cursor: pointer;
-    transition: all 0.15s;
-}
-.ptab.active { background: var(--gold-bg); border-color: var(--gold-muted); color: var(--gold); }
-.ptab:hover:not(.active) { border-color: var(--border-light); color: var(--text-muted); }
-
-/* ── GROWTH MATRIX ── */
-.matrix-card { padding: 20px; }
-.matrix-card h4 { font-size: 14px; font-weight: 600; margin-bottom: 16px; }
-.metric-row { margin-bottom: 12px; }
-.metric-row .top { display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 4px; }
-.metric-row .bar { height: 6px; border-radius: 3px; background: rgba(255,255,255,0.04); overflow: hidden; }
-.metric-row .bar-fill { height: 100%; border-radius: 3px; transition: width 0.6s ease; }
-.metric-row .numbers { font-size: 10px; color: var(--text-dim); margin-top: 3px; }
-
-/* ── TOP3 ── */
-.moment-card { position: relative; overflow: hidden; }
-.moment-card .rank {
-    font-family: var(--font-display);
-    font-size: 48px;
-    font-weight: 900;
-    color: rgba(255,255,255,0.04);
-    position: absolute;
-    top: -8px;
-    right: 12px;
-    line-height: 1;
-}
-.moment-card .platform-tag {
-    display: inline-block;
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    padding: 2px 8px;
-    border-radius: 2px;
-    margin-bottom: 10px;
-}
-.indian-tag {
-    display: inline-block;
-    font-size: 10px;
-    padding: 2px 8px;
-    border-radius: 2px;
-    background: rgba(255,152,0,0.12);
-    color: #ffb74d;
-    margin-left: 6px;
-}
-
-/* ── INSIGHT BOX ── */
-.insight-box {
-    border-left: 3px solid var(--gold);
-    padding: 28px 28px 28px 24px;
-    background: var(--card);
-    border-radius: 0 6px 6px 0;
-}
-.insight-box h3 {
-    font-family: var(--font-display);
-    font-size: 18px;
-    font-weight: 700;
-    color: #fff;
-    margin-bottom: 12px;
-}
-.insight-box p { color: var(--text-muted); font-size: 14px; line-height: 1.7; margin-bottom: 12px; }
-.insight-box p:last-child { margin-bottom: 0; }
-.insight-box strong { color: var(--text); font-weight: 600; }
-
-/* ── FUNNEL ── */
-.funnel-step { margin-bottom: 12px; }
-.funnel-label { display: flex; justify-content: space-between; font-size: 13px; margin-bottom: 6px; }
-.funnel-bar { height: 40px; border-radius: 4px; display: flex; align-items: center; padding: 0 14px; transition: width 0.8s ease; }
-.funnel-bar span { font-family: var(--font-mono); font-size: 11px; font-weight: 600; }
-
-/* ── COUNTRY RANKING ── */
-.country-row { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
-.country-row .flag { font-size: 18px; width: 28px; text-align: center; }
-.country-row .info { flex: 1; }
-.country-row .name { font-size: 13px; color: var(--text); }
-.country-row .bar-wrap { height: 5px; border-radius: 3px; background: rgba(255,255,255,0.04); margin-top: 4px; overflow: hidden; }
-.country-row .bar-fill { height: 100%; border-radius: 3px; background: var(--gold-muted); }
-.country-row .count { font-family: var(--font-mono); font-size: 13px; color: #fff; min-width: 32px; text-align: right; }
-
-/* ── LIVESTREAM PLACEHOLDER ── */
-.placeholder-box {
-    border: 2px dashed var(--border);
-    border-radius: 6px;
-    padding: 48px 24px;
-    text-align: center;
-    color: var(--text-dim);
-    font-size: 13px;
-}
-.placeholder-box .icon { font-size: 32px; margin-bottom: 12px; }
-
-/* ── TOP EMAIL ROWS ── */
-.email-row {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    padding: 14px 16px;
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    margin-bottom: 8px;
-    transition: border-color 0.2s;
-}
-.email-row:hover { border-color: var(--border-light); }
-.email-row .medal { font-size: 22px; }
-.email-row .info { flex: 1; }
-.email-row .info .date { font-size: 13px; font-weight: 600; color: #fff; }
-.email-row .info .detail { font-size: 11px; color: var(--text-dim); }
-.email-row .rate { text-align: right; }
-.email-row .rate .val { font-family: var(--font-display); font-size: 20px; font-weight: 700; color: var(--green); }
-.email-row .rate .lbl { font-size: 10px; color: var(--text-dim); }
-
-/* ── FOOTER ── */
-.site-footer {
-    padding: 40px 0;
-    text-align: center;
-    border-top: 1px solid var(--border);
-    color: var(--text-dim);
-    font-size: 12px;
-}
-
-/* ── ANIMATIONS ── */
-.fade-in { animation: fadeIn 0.4s ease; }
-@keyframes fadeIn { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:translateY(0); } }
-
-/* ── SCROLLBAR ── */
-::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: var(--bg); }
-::-webkit-scrollbar-thumb { background: var(--border-light); border-radius: 3px; }
-</style>
-</head>
-<body>
-
-<!-- ═══ HEADER ═══ -->
-<header class="site-header">
-<div class="container header-inner">
-    <img src="logo.png" alt="PICF Logo" style="height: 48px; width: auto;">
-    <div class="header-text">
-        <div class="label">Digitální audit 2025 → 2026</div>
-        <h1>Prague International<br>Chess Festival</h1>
-        <p class="subtitle">Komplexní analýza: Social Media · Livestream · Newsletter · Mobile Passes</p>
-        <div class="header-badges">
-            <span class="badge">Sezóna 2025–2026</span>
-            <span class="badge">4 analytické sekce</span>
-            <span class="badge">47+ zemí</span>
-        </div>
-    </div>
-</div>
-</header>
-
 <!-- ═══ NAVIGATION ═══ -->
 <nav class="main-nav">
 <div class="container nav-inner">
@@ -403,12 +100,12 @@ body { background: var(--bg); color: var(--text); font-family: var(--font-body);
     <button onclick="switchMainTab('passes')" id="mtab-passes" class="nav-tab">Mobile Passes</button>
 </div>
 </nav>
-
+ 
 <!-- ════════════════════════════════════════════════ -->
 <!-- TAB 1: SOCIAL MEDIA                             -->
 <!-- ════════════════════════════════════════════════ -->
 <div id="panel-social" class="tab-panel active">
-
+ 
 <!-- KPI BAR -->
 <div class="section container" style="padding-top:36px; padding-bottom:36px;">
     <div class="grid-4">
@@ -434,7 +131,7 @@ body { background: var(--bg); color: var(--text); font-family: var(--font-body);
         </div>
     </div>
 </div>
-
+ 
 <!-- PLATFORM STATS -->
 <div class="section container">
     <div class="section-label">Platformy</div>
@@ -447,7 +144,7 @@ body { background: var(--bg); color: var(--text); font-family: var(--font-body);
     </div>
     <div id="platform-content"></div>
 </div>
-
+ 
 <!-- PULSE -->
 <div class="section container">
     <div class="section-label">Multi-Platform</div>
@@ -455,7 +152,7 @@ body { background: var(--bg); color: var(--text); font-family: var(--font-body);
     <div class="section-desc">Vývoj dosahu únor–březen 2026.</div>
     <div class="card"><canvas id="pulseChart" height="100"></canvas></div>
 </div>
-
+ 
 <!-- YOY MATRIX -->
 <div class="section container">
     <div class="section-label">Meziroční růst</div>
@@ -463,7 +160,7 @@ body { background: var(--bg); color: var(--text); font-family: var(--font-body);
     <div class="section-desc">Změna klíčových metrik 2025 → 2026 napříč platformami.</div>
     <div class="grid-3" id="yoy-matrix"></div>
 </div>
-
+ 
 <!-- INDIAN FACTOR -->
 <div class="section container">
     <div class="section-label">Geografie</div>
@@ -499,7 +196,7 @@ body { background: var(--bg); color: var(--text); font-family: var(--font-body);
         </div>
     </div>
 </div>
-
+ 
 <!-- EFFICIENCY -->
 <div class="section container">
     <div class="section-label">Efektivita</div>
@@ -507,7 +204,7 @@ body { background: var(--bg); color: var(--text); font-family: var(--font-body);
     <div class="section-desc">Poměr příspěvků k celkovému dosahu — která platforma „pracovala" nejlépe?</div>
     <div class="card"><canvas id="efficiencyChart" height="80"></canvas></div>
 </div>
-
+ 
 <!-- TOP 3 -->
 <div class="section container">
     <div class="section-label">Highlights</div>
@@ -515,7 +212,7 @@ body { background: var(--bg); color: var(--text); font-family: var(--font-body);
     <div class="section-desc">Nejúspěšnější příspěvky napříč všemi platformami dle dosahu.</div>
     <div class="grid-3" id="top3-cards"></div>
 </div>
-
+ 
 <!-- STRATEGIC -->
 <div class="section container">
     <div class="section-label">Strategie</div>
@@ -531,24 +228,24 @@ body { background: var(--bg); color: var(--text); font-family: var(--font-body);
         <p><strong>3. Optimalizovat Instagram pro engagement</strong> — méně příspěvků, vyšší kvalita. Carousel posty s analýzami partií, behind-the-scenes Reels, interaktivní Stories. Cíl: engagement rate &gt;5 %.</p>
     </div>
 </div>
-
+ 
 </div><!-- /panel-social -->
-
+ 
 <!-- ════════════════════════════════════════════════ -->
 <!-- TAB 2: LIVESTREAM                               -->
 <!-- ════════════════════════════════════════════════ -->
 <div id="panel-livestream" class="tab-panel">
-
+ 
 <div class="section container">
     <div class="section-label">Broadcasting</div>
     <div class="section-title">Livestream & Broadcasting</div>
     <div class="section-desc">Český komentovaný stream — klíčový nástroj pro lokální komunitu a sponzory.</div>
-
+ 
     <div class="insight-box mb-32">
         <h3>Český stream — Vlasák & Mládek</h3>
-        <p>Český komentovaný stream je jedním z nejvýznamnějších nástrojů PICF pro budování lokální fanouškovské základny. Komentátoři <strong>IM Lukáš Vlasák</strong> a <strong>IM Richard Mládek</strong> přinášejí profesionální, srozumitelný a zábavný český komentář, který zpřístupňuje elitní šach široké české a slovenské veřejnosti. Stream běží na YouTube kanálu festivalu a identifikujeme ho podle klíčových slov: <strong style="color:var(--gold);">CZ, Vlasák, Mládek</strong>.</p>
+        <p>Český komentovaný stream je jedním z nejvýznamnějších nástrojů PICF pro budování lokální fanouškovské základny. Komentátoři <strong>GM Jan Vlasák</strong> a <strong>FM Martin Mládek</strong> přinášejí profesionální, srozumitelný a zábavný český komentář, který zpřístupňuje elitní šach široké české a slovenské veřejnosti. Stream běží na YouTube kanálu festivalu a identifikujeme ho podle klíčových slov: <strong style="color:var(--gold);">CZ, Vlasák, Mládek</strong>.</p>
     </div>
-
+ 
     <div class="grid-3 mb-32">
         <div class="card" style="text-align:center;">
             <div class="card-label">Peak diváků (CZ stream)</div>
@@ -566,13 +263,13 @@ body { background: var(--bg); color: var(--text); font-family: var(--font-body);
             <div class="card-sub">Data z YouTube Analytics</div>
         </div>
     </div>
-
+ 
     <div class="placeholder-box mb-32">
         <div class="icon">📊</div>
         <div>Graf sledovanosti CZ streamu v čase — čeká na data z YouTube Studio</div>
         <div style="margin-top:6px;" class="dim">Filtr: videa obsahující "CZ", "Vlasák", "Mládek"</div>
     </div>
-
+ 
     <div class="insight-box">
         <h3>Proč je český stream zásadní?</h3>
         <p>Český komentovaný stream není jen „překlad partií" — je to <strong>hlavní most mezi elitním šachem a českou fanouškovskou komunitou</strong>. Zatímco anglický stream cílí na globální publikum, český stream buduje emocionální vazbu s lokálními diváky.</p>
@@ -593,19 +290,19 @@ body { background: var(--bg); color: var(--text); font-family: var(--font-body);
         <p><strong style="color:var(--gold);">Doporučení pro 2027:</strong> Vytvořit dedikovaný český YouTube kanál nebo playlist, investovat do profi grafiky (overlays, stingers), a propojit stream s interaktivními prvky. Data o sledovanosti CZ streamu budou klíčová pro jednání s českými sponzory.</p>
     </div>
 </div>
-
+ 
 </div><!-- /panel-livestream -->
-
+ 
 <!-- ════════════════════════════════════════════════ -->
 <!-- TAB 3: EMAIL MARKETING                          -->
 <!-- ════════════════════════════════════════════════ -->
 <div id="panel-email" class="tab-panel">
-
+ 
 <div class="section container">
     <div class="section-label">Newsletter</div>
     <div class="section-title">Email Marketing</div>
     <div class="section-desc">Mailchimp kampaně PICF 2026 — období 24. 2. – 8. 3. 2026 (turnajový týden).</div>
-
+ 
     <div class="grid-4 mb-32">
         <div class="card" style="text-align:center;border-left:3px solid var(--gold);">
             <div class="card-label">Celkem odesláno</div>
@@ -628,7 +325,7 @@ body { background: var(--bg); color: var(--text); font-family: var(--font-body);
             <div class="card-sub">Velmi nízká odhlašovací míra</div>
         </div>
     </div>
-
+ 
     <div class="grid-2 mb-32">
         <!-- Funnel -->
         <div class="card">
@@ -651,7 +348,7 @@ body { background: var(--bg); color: var(--text); font-family: var(--font-body);
                 <p class="small muted" style="line-height:1.6;"><strong style="color:var(--gold);">Insight:</strong> Open rate 31,4 % je nadprůměrný v segmentu sportovních eventů (průměr ~25 %). Konverze otevření→proklik (8,3 %) ukazuje na relevantní obsah s prostorem pro optimalizaci CTA.</p>
             </div>
         </div>
-
+ 
         <!-- Top 3 + Chart -->
         <div>
             <div class="card mb-16">
@@ -680,7 +377,7 @@ body { background: var(--bg); color: var(--text); font-family: var(--font-body);
             </div>
         </div>
     </div>
-
+ 
     <div class="insight-box">
         <h3>Strategický pohled: Email marketing PICF</h3>
         <p>Festival rozesílal <strong>každý turnajový den 2 verze</strong> emailu — jednu pro český (~650 příjemců) a druhou pro mezinárodní (~870 příjemců) segment. Celkem 25 kampaní za 13 dní.</p>
@@ -688,42 +385,145 @@ body { background: var(--bg); color: var(--text); font-family: var(--font-body);
         <p>CZ verze emailů mívá <strong>vyšší Click Rate (ø 3,2 %)</strong> než EN verze (ø 1,8 %), což potvrzuje vyšší engagement lokálního publika.</p>
     </div>
 </div>
-
+ 
 </div><!-- /panel-email -->
-
+ 
 <!-- ════════════════════════════════════════════════ -->
 <!-- TAB 4: MOBILE PASSES                            -->
 <!-- ════════════════════════════════════════════════ -->
 <div id="panel-passes" class="tab-panel">
-
+ 
 <div class="section container">
     <div class="section-label">PassMachine</div>
     <div class="section-title">Mobile Passes</div>
     <div class="section-desc">Digitální karty festivalu — Player Card, Hráčská karta, Fanouškovská karta & Fans Card.</div>
-
+ 
     <div class="grid-4 mb-32">
         <div class="card" style="text-align:center;border-left:3px solid var(--gold);">
-            <div class="card-label">Vytvořených karet</div>
+            <div class="card-label">Celkem členů</div>
             <div class="card-value">723</div>
-            <div class="card-sub">4 typy karet</div>
+            <div class="card-sub">570 hráčských + 153 fanouškovských</div>
         </div>
         <div class="card" style="text-align:center;border-left:3px solid var(--green);">
-            <div class="card-label">Staženo do peněženky</div>
-            <div class="card-value" style="color:var(--green);">486</div>
-            <div class="card-sub">339 hráčských + 147 fan</div>
+            <div class="card-label">Reálně staženo</div>
+            <div class="card-value" style="color:var(--green);">397</div>
+            <div class="card-sub">250 hráčů + 147 fanoušků</div>
         </div>
         <div class="card" style="text-align:center;border-left:3px solid var(--blue);">
-            <div class="card-label">Aktuálně aktivních</div>
-            <div class="card-value" style="color:var(--blue);">415</div>
-            <div class="card-sub">268 hráčů + 147 fanoušků</div>
+            <div class="card-label">Konverze (stažení)</div>
+            <div class="card-value" style="color:var(--blue);">54,9 %</div>
+            <div class="card-sub">397 z 723 si kartu stáhlo</div>
         </div>
         <div class="card" style="text-align:center;border-left:3px solid var(--red);">
-            <div class="card-label">Míra retence</div>
-            <div class="card-value">57,4 %</div>
-            <div class="card-sub">Uživatelé s aktivní kartou</div>
+            <div class="card-label">Celkem stažení</div>
+            <div class="card-value">456</div>
+            <div class="card-sub">246 Apple + 210 Google</div>
         </div>
     </div>
-
+ 
+    <!-- CARD TYPE BREAKDOWN: Members vs Downloads -->
+    <div class="card mb-32">
+        <div class="card-label">Členové vs reálně stažené karty</div>
+        <p class="small muted" style="margin:8px 0 20px;">Ne každý, komu kartu vytvoříme, si ji stáhne do peněženky. Tady je konverze pro každý typ.</p>
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;">
+            <!-- Player Card EN -->
+            <div style="padding:16px;border:1px solid var(--border);border-radius:4px;">
+                <div style="text-align:center;margin-bottom:12px;">
+                    <div style="font-size:24px;">♟</div>
+                    <div class="card-label" style="margin:6px 0 0;">Player Card (EN)</div>
+                </div>
+                <div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:4px;">
+                    <span class="dim">Vytvořeno</span>
+                    <span style="font-weight:700;color:#fff;">314</span>
+                </div>
+                <div style="height:8px;border-radius:4px;background:rgba(255,255,255,0.06);overflow:hidden;margin-bottom:8px;">
+                    <div style="height:100%;width:100%;border-radius:4px;background:var(--border-light);"></div>
+                </div>
+                <div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:4px;">
+                    <span class="dim">Staženo</span>
+                    <span style="font-weight:700;color:var(--green);">156</span>
+                </div>
+                <div style="height:8px;border-radius:4px;background:rgba(255,255,255,0.06);overflow:hidden;margin-bottom:10px;">
+                    <div style="height:100%;width:49.7%;border-radius:4px;background:var(--green);"></div>
+                </div>
+                <div style="text-align:center;font-family:var(--font-display);font-size:22px;font-weight:700;color:var(--green);">49,7 %</div>
+                <div class="small dim" style="text-align:center;">konverze</div>
+            </div>
+            <!-- Hráčská karta CZ -->
+            <div style="padding:16px;border:1px solid var(--border);border-radius:4px;">
+                <div style="text-align:center;margin-bottom:12px;">
+                    <div style="font-size:24px;">🏅</div>
+                    <div class="card-label" style="margin:6px 0 0;">Hráčská karta (CZ)</div>
+                </div>
+                <div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:4px;">
+                    <span class="dim">Vytvořeno</span>
+                    <span style="font-weight:700;color:#fff;">256</span>
+                </div>
+                <div style="height:8px;border-radius:4px;background:rgba(255,255,255,0.06);overflow:hidden;margin-bottom:8px;">
+                    <div style="height:100%;width:100%;border-radius:4px;background:var(--border-light);"></div>
+                </div>
+                <div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:4px;">
+                    <span class="dim">Staženo</span>
+                    <span style="font-weight:700;color:var(--green);">94</span>
+                </div>
+                <div style="height:8px;border-radius:4px;background:rgba(255,255,255,0.06);overflow:hidden;margin-bottom:10px;">
+                    <div style="height:100%;width:36.7%;border-radius:4px;background:var(--green);"></div>
+                </div>
+                <div style="text-align:center;font-family:var(--font-display);font-size:22px;font-weight:700;color:var(--gold);">36,7 %</div>
+                <div class="small dim" style="text-align:center;">konverze</div>
+            </div>
+            <!-- Fanouškovská karta CZ -->
+            <div style="padding:16px;border:1px solid var(--border);border-radius:4px;">
+                <div style="text-align:center;margin-bottom:12px;">
+                    <div style="font-size:24px;">🇨🇿</div>
+                    <div class="card-label" style="margin:6px 0 0;">Fanouškovská (CZ)</div>
+                </div>
+                <div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:4px;">
+                    <span class="dim">Vytvořeno</span>
+                    <span style="font-weight:700;color:#fff;">70</span>
+                </div>
+                <div style="height:8px;border-radius:4px;background:rgba(255,255,255,0.06);overflow:hidden;margin-bottom:8px;">
+                    <div style="height:100%;width:100%;border-radius:4px;background:var(--border-light);"></div>
+                </div>
+                <div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:4px;">
+                    <span class="dim">Staženo</span>
+                    <span style="font-weight:700;color:var(--green);">70</span>
+                </div>
+                <div style="height:8px;border-radius:4px;background:rgba(255,255,255,0.06);overflow:hidden;margin-bottom:10px;">
+                    <div style="height:100%;width:100%;border-radius:4px;background:var(--green);"></div>
+                </div>
+                <div style="text-align:center;font-family:var(--font-display);font-size:22px;font-weight:700;color:var(--green);">100 %</div>
+                <div class="small dim" style="text-align:center;">konverze</div>
+            </div>
+            <!-- Fans Card EN -->
+            <div style="padding:16px;border:1px solid var(--border);border-radius:4px;">
+                <div style="text-align:center;margin-bottom:12px;">
+                    <div style="font-size:24px;">🌐</div>
+                    <div class="card-label" style="margin:6px 0 0;">Fans Card (EN)</div>
+                </div>
+                <div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:4px;">
+                    <span class="dim">Vytvořeno</span>
+                    <span style="font-weight:700;color:#fff;">77</span>
+                </div>
+                <div style="height:8px;border-radius:4px;background:rgba(255,255,255,0.06);overflow:hidden;margin-bottom:8px;">
+                    <div style="height:100%;width:100%;border-radius:4px;background:var(--border-light);"></div>
+                </div>
+                <div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:4px;">
+                    <span class="dim">Staženo</span>
+                    <span style="font-weight:700;color:var(--green);">77</span>
+                </div>
+                <div style="height:8px;border-radius:4px;background:rgba(255,255,255,0.06);overflow:hidden;margin-bottom:10px;">
+                    <div style="height:100%;width:100%;border-radius:4px;background:var(--green);"></div>
+                </div>
+                <div style="text-align:center;font-family:var(--font-display);font-size:22px;font-weight:700;color:var(--green);">100 %</div>
+                <div class="small dim" style="text-align:center;">konverze</div>
+            </div>
+        </div>
+        <div style="margin-top:16px;padding:14px;background:rgba(255,255,255,0.02);border:1px solid var(--border);border-radius:4px;">
+            <p class="small muted" style="line-height:1.6;"><strong style="color:var(--gold);">Insight:</strong> Fanouškovské karty mají 100% konverzi — kdo si ji vytvoří, ten si ji stáhne (logicky, fanoušek sám chce). Hráčské karty vytváříme my pro hráče, a tam je výzva je přesvědčit ke stažení. EN verze konvertuje lépe (49,7 %) než CZ (36,7 %) — mezinárodní hráči jsou zvyklejší na digitální peněženky.</p>
+        </div>
+    </div>
+ 
     <div class="grid-2 mb-32">
         <div class="card">
             <div class="card-label">Apple Wallet vs Google Wallet</div>
@@ -732,10 +532,12 @@ body { background: var(--bg); color: var(--text); font-family: var(--font-body);
                 <div style="padding:10px;background:rgba(255,255,255,0.02);border:1px solid var(--border);border-radius:4px;text-align:center;">
                     <div class="small dim"> Apple Wallet</div>
                     <div style="font-family:var(--font-display);font-size:20px;font-weight:700;color:#fff;">246</div>
+                    <div class="small dim" style="margin-top:2px;">125 EN + 61 CZ + 60 fan</div>
                 </div>
                 <div style="padding:10px;background:rgba(255,255,255,0.02);border:1px solid var(--border);border-radius:4px;text-align:center;">
                     <div class="small dim">Google Wallet</div>
                     <div style="font-family:var(--font-display);font-size:20px;font-weight:700;color:#fff;">210</div>
+                    <div class="small dim" style="margin-top:2px;">87 EN + 66 CZ + 57 fan</div>
                 </div>
             </div>
         </div>
@@ -744,49 +546,22 @@ body { background: var(--bg); color: var(--text); font-family: var(--font-body);
             <div id="country-ranking" style="margin-top:16px;"></div>
         </div>
     </div>
-
-    <div class="grid-4 mb-32">
-        <div class="card" style="text-align:center;">
-            <div style="font-size:28px;margin-bottom:8px;">♟</div>
-            <div class="card-label">Player Card</div>
-            <div class="card-value" style="font-size:26px;">314</div>
-            <div class="card-sub">EN verze</div>
-        </div>
-        <div class="card" style="text-align:center;">
-            <div style="font-size:28px;margin-bottom:8px;">🏅</div>
-            <div class="card-label">Hráčská karta</div>
-            <div class="card-value" style="font-size:26px;">256</div>
-            <div class="card-sub">CZ verze</div>
-        </div>
-        <div class="card" style="text-align:center;">
-            <div style="font-size:28px;margin-bottom:8px;">🇨🇿</div>
-            <div class="card-label">Fanouškovská karta</div>
-            <div class="card-value" style="font-size:26px;">70</div>
-            <div class="card-sub">17→70 stažení</div>
-        </div>
-        <div class="card" style="text-align:center;">
-            <div style="font-size:28px;margin-bottom:8px;">🌐</div>
-            <div class="card-label">Fans Card</div>
-            <div class="card-value" style="font-size:26px;">77</div>
-            <div class="card-sub">13→77 stažení</div>
-        </div>
-    </div>
-
+ 
     <div class="card mb-32">
-        <div class="card-label">Růst fanouškovských karet (1. 2. – 26. 3. 2026)</div>
+        <div class="card-label">Stažení podle typu karty a platformy</div>
         <canvas id="fanCardsGrowthChart" height="100" style="margin-top:12px;"></canvas>
     </div>
-
+ 
     <div class="insight-box">
         <h3>Potenciál mobilních karet pro mezinárodní marketing</h3>
-        <p>Data ukazují, že hráčské karty pokrývají <strong>47+ zemí světa</strong> — od Česka (205 karet) přes Německo (42), Indii (34), Slovensko (29) až po Afghánistán, Etiopii nebo Panamu. To z mobilní karty dělá <strong>unikátní mezinárodní marketingový kanál</strong>.</p>
+        <p>Data ukazují, že hráčské karty pokrývají <strong>47+ zemí světa</strong> — od Česka (205 karet) přes Německo (42), Indii (34), Slovensko (29) až po Afghánistán, Etiopii nebo Panamu. Z 570 vytvořených hráčských karet si 250 osob (43,9 %) kartu skutečně stáhlo do peněženky. Player Card (EN) má lepší konverzi (49,7 %) než Hráčská karta CZ (36,7 %) — pravděpodobně proto, že mezinárodní hráči jsou zvyklejší na digitální peněženky.</p>
         <p><strong style="color:var(--gold);">Indie (34 karet, 3. místo)</strong> potvrzuje trend z analýzy sociálních sítí — indičtí hráči jsou klíčovým publikem PICF. Push notifikace na 34 kartách v Indii mají potenciál dosáhnout vyššího engagement rate než jakýkoliv sociální příspěvek, protože jde o <strong>přímý, personalizovaný kanál bez algoritmického filtru</strong>.</p>
         <p><strong style="color:var(--gold);">Doporučení pro 2027:</strong> (1) Spustit fanouškovské karty 2 měsíce před turnajem s early-bird obsahem. (2) Push notifikace pro klíčové momenty (zahájení kola, výsledky). (3) Loyalty program — sbírání bodů za návštěvy a sdílení. (4) Acquisition kampaně na top země: Německo, Indie, Slovensko, Polsko, Španělsko.</p>
     </div>
 </div>
-
+ 
 </div><!-- /panel-passes -->
-
+ 
 <!-- ═══ FOOTER ═══ -->
 <footer class="site-footer">
     <div class="container">
@@ -794,14 +569,14 @@ body { background: var(--bg); color: var(--text); font-family: var(--font-body);
         <div>Digitální Audit 2025–2026 · Social Media · Livestream · Email · Mobile Passes</div>
     </div>
 </footer>
-
+ 
 <!-- ═══════════════════════════════════ -->
 <!-- SCRIPTS                            -->
 <!-- ═══════════════════════════════════ -->
 <script>
 // ── DATA ──
 const DATA = {"generated_at": "2026-03-20T08:32:43.242820", "facebook": {"stats_2025": {"pocet_prispevku": 132, "celkovy_dosah": 72666, "celkove_zhlednuti": 162765, "celkove_reakce": 4338, "celkove_komentare": 781, "celkove_sdileni": 308, "celkove_kliknuti": 8154, "celkovy_engagement": 5427, "engagement_per_post": 41.1, "dosah_per_post": 550.5}, "stats_2026": {"pocet_prispevku": 184, "celkovy_dosah": 216140, "celkove_zhlednuti": 350098, "celkove_reakce": 5349, "celkove_komentare": 297, "celkove_sdileni": 222, "celkove_kliknuti": 17158, "celkovy_engagement": 5868, "engagement_per_post": 31.9, "dosah_per_post": 1174.7}, "daily_2025": [{"datum": "2025-01-03", "dosah": 329, "engagement": 4}, {"datum": "2025-01-10", "dosah": 356, "engagement": 7}, {"datum": "2025-01-12", "dosah": 700, "engagement": 9}, {"datum": "2025-01-19", "dosah": 323, "engagement": 10}, {"datum": "2025-01-24", "dosah": 692, "engagement": 41}, {"datum": "2025-01-25", "dosah": 287, "engagement": 4}, {"datum": "2025-01-28", "dosah": 245, "engagement": 10}, {"datum": "2025-02-01", "dosah": 0, "engagement": 0}, {"datum": "2025-02-02", "dosah": 1269, "engagement": 362}, {"datum": "2025-02-05", "dosah": 17, "engagement": 16}, {"datum": "2025-02-07", "dosah": 2645, "engagement": 372}, {"datum": "2025-02-08", "dosah": 315, "engagement": 18}, {"datum": "2025-02-10", "dosah": 2521, "engagement": 163}, {"datum": "2025-02-13", "dosah": 2107, "engagement": 45}, {"datum": "2025-02-15", "dosah": 860, "engagement": 83}, {"datum": "2025-02-16", "dosah": 1155, "engagement": 65}, {"datum": "2025-02-19", "dosah": 372, "engagement": 12}, {"datum": "2025-02-20", "dosah": 483, "engagement": 19}, {"datum": "2025-02-22", "dosah": 1211, "engagement": 34}, {"datum": "2025-02-23", "dosah": 2822, "engagement": 169}, {"datum": "2025-02-24", "dosah": 1532, "engagement": 65}, {"datum": "2025-02-25", "dosah": 6112, "engagement": 428}, {"datum": "2025-02-26", "dosah": 3891, "engagement": 148}, {"datum": "2025-02-27", "dosah": 4021, "engagement": 118}, {"datum": "2025-02-28", "dosah": 4066, "engagement": 102}, {"datum": "2025-03-01", "dosah": 2862, "engagement": 71}, {"datum": "2025-03-02", "dosah": 5117, "engagement": 138}, {"datum": "2025-03-03", "dosah": 2802, "engagement": 58}, {"datum": "2025-03-04", "dosah": 3554, "engagement": 101}, {"datum": "2025-03-05", "dosah": 4665, "engagement": 439}, {"datum": "2025-03-06", "dosah": 2718, "engagement": 75}, {"datum": "2025-03-07", "dosah": 6117, "engagement": 1902}, {"datum": "2025-03-08", "dosah": 2929, "engagement": 178}, {"datum": "2025-03-09", "dosah": 1317, "engagement": 56}, {"datum": "2025-03-11", "dosah": 516, "engagement": 30}, {"datum": "2025-03-18", "dosah": 425, "engagement": 14}, {"datum": "2025-03-21", "dosah": 194, "engagement": 3}, {"datum": "2025-03-27", "dosah": 941, "engagement": 53}, {"datum": "2025-03-29", "dosah": 178, "engagement": 5}], "daily_2026": [{"datum": "2026-01-06", "dosah": 731, "engagement": 18}, {"datum": "2026-01-07", "dosah": 847, "engagement": 98}, {"datum": "2026-01-13", "dosah": 1501, "engagement": 32}, {"datum": "2026-01-16", "dosah": 335, "engagement": 13}, {"datum": "2026-01-17", "dosah": 679, "engagement": 12}, {"datum": "2026-01-19", "dosah": 357, "engagement": 8}, {"datum": "2026-01-20", "dosah": 338, "engagement": 12}, {"datum": "2026-01-21", "dosah": 450, "engagement": 7}, {"datum": "2026-01-22", "dosah": 412, "engagement": 5}, {"datum": "2026-01-27", "dosah": 1173, "engagement": 35}, {"datum": "2026-01-28", "dosah": 632, "engagement": 24}, {"datum": "2026-01-30", "dosah": 1573, "engagement": 44}, {"datum": "2026-01-31", "dosah": 527, "engagement": 31}, {"datum": "2026-02-02", "dosah": 643, "engagement": 15}, {"datum": "2026-02-03", "dosah": 1045, "engagement": 14}, {"datum": "2026-02-04", "dosah": 518, "engagement": 9}, {"datum": "2026-02-05", "dosah": 642, "engagement": 8}, {"datum": "2026-02-06", "dosah": 572, "engagement": 17}, {"datum": "2026-02-07", "dosah": 1504, "engagement": 27}, {"datum": "2026-02-10", "dosah": 1083, "engagement": 43}, {"datum": "2026-02-11", "dosah": 2487, "engagement": 24}, {"datum": "2026-02-14", "dosah": 1810, "engagement": 134}, {"datum": "2026-02-15", "dosah": 3948, "engagement": 103}, {"datum": "2026-02-16", "dosah": 1601, "engagement": 106}, {"datum": "2026-02-17", "dosah": 2235, "engagement": 48}, {"datum": "2026-02-18", "dosah": 4925, "engagement": 429}, {"datum": "2026-02-19", "dosah": 1932, "engagement": 77}, {"datum": "2026-02-20", "dosah": 4531, "engagement": 108}, {"datum": "2026-02-21", "dosah": 9359, "engagement": 209}, {"datum": "2026-02-22", "dosah": 1185, "engagement": 22}, {"datum": "2026-02-23", "dosah": 8623, "engagement": 244}, {"datum": "2026-02-24", "dosah": 8419, "engagement": 218}, {"datum": "2026-02-25", "dosah": 10650, "engagement": 233}, {"datum": "2026-02-26", "dosah": 15306, "engagement": 235}, {"datum": "2026-02-27", "dosah": 6818, "engagement": 106}, {"datum": "2026-02-28", "dosah": 15550, "engagement": 301}, {"datum": "2026-03-01", "dosah": 22225, "engagement": 370}, {"datum": "2026-03-02", "dosah": 9690, "engagement": 222}, {"datum": "2026-03-03", "dosah": 12658, "engagement": 301}, {"datum": "2026-03-04", "dosah": 7469, "engagement": 103}, {"datum": "2026-03-05", "dosah": 14102, "engagement": 229}, {"datum": "2026-03-06", "dosah": 27501, "engagement": 1371}, {"datum": "2026-03-07", "dosah": 2917, "engagement": 56}, {"datum": "2026-03-08", "dosah": 2122, "engagement": 63}, {"datum": "2026-03-10", "dosah": 1316, "engagement": 35}, {"datum": "2026-03-11", "dosah": 690, "engagement": 39}, {"datum": "2026-03-15", "dosah": 509, "engagement": 10}], "indian_factor_2026": {"posts_with_indian": 7, "posts_without": 177, "avg_reach_indian": 739.8571428571429, "avg_reach_other": 1198.6420454545455}}, "instagram": {"stats_2025": {"pocet_prispevku": 136, "celkovy_dosah": 1032819, "celkove_zobrazeni": 1673782, "celkove_lajky": 67215, "celkove_komentare": 297, "celkove_sdileni": 1172, "celkove_ulozeni": 427, "celkovy_engagement": 69111, "engagement_per_post": 508.2, "dosah_per_post": 7594.3}, "stats_2026": {"pocet_prispevku": 214, "celkovy_dosah": 901763, "celkove_zobrazeni": 1547821, "celkove_lajky": 40944, "celkove_komentare": 554, "celkove_sdileni": 2346, "celkove_ulozeni": 1686, "celkovy_engagement": 45530, "engagement_per_post": 212.8, "dosah_per_post": 4213.8}, "daily_2025": [{"datum": "2025-01-03", "dosah": 863, "zobrazeni": 1374, "engagement": 32}, {"datum": "2025-01-10", "dosah": 3867, "zobrazeni": 16693, "engagement": 155}, {"datum": "2025-01-12", "dosah": 764, "zobrazeni": 1317, "engagement": 35}, {"datum": "2025-01-25", "dosah": 547, "zobrazeni": 824, "engagement": 24}, {"datum": "2025-01-28", "dosah": 1687, "zobrazeni": 3136, "engagement": 122}, {"datum": "2025-02-02", "dosah": 5450, "zobrazeni": 8777, "engagement": 667}, {"datum": "2025-02-05", "dosah": 2577, "zobrazeni": 4961, "engagement": 123}, {"datum": "2025-02-08", "dosah": 18661, "zobrazeni": 35262, "engagement": 1236}, {"datum": "2025-02-10", "dosah": 23695, "zobrazeni": 33899, "engagement": 1045}, {"datum": "2025-02-13", "dosah": 873, "zobrazeni": 1616, "engagement": 19}, {"datum": "2025-02-15", "dosah": 6450, "zobrazeni": 10353, "engagement": 273}, {"datum": "2025-02-16", "dosah": 32677, "zobrazeni": 54445, "engagement": 1292}, {"datum": "2025-02-19", "dosah": 1168, "zobrazeni": 2003, "engagement": 79}, {"datum": "2025-02-20", "dosah": 14950, "zobrazeni": 18191, "engagement": 386}, {"datum": "2025-02-22", "dosah": 1058, "zobrazeni": 1969, "engagement": 48}, {"datum": "2025-02-23", "dosah": 1018, "zobrazeni": 1707, "engagement": 42}, {"datum": "2025-02-24", "dosah": 1650, "zobrazeni": 3267, "engagement": 100}, {"datum": "2025-02-25", "dosah": 79565, "zobrazeni": 171629, "engagement": 4341}, {"datum": "2025-02-26", "dosah": 21053, "zobrazeni": 34455, "engagement": 813}, {"datum": "2025-02-27", "dosah": 131419, "zobrazeni": 223700, "engagement": 8875}, {"datum": "2025-02-28", "dosah": 208498, "zobrazeni": 314694, "engagement": 14692}, {"datum": "2025-03-01", "dosah": 6819, "zobrazeni": 12489, "engagement": 350}, {"datum": "2025-03-02", "dosah": 191359, "zobrazeni": 274646, "engagement": 16370}, {"datum": "2025-03-03", "dosah": 77327, "zobrazeni": 111245, "engagement": 2461}, {"datum": "2025-03-04", "dosah": 44926, "zobrazeni": 69360, "engagement": 1736}, {"datum": "2025-03-05", "dosah": 5714, "zobrazeni": 10102, "engagement": 275}, {"datum": "2025-03-06", "dosah": 7216, "zobrazeni": 12846, "engagement": 341}, {"datum": "2025-03-07", "dosah": 23089, "zobrazeni": 51594, "engagement": 902}, {"datum": "2025-03-08", "dosah": 21349, "zobrazeni": 31756, "engagement": 1030}, {"datum": "2025-03-09", "dosah": 90449, "zobrazeni": 145899, "engagement": 9089}, {"datum": "2025-03-11", "dosah": 674, "zobrazeni": 1057, "engagement": 23}, {"datum": "2025-03-12", "dosah": 2577, "zobrazeni": 3653, "engagement": 73}, {"datum": "2025-03-18", "dosah": 804, "zobrazeni": 1434, "engagement": 70}, {"datum": "2025-03-21", "dosah": 749, "zobrazeni": 1019, "engagement": 11}, {"datum": "2025-03-27", "dosah": 1277, "zobrazeni": 2410, "engagement": 85}], "daily_2026": [{"datum": "2026-01-06", "dosah": 704, "zobrazeni": 1949, "engagement": 49}, {"datum": "2026-01-07", "dosah": 4142, "zobrazeni": 6161, "engagement": 137}, {"datum": "2026-01-13", "dosah": 1001, "zobrazeni": 2735, "engagement": 90}, {"datum": "2026-01-16", "dosah": 564, "zobrazeni": 1433, "engagement": 48}, {"datum": "2026-01-17", "dosah": 571, "zobrazeni": 1476, "engagement": 48}, {"datum": "2026-01-19", "dosah": 2373, "zobrazeni": 5345, "engagement": 188}, {"datum": "2026-01-20", "dosah": 619, "zobrazeni": 1693, "engagement": 68}, {"datum": "2026-01-21", "dosah": 508, "zobrazeni": 1164, "engagement": 29}, {"datum": "2026-01-22", "dosah": 515, "zobrazeni": 1142, "engagement": 35}, {"datum": "2026-01-27", "dosah": 4611, "zobrazeni": 8346, "engagement": 212}, {"datum": "2026-01-28", "dosah": 743, "zobrazeni": 1242, "engagement": 38}, {"datum": "2026-01-30", "dosah": 527, "zobrazeni": 1508, "engagement": 42}, {"datum": "2026-01-31", "dosah": 4496, "zobrazeni": 6106, "engagement": 120}, {"datum": "2026-02-02", "dosah": 503, "zobrazeni": 1291, "engagement": 42}, {"datum": "2026-02-03", "dosah": 863, "zobrazeni": 1821, "engagement": 35}, {"datum": "2026-02-04", "dosah": 471, "zobrazeni": 1107, "engagement": 22}, {"datum": "2026-02-05", "dosah": 493, "zobrazeni": 1085, "engagement": 27}, {"datum": "2026-02-06", "dosah": 4326, "zobrazeni": 7668, "engagement": 283}, {"datum": "2026-02-07", "dosah": 1536, "zobrazeni": 3076, "engagement": 97}, {"datum": "2026-02-10", "dosah": 1277, "zobrazeni": 2442, "engagement": 64}, {"datum": "2026-02-11", "dosah": 4684, "zobrazeni": 10659, "engagement": 202}, {"datum": "2026-02-14", "dosah": 3418, "zobrazeni": 7492, "engagement": 188}, {"datum": "2026-02-15", "dosah": 1405, "zobrazeni": 3509, "engagement": 80}, {"datum": "2026-02-16", "dosah": 597, "zobrazeni": 1306, "engagement": 25}, {"datum": "2026-02-17", "dosah": 15350, "zobrazeni": 25704, "engagement": 326}, {"datum": "2026-02-18", "dosah": 41642, "zobrazeni": 84056, "engagement": 1929}, {"datum": "2026-02-19", "dosah": 1280, "zobrazeni": 2862, "engagement": 53}, {"datum": "2026-02-20", "dosah": 1942, "zobrazeni": 4285, "engagement": 101}, {"datum": "2026-02-21", "dosah": 8785, "zobrazeni": 18221, "engagement": 399}, {"datum": "2026-02-22", "dosah": 4986, "zobrazeni": 10361, "engagement": 179}, {"datum": "2026-02-23", "dosah": 10134, "zobrazeni": 22045, "engagement": 562}, {"datum": "2026-02-24", "dosah": 17920, "zobrazeni": 37944, "engagement": 1345}, {"datum": "2026-02-25", "dosah": 46048, "zobrazeni": 92202, "engagement": 2219}, {"datum": "2026-02-26", "dosah": 44241, "zobrazeni": 75430, "engagement": 1369}, {"datum": "2026-02-27", "dosah": 35740, "zobrazeni": 56952, "engagement": 1068}, {"datum": "2026-02-28", "dosah": 47784, "zobrazeni": 77076, "engagement": 1367}, {"datum": "2026-03-01", "dosah": 141068, "zobrazeni": 250929, "engagement": 6480}, {"datum": "2026-03-02", "dosah": 50743, "zobrazeni": 73351, "engagement": 2939}, {"datum": "2026-03-03", "dosah": 91218, "zobrazeni": 138715, "engagement": 1890}, {"datum": "2026-03-04", "dosah": 39354, "zobrazeni": 58944, "engagement": 1015}, {"datum": "2026-03-05", "dosah": 65390, "zobrazeni": 104708, "engagement": 1744}, {"datum": "2026-03-06", "dosah": 71736, "zobrazeni": 145404, "engagement": 5928}, {"datum": "2026-03-07", "dosah": 16266, "zobrazeni": 30561, "engagement": 1335}, {"datum": "2026-03-08", "dosah": 102675, "zobrazeni": 146015, "engagement": 6233}, {"datum": "2026-03-10", "dosah": 3180, "zobrazeni": 5068, "engagement": 116}, {"datum": "2026-03-11", "dosah": 2525, "zobrazeni": 4006, "engagement": 166}, {"datum": "2026-03-15", "dosah": 809, "zobrazeni": 1226, "engagement": 12}], "indian_factor_2026": {"posts_with_indian": 17, "posts_without": 197, "avg_reach_indian": 12945.0, "avg_reach_other": 3460.395939086294}}, "youtube": {"stats_2025": {"pocet_videi": 264, "celkove_zhlednuti": 73088, "doba_sledovani_hodin": 11837.6115, "odberatele": 263, "zobrazeni": 798930}, "stats_2026": {"pocet_videi": 282, "celkove_zhlednuti": 127401, "doba_sledovani_hodin": 25501.4109, "odberatele": 562, "zobrazeni": 1230143}, "daily_2025": [{"datum": "2025-01-01", "zhlednuti": 5}, {"datum": "2025-01-02", "zhlednuti": 18}, {"datum": "2025-01-03", "zhlednuti": 7}, {"datum": "2025-01-04", "zhlednuti": 11}, {"datum": "2025-01-05", "zhlednuti": 16}, {"datum": "2025-01-06", "zhlednuti": 15}, {"datum": "2025-01-07", "zhlednuti": 23}, {"datum": "2025-01-08", "zhlednuti": 10}, {"datum": "2025-01-09", "zhlednuti": 9}, {"datum": "2025-01-10", "zhlednuti": 16}, {"datum": "2025-01-11", "zhlednuti": 13}, {"datum": "2025-01-12", "zhlednuti": 20}, {"datum": "2025-01-13", "zhlednuti": 18}, {"datum": "2025-01-14", "zhlednuti": 16}, {"datum": "2025-01-15", "zhlednuti": 12}, {"datum": "2025-01-16", "zhlednuti": 14}, {"datum": "2025-01-17", "zhlednuti": 7}, {"datum": "2025-01-18", "zhlednuti": 11}, {"datum": "2025-01-19", "zhlednuti": 18}, {"datum": "2025-01-20", "zhlednuti": 21}, {"datum": "2025-01-21", "zhlednuti": 16}, {"datum": "2025-01-22", "zhlednuti": 11}, {"datum": "2025-01-23", "zhlednuti": 17}, {"datum": "2025-01-24", "zhlednuti": 11}, {"datum": "2025-01-25", "zhlednuti": 27}, {"datum": "2025-01-26", "zhlednuti": 14}, {"datum": "2025-01-27", "zhlednuti": 23}, {"datum": "2025-01-28", "zhlednuti": 29}, {"datum": "2025-01-29", "zhlednuti": 22}, {"datum": "2025-01-30", "zhlednuti": 27}, {"datum": "2025-01-31", "zhlednuti": 11}, {"datum": "2025-02-01", "zhlednuti": 29}, {"datum": "2025-02-02", "zhlednuti": 32}, {"datum": "2025-02-03", "zhlednuti": 45}, {"datum": "2025-02-04", "zhlednuti": 26}, {"datum": "2025-02-05", "zhlednuti": 12}, {"datum": "2025-02-06", "zhlednuti": 22}, {"datum": "2025-02-07", "zhlednuti": 17}, {"datum": "2025-02-08", "zhlednuti": 6}, {"datum": "2025-02-09", "zhlednuti": 7}, {"datum": "2025-02-10", "zhlednuti": 6}, {"datum": "2025-02-11", "zhlednuti": 10}, {"datum": "2025-02-12", "zhlednuti": 13}, {"datum": "2025-02-13", "zhlednuti": 19}, {"datum": "2025-02-14", "zhlednuti": 15}, {"datum": "2025-02-15", "zhlednuti": 9}, {"datum": "2025-02-16", "zhlednuti": 10}, {"datum": "2025-02-17", "zhlednuti": 53}, {"datum": "2025-02-18", "zhlednuti": 49}, {"datum": "2025-02-19", "zhlednuti": 55}, {"datum": "2025-02-20", "zhlednuti": 53}, {"datum": "2025-02-21", "zhlednuti": 52}, {"datum": "2025-02-22", "zhlednuti": 52}, {"datum": "2025-02-23", "zhlednuti": 49}, {"datum": "2025-02-24", "zhlednuti": 77}, {"datum": "2025-02-25", "zhlednuti": 122}, {"datum": "2025-02-26", "zhlednuti": 4664}, {"datum": "2025-02-27", "zhlednuti": 6055}, {"datum": "2025-02-28", "zhlednuti": 6827}, {"datum": "2025-03-01", "zhlednuti": 6442}, {"datum": "2025-03-02", "zhlednuti": 7956}, {"datum": "2025-03-03", "zhlednuti": 2948}, {"datum": "2025-03-04", "zhlednuti": 4375}, {"datum": "2025-03-05", "zhlednuti": 5708}, {"datum": "2025-03-06", "zhlednuti": 4702}, {"datum": "2025-03-07", "zhlednuti": 7594}, {"datum": "2025-03-08", "zhlednuti": 3495}, {"datum": "2025-03-09", "zhlednuti": 2173}, {"datum": "2025-03-10", "zhlednuti": 1256}, {"datum": "2025-03-11", "zhlednuti": 772}, {"datum": "2025-03-12", "zhlednuti": 350}, {"datum": "2025-03-13", "zhlednuti": 319}, {"datum": "2025-03-14", "zhlednuti": 173}, {"datum": "2025-03-15", "zhlednuti": 184}, {"datum": "2025-03-16", "zhlednuti": 232}, {"datum": "2025-03-17", "zhlednuti": 164}, {"datum": "2025-03-18", "zhlednuti": 84}, {"datum": "2025-03-19", "zhlednuti": 61}, {"datum": "2025-03-20", "zhlednuti": 80}, {"datum": "2025-03-21", "zhlednuti": 61}, {"datum": "2025-03-22", "zhlednuti": 98}, {"datum": "2025-03-23", "zhlednuti": 63}, {"datum": "2025-03-24", "zhlednuti": 70}, {"datum": "2025-03-25", "zhlednuti": 81}, {"datum": "2025-03-26", "zhlednuti": 68}, {"datum": "2025-03-27", "zhlednuti": 46}, {"datum": "2025-03-28", "zhlednuti": 43}, {"datum": "2025-03-29", "zhlednuti": 51}, {"datum": "2025-03-30", "zhlednuti": 46}, {"datum": "2025-03-31", "zhlednuti": 47}, {"datum": "2025-04-01", "zhlednuti": 34}, {"datum": "2025-04-02", "zhlednuti": 74}, {"datum": "2025-04-03", "zhlednuti": 177}, {"datum": "2025-04-04", "zhlednuti": 91}, {"datum": "2025-04-05", "zhlednuti": 56}, {"datum": "2025-04-06", "zhlednuti": 58}, {"datum": "2025-04-07", "zhlednuti": 29}, {"datum": "2025-04-08", "zhlednuti": 17}, {"datum": "2025-04-09", "zhlednuti": 27}, {"datum": "2025-04-10", "zhlednuti": 25}, {"datum": "2025-04-11", "zhlednuti": 27}, {"datum": "2025-04-12", "zhlednuti": 25}, {"datum": "2025-04-13", "zhlednuti": 36}, {"datum": "2025-04-14", "zhlednuti": 22}, {"datum": "2025-04-15", "zhlednuti": 26}, {"datum": "2025-04-16", "zhlednuti": 31}, {"datum": "2025-04-17", "zhlednuti": 19}, {"datum": "2025-04-18", "zhlednuti": 25}, {"datum": "2025-04-19", "zhlednuti": 23}, {"datum": "2025-04-20", "zhlednuti": 22}, {"datum": "2025-04-21", "zhlednuti": 31}, {"datum": "2025-04-22", "zhlednuti": 43}, {"datum": "2025-04-23", "zhlednuti": 22}, {"datum": "2025-04-24", "zhlednuti": 11}, {"datum": "2025-04-25", "zhlednuti": 33}, {"datum": "2025-04-26", "zhlednuti": 24}, {"datum": "2025-04-27", "zhlednuti": 22}, {"datum": "2025-04-28", "zhlednuti": 17}, {"datum": "2025-04-29", "zhlednuti": 18}, {"datum": "2025-04-30", "zhlednuti": 11}, {"datum": "2025-05-01", "zhlednuti": 14}, {"datum": "2025-05-02", "zhlednuti": 17}, {"datum": "2025-05-03", "zhlednuti": 13}, {"datum": "2025-05-04", "zhlednuti": 24}, {"datum": "2025-05-05", "zhlednuti": 17}, {"datum": "2025-05-06", "zhlednuti": 14}, {"datum": "2025-05-07", "zhlednuti": 21}, {"datum": "2025-05-08", "zhlednuti": 25}, {"datum": "2025-05-09", "zhlednuti": 15}, {"datum": "2025-05-10", "zhlednuti": 13}, {"datum": "2025-05-11", "zhlednuti": 8}, {"datum": "2025-05-12", "zhlednuti": 21}, {"datum": "2025-05-13", "zhlednuti": 15}, {"datum": "2025-05-14", "zhlednuti": 22}, {"datum": "2025-05-15", "zhlednuti": 23}, {"datum": "2025-05-16", "zhlednuti": 19}, {"datum": "2025-05-17", "zhlednuti": 10}, {"datum": "2025-05-18", "zhlednuti": 12}, {"datum": "2025-05-19", "zhlednuti": 8}, {"datum": "2025-05-20", "zhlednuti": 10}, {"datum": "2025-05-21", "zhlednuti": 13}, {"datum": "2025-05-22", "zhlednuti": 9}, {"datum": "2025-05-23", "zhlednuti": 9}, {"datum": "2025-05-24", "zhlednuti": 9}, {"datum": "2025-05-25", "zhlednuti": 17}, {"datum": "2025-05-26", "zhlednuti": 14}, {"datum": "2025-05-27", "zhlednuti": 16}, {"datum": "2025-05-28", "zhlednuti": 25}, {"datum": "2025-05-29", "zhlednuti": 21}, {"datum": "2025-05-30", "zhlednuti": 20}, {"datum": "2025-05-31", "zhlednuti": 18}, {"datum": "2025-06-01", "zhlednuti": 32}, {"datum": "2025-06-02", "zhlednuti": 18}, {"datum": "2025-06-03", "zhlednuti": 18}, {"datum": "2025-06-04", "zhlednuti": 24}, {"datum": "2025-06-05", "zhlednuti": 11}, {"datum": "2025-06-06", "zhlednuti": 13}, {"datum": "2025-06-07", "zhlednuti": 7}, {"datum": "2025-06-08", "zhlednuti": 12}, {"datum": "2025-06-09", "zhlednuti": 18}, {"datum": "2025-06-10", "zhlednuti": 19}, {"datum": "2025-06-11", "zhlednuti": 16}, {"datum": "2025-06-12", "zhlednuti": 23}, {"datum": "2025-06-13", "zhlednuti": 21}, {"datum": "2025-06-14", "zhlednuti": 18}, {"datum": "2025-06-15", "zhlednuti": 22}, {"datum": "2025-06-16", "zhlednuti": 15}, {"datum": "2025-06-17", "zhlednuti": 16}, {"datum": "2025-06-18", "zhlednuti": 19}, {"datum": "2025-06-19", "zhlednuti": 8}, {"datum": "2025-06-20", "zhlednuti": 21}, {"datum": "2025-06-21", "zhlednuti": 24}, {"datum": "2025-06-22", "zhlednuti": 20}, {"datum": "2025-06-23", "zhlednuti": 21}, {"datum": "2025-06-24", "zhlednuti": 20}, {"datum": "2025-06-25", "zhlednuti": 22}, {"datum": "2025-06-26", "zhlednuti": 21}, {"datum": "2025-06-27", "zhlednuti": 20}, {"datum": "2025-06-28", "zhlednuti": 23}, {"datum": "2025-06-29", "zhlednuti": 14}, {"datum": "2025-06-30", "zhlednuti": 16}, {"datum": "2025-07-01", "zhlednuti": 20}, {"datum": "2025-07-02", "zhlednuti": 8}, {"datum": "2025-07-03", "zhlednuti": 26}, {"datum": "2025-07-04", "zhlednuti": 15}, {"datum": "2025-07-05", "zhlednuti": 28}, {"datum": "2025-07-06", "zhlednuti": 21}, {"datum": "2025-07-07", "zhlednuti": 20}, {"datum": "2025-07-08", "zhlednuti": 16}, {"datum": "2025-07-09", "zhlednuti": 44}, {"datum": "2025-07-10", "zhlednuti": 27}, {"datum": "2025-07-11", "zhlednuti": 18}, {"datum": "2025-07-12", "zhlednuti": 31}, {"datum": "2025-07-13", "zhlednuti": 24}, {"datum": "2025-07-14", "zhlednuti": 20}, {"datum": "2025-07-15", "zhlednuti": 25}, {"datum": "2025-07-16", "zhlednuti": 19}, {"datum": "2025-07-17", "zhlednuti": 19}, {"datum": "2025-07-18", "zhlednuti": 9}, {"datum": "2025-07-19", "zhlednuti": 18}, {"datum": "2025-07-20", "zhlednuti": 24}, {"datum": "2025-07-21", "zhlednuti": 19}, {"datum": "2025-07-22", "zhlednuti": 14}, {"datum": "2025-07-23", "zhlednuti": 15}, {"datum": "2025-07-24", "zhlednuti": 19}, {"datum": "2025-07-25", "zhlednuti": 13}, {"datum": "2025-07-26", "zhlednuti": 20}, {"datum": "2025-07-27", "zhlednuti": 15}, {"datum": "2025-07-28", "zhlednuti": 15}, {"datum": "2025-07-29", "zhlednuti": 7}, {"datum": "2025-07-30", "zhlednuti": 11}, {"datum": "2025-07-31", "zhlednuti": 28}, {"datum": "2025-08-01", "zhlednuti": 18}, {"datum": "2025-08-02", "zhlednuti": 16}, {"datum": "2025-08-03", "zhlednuti": 14}, {"datum": "2025-08-04", "zhlednuti": 32}, {"datum": "2025-08-05", "zhlednuti": 10}, {"datum": "2025-08-06", "zhlednuti": 11}, {"datum": "2025-08-07", "zhlednuti": 17}, {"datum": "2025-08-08", "zhlednuti": 22}, {"datum": "2025-08-09", "zhlednuti": 15}, {"datum": "2025-08-10", "zhlednuti": 8}, {"datum": "2025-08-11", "zhlednuti": 12}, {"datum": "2025-08-12", "zhlednuti": 11}, {"datum": "2025-08-13", "zhlednuti": 22}, {"datum": "2025-08-14", "zhlednuti": 17}, {"datum": "2025-08-15", "zhlednuti": 19}, {"datum": "2025-08-16", "zhlednuti": 13}, {"datum": "2025-08-17", "zhlednuti": 20}, {"datum": "2025-08-18", "zhlednuti": 7}, {"datum": "2025-08-19", "zhlednuti": 13}, {"datum": "2025-08-20", "zhlednuti": 8}, {"datum": "2025-08-21", "zhlednuti": 15}, {"datum": "2025-08-22", "zhlednuti": 13}, {"datum": "2025-08-23", "zhlednuti": 13}, {"datum": "2025-08-24", "zhlednuti": 10}, {"datum": "2025-08-25", "zhlednuti": 9}, {"datum": "2025-08-26", "zhlednuti": 10}, {"datum": "2025-08-27", "zhlednuti": 14}, {"datum": "2025-08-28", "zhlednuti": 26}, {"datum": "2025-08-29", "zhlednuti": 8}, {"datum": "2025-08-30", "zhlednuti": 14}, {"datum": "2025-08-31", "zhlednuti": 32}, {"datum": "2025-09-01", "zhlednuti": 15}, {"datum": "2025-09-02", "zhlednuti": 15}, {"datum": "2025-09-03", "zhlednuti": 11}, {"datum": "2025-09-04", "zhlednuti": 11}, {"datum": "2025-09-05", "zhlednuti": 14}, {"datum": "2025-09-06", "zhlednuti": 11}, {"datum": "2025-09-07", "zhlednuti": 16}, {"datum": "2025-09-08", "zhlednuti": 31}, {"datum": "2025-09-09", "zhlednuti": 8}, {"datum": "2025-09-10", "zhlednuti": 13}, {"datum": "2025-09-11", "zhlednuti": 6}, {"datum": "2025-09-12", "zhlednuti": 16}, {"datum": "2025-09-13", "zhlednuti": 3}, {"datum": "2025-09-14", "zhlednuti": 13}, {"datum": "2025-09-15", "zhlednuti": 10}, {"datum": "2025-09-16", "zhlednuti": 28}, {"datum": "2025-09-17", "zhlednuti": 5}, {"datum": "2025-09-18", "zhlednuti": 6}, {"datum": "2025-09-19", "zhlednuti": 8}, {"datum": "2025-09-20", "zhlednuti": 6}, {"datum": "2025-09-21", "zhlednuti": 2}, {"datum": "2025-09-22", "zhlednuti": 9}, {"datum": "2025-09-23", "zhlednuti": 7}, {"datum": "2025-09-24", "zhlednuti": 12}, {"datum": "2025-09-25", "zhlednuti": 4}, {"datum": "2025-09-26", "zhlednuti": 7}, {"datum": "2025-09-27", "zhlednuti": 6}, {"datum": "2025-09-28", "zhlednuti": 16}, {"datum": "2025-09-29", "zhlednuti": 10}, {"datum": "2025-09-30", "zhlednuti": 3}, {"datum": "2025-10-01", "zhlednuti": 5}, {"datum": "2025-10-02", "zhlednuti": 8}, {"datum": "2025-10-03", "zhlednuti": 1}, {"datum": "2025-10-04", "zhlednuti": 4}, {"datum": "2025-10-05", "zhlednuti": 7}, {"datum": "2025-10-06", "zhlednuti": 6}, {"datum": "2025-10-07", "zhlednuti": 4}, {"datum": "2025-10-08", "zhlednuti": 11}, {"datum": "2025-10-09", "zhlednuti": 15}, {"datum": "2025-10-10", "zhlednuti": 13}, {"datum": "2025-10-11", "zhlednuti": 5}, {"datum": "2025-10-12", "zhlednuti": 14}, {"datum": "2025-10-13", "zhlednuti": 2}, {"datum": "2025-10-14", "zhlednuti": 3}, {"datum": "2025-10-15", "zhlednuti": 24}, {"datum": "2025-10-16", "zhlednuti": 20}, {"datum": "2025-10-17", "zhlednuti": 8}, {"datum": "2025-10-18", "zhlednuti": 13}, {"datum": "2025-10-19", "zhlednuti": 3}, {"datum": "2025-10-20", "zhlednuti": 6}, {"datum": "2025-10-21", "zhlednuti": 11}, {"datum": "2025-10-22", "zhlednuti": 22}, {"datum": "2025-10-23", "zhlednuti": 23}, {"datum": "2025-10-24", "zhlednuti": 12}, {"datum": "2025-10-25", "zhlednuti": 16}, {"datum": "2025-10-26", "zhlednuti": 15}, {"datum": "2025-10-27", "zhlednuti": 3}, {"datum": "2025-10-28", "zhlednuti": 19}, {"datum": "2025-10-29", "zhlednuti": 5}, {"datum": "2025-10-30", "zhlednuti": 14}, {"datum": "2025-10-31", "zhlednuti": 7}, {"datum": "2025-11-01", "zhlednuti": 11}, {"datum": "2025-11-02", "zhlednuti": 23}, {"datum": "2025-11-03", "zhlednuti": 10}, {"datum": "2025-11-04", "zhlednuti": 10}, {"datum": "2025-11-05", "zhlednuti": 4}, {"datum": "2025-11-06", "zhlednuti": 10}, {"datum": "2025-11-07", "zhlednuti": 15}, {"datum": "2025-11-08", "zhlednuti": 6}, {"datum": "2025-11-09", "zhlednuti": 9}, {"datum": "2025-11-10", "zhlednuti": 15}, {"datum": "2025-11-11", "zhlednuti": 7}, {"datum": "2025-11-12", "zhlednuti": 18}, {"datum": "2025-11-13", "zhlednuti": 11}, {"datum": "2025-11-14", "zhlednuti": 4}, {"datum": "2025-11-15", "zhlednuti": 4}, {"datum": "2025-11-16", "zhlednuti": 7}, {"datum": "2025-11-17", "zhlednuti": 19}, {"datum": "2025-11-18", "zhlednuti": 18}, {"datum": "2025-11-19", "zhlednuti": 18}, {"datum": "2025-11-20", "zhlednuti": 10}, {"datum": "2025-11-21", "zhlednuti": 12}, {"datum": "2025-11-22", "zhlednuti": 3}, {"datum": "2025-11-23", "zhlednuti": 8}, {"datum": "2025-11-24", "zhlednuti": 17}, {"datum": "2025-11-25", "zhlednuti": 20}, {"datum": "2025-11-26", "zhlednuti": 9}, {"datum": "2025-11-27", "zhlednuti": 10}, {"datum": "2025-11-28", "zhlednuti": 21}, {"datum": "2025-11-29", "zhlednuti": 9}, {"datum": "2025-11-30", "zhlednuti": 18}, {"datum": "2025-12-01", "zhlednuti": 9}, {"datum": "2025-12-02", "zhlednuti": 8}, {"datum": "2025-12-03", "zhlednuti": 6}, {"datum": "2025-12-04", "zhlednuti": 12}, {"datum": "2025-12-05", "zhlednuti": 14}, {"datum": "2025-12-06", "zhlednuti": 16}, {"datum": "2025-12-07", "zhlednuti": 7}, {"datum": "2025-12-08", "zhlednuti": 11}, {"datum": "2025-12-09", "zhlednuti": 17}, {"datum": "2025-12-10", "zhlednuti": 15}, {"datum": "2025-12-11", "zhlednuti": 7}, {"datum": "2025-12-12", "zhlednuti": 6}, {"datum": "2025-12-13", "zhlednuti": 8}, {"datum": "2025-12-14", "zhlednuti": 9}, {"datum": "2025-12-15", "zhlednuti": 6}, {"datum": "2025-12-16", "zhlednuti": 3}, {"datum": "2025-12-17", "zhlednuti": 4}, {"datum": "2025-12-18", "zhlednuti": 12}, {"datum": "2025-12-19", "zhlednuti": 2}, {"datum": "2025-12-20", "zhlednuti": 8}, {"datum": "2025-12-21", "zhlednuti": 13}, {"datum": "2025-12-22", "zhlednuti": 5}, {"datum": "2025-12-23", "zhlednuti": 7}, {"datum": "2025-12-24", "zhlednuti": 10}, {"datum": "2025-12-25", "zhlednuti": 8}, {"datum": "2025-12-26", "zhlednuti": 9}, {"datum": "2025-12-27", "zhlednuti": 14}, {"datum": "2025-12-28", "zhlednuti": 10}, {"datum": "2025-12-29", "zhlednuti": 10}, {"datum": "2025-12-30", "zhlednuti": 3}, {"datum": "2025-12-31", "zhlednuti": 9}], "daily_2026": [{"datum": "2026-01-01", "zhlednuti": 12}, {"datum": "2026-01-02", "zhlednuti": 15}, {"datum": "2026-01-03", "zhlednuti": 14}, {"datum": "2026-01-04", "zhlednuti": 12}, {"datum": "2026-01-05", "zhlednuti": 17}, {"datum": "2026-01-06", "zhlednuti": 6}, {"datum": "2026-01-07", "zhlednuti": 15}, {"datum": "2026-01-08", "zhlednuti": 16}, {"datum": "2026-01-09", "zhlednuti": 9}, {"datum": "2026-01-10", "zhlednuti": 11}, {"datum": "2026-01-11", "zhlednuti": 25}, {"datum": "2026-01-12", "zhlednuti": 14}, {"datum": "2026-01-13", "zhlednuti": 7}, {"datum": "2026-01-14", "zhlednuti": 7}, {"datum": "2026-01-15", "zhlednuti": 10}, {"datum": "2026-01-16", "zhlednuti": 16}, {"datum": "2026-01-17", "zhlednuti": 7}, {"datum": "2026-01-18", "zhlednuti": 15}, {"datum": "2026-01-19", "zhlednuti": 21}, {"datum": "2026-01-20", "zhlednuti": 10}, {"datum": "2026-01-21", "zhlednuti": 18}, {"datum": "2026-01-22", "zhlednuti": 44}, {"datum": "2026-01-23", "zhlednuti": 16}, {"datum": "2026-01-24", "zhlednuti": 24}, {"datum": "2026-01-25", "zhlednuti": 25}, {"datum": "2026-01-26", "zhlednuti": 17}, {"datum": "2026-01-27", "zhlednuti": 45}, {"datum": "2026-01-28", "zhlednuti": 39}, {"datum": "2026-01-29", "zhlednuti": 14}, {"datum": "2026-01-30", "zhlednuti": 43}, {"datum": "2026-01-31", "zhlednuti": 26}, {"datum": "2026-02-01", "zhlednuti": 17}, {"datum": "2026-02-02", "zhlednuti": 10}, {"datum": "2026-02-03", "zhlednuti": 8}, {"datum": "2026-02-04", "zhlednuti": 11}, {"datum": "2026-02-05", "zhlednuti": 10}, {"datum": "2026-02-06", "zhlednuti": 8}, {"datum": "2026-02-07", "zhlednuti": 12}, {"datum": "2026-02-08", "zhlednuti": 22}, {"datum": "2026-02-09", "zhlednuti": 249}, {"datum": "2026-02-10", "zhlednuti": 849}, {"datum": "2026-02-11", "zhlednuti": 1279}, {"datum": "2026-02-12", "zhlednuti": 169}, {"datum": "2026-02-13", "zhlednuti": 37}, {"datum": "2026-02-14", "zhlednuti": 27}, {"datum": "2026-02-15", "zhlednuti": 18}, {"datum": "2026-02-16", "zhlednuti": 24}, {"datum": "2026-02-17", "zhlednuti": 18}, {"datum": "2026-02-18", "zhlednuti": 24}, {"datum": "2026-02-19", "zhlednuti": 23}, {"datum": "2026-02-20", "zhlednuti": 18}, {"datum": "2026-02-21", "zhlednuti": 32}, {"datum": "2026-02-22", "zhlednuti": 61}, {"datum": "2026-02-23", "zhlednuti": 88}, {"datum": "2026-02-24", "zhlednuti": 1651}, {"datum": "2026-02-25", "zhlednuti": 12446}, {"datum": "2026-02-26", "zhlednuti": 8936}, {"datum": "2026-02-27", "zhlednuti": 8732}, {"datum": "2026-02-28", "zhlednuti": 9199}, {"datum": "2026-03-01", "zhlednuti": 10300}, {"datum": "2026-03-02", "zhlednuti": 3723}, {"datum": "2026-03-03", "zhlednuti": 10592}, {"datum": "2026-03-04", "zhlednuti": 15614}, {"datum": "2026-03-05", "zhlednuti": 16695}, {"datum": "2026-03-06", "zhlednuti": 13842}, {"datum": "2026-03-07", "zhlednuti": 5517}, {"datum": "2026-03-08", "zhlednuti": 2457}, {"datum": "2026-03-09", "zhlednuti": 1123}, {"datum": "2026-03-10", "zhlednuti": 573}, {"datum": "2026-03-11", "zhlednuti": 655}, {"datum": "2026-03-12", "zhlednuti": 304}, {"datum": "2026-03-13", "zhlednuti": 315}, {"datum": "2026-03-14", "zhlednuti": 327}, {"datum": "2026-03-15", "zhlednuti": 238}, {"datum": "2026-03-16", "zhlednuti": 217}, {"datum": "2026-03-17", "zhlednuti": 202}, {"datum": "2026-03-18", "zhlednuti": 159}], "indian_factor_2026": {"videos_with_indian": 17, "videos_without": 265, "avg_views_indian": 797.1176470588235, "avg_views_other": 429.5924528301887}}, "efficiency": {"Facebook_2025": {"platforma": "Facebook", "rok": 2025, "prispevky": 132, "engagement_total": 5427, "dosah_total": 72666, "engagement_per_post": 41.1, "dosah_per_post": 550.5}, "Facebook_2026": {"platforma": "Facebook", "rok": 2026, "prispevky": 184, "engagement_total": 5868, "dosah_total": 216140, "engagement_per_post": 31.9, "dosah_per_post": 1174.7}, "Instagram_2025": {"platforma": "Instagram", "rok": 2025, "prispevky": 136, "engagement_total": 69111, "dosah_total": 1032819, "engagement_per_post": 508.2, "dosah_per_post": 7594.3}, "Instagram_2026": {"platforma": "Instagram", "rok": 2026, "prispevky": 214, "engagement_total": 45530, "dosah_total": 901763, "engagement_per_post": 212.8, "dosah_per_post": 4213.8}, "YouTube_2025": {"platforma": "YouTube", "rok": 2025, "prispevky": 264, "zhlednuti_total": 73088, "zhlednuti_per_video": 276.8}, "YouTube_2026": {"platforma": "YouTube", "rok": 2026, "prispevky": 282, "zhlednuti_total": 127401, "zhlednuti_per_video": 451.8}}, "top3_moments": [{"platforma": "Instagram", "nazev": "Bylo pro mě velkou ctí zahájit partii úřadujícího mistra světa Gukeshe na Prague International Chess Festivalu, největší", "dosah": 95748, "engagement": 5967, "datum": "2026-03-08", "link": "https://www.instagram.com/reel/DVov0sMgtfX/", "indian": ["Gukesh"]}, {"platforma": "Instagram", "nazev": "📸 Pia’s move, Divya’s focus, and David’s selfies. And that’s just a glimpse of our photo highlights. Dive in! You can fi", "dosah": 45081, "engagement": 608, "datum": "2026-03-01", "link": "https://www.instagram.com/p/DVW-MaeDCRU/", "indian": []}, {"platforma": "Instagram", "nazev": "The next big event coming your way is Prague Masters 2026. The World Champion D Gukesh and defending Champion Aravindh C", "dosah": 39396, "engagement": 2051, "datum": "2026-02-18", "link": "https://www.instagram.com/p/DU5hpTskcHL/", "indian": ["Gukesh"]}]};
-
+ 
 // ── HELPERS ──
 const fmt = n => n >= 1000000 ? (n/1000000).toFixed(1) + 'M' : n >= 1000 ? (n/1000).toFixed(1) + 'K' : n.toString();
 const fmtFull = n => n.toLocaleString('cs-CZ');
@@ -812,7 +587,7 @@ const yoyBadge = (a, b) => {
     const sign = pct >= 0 ? '+' : '';
     return `<span class="${cls}">${sign}${pct.toFixed(1)}%</span>`;
 };
-
+ 
 const chartColors = {
     gold: 'rgba(212,175,55,1)',
     goldLight: 'rgba(212,175,55,0.2)',
@@ -824,7 +599,7 @@ const chartColors = {
     white: 'rgba(229,224,216,0.8)',
     whiteLight: 'rgba(229,224,216,0.1)',
 };
-
+ 
 const defaultChartOpts = {
     responsive: true,
     plugins: { legend: { labels: { color: '#8a8578', font: { family: "'DM Sans'", size: 11 } } } },
@@ -833,7 +608,7 @@ const defaultChartOpts = {
         y: { ticks: { color: '#5a5650', font: { family: "'DM Sans'", size: 10 } }, grid: { color: 'rgba(255,255,255,0.03)' } }
     }
 };
-
+ 
 // ── MAIN TAB SWITCHING ──
 let currentMainTab = 'social';
 function switchMainTab(tab) {
@@ -845,7 +620,7 @@ function switchMainTab(tab) {
     if (tab === 'email' && !window._emailRendered) { renderEmailCharts(); window._emailRendered = true; }
     if (tab === 'passes' && !window._passRendered) { renderPassCharts(); window._passRendered = true; }
 }
-
+ 
 // ── KPI BAR ──
 function renderKPIs() {
     const fb26=DATA.facebook.stats_2026, ig26=DATA.instagram.stats_2026;
@@ -861,7 +636,7 @@ function renderKPIs() {
     document.getElementById('kpi-subs').textContent = yt26.odberatele;
     document.getElementById('kpi-subs-yoy').innerHTML = yoyBadge(yt26.odberatele, yt25.odberatele);
 }
-
+ 
 // ── PLATFORM TABS ──
 let currentPlatform = 'youtube';
 function switchPlatform(p) {
@@ -870,7 +645,7 @@ function switchPlatform(p) {
     document.getElementById('tab-' + p).classList.add('active');
     renderPlatform(p);
 }
-
+ 
 function statBlock(label, v25, v26) {
     const pct = yoyPct(v26, v25);
     const cls = pct >= 0 ? 'up' : 'down';
@@ -881,7 +656,7 @@ function statBlock(label, v25, v26) {
         <div class="delta"><span class="dim">${fmtFull(v25)} →</span> <span class="${cls}">${sign}${pct.toFixed(0)}%</span></div>
     </div>`;
 }
-
+ 
 function renderPlatform(p) {
     const container = document.getElementById('platform-content');
     let html = '';
@@ -919,7 +694,7 @@ function renderPlatform(p) {
     container.innerHTML = html;
     setTimeout(() => renderPlatformChart(p), 50);
 }
-
+ 
 function renderPlatformChart(p) {
     if (p === 'youtube') {
         const el=document.getElementById('ytDailyChart'); if(!el)return;
@@ -946,7 +721,7 @@ function renderPlatformChart(p) {
         }, options: defaultChartOpts });
     }
 }
-
+ 
 // ── PULSE ──
 function renderPulse() {
     const fb=DATA.facebook.daily_2026.filter(x=>x.datum>='2026-02');
@@ -965,7 +740,7 @@ function renderPulse() {
         ]
     }, options: { ...defaultChartOpts, interaction: { mode:'index', intersect:false } } });
 }
-
+ 
 // ── YOY MATRIX ──
 function renderYoYMatrix() {
     const container=document.getElementById('yoy-matrix');
@@ -1006,7 +781,7 @@ function renderYoYMatrix() {
         </div>
     `).join('');
 }
-
+ 
 // ── INDIAN FACTOR ──
 function renderIndianFactor() {
     const platforms = [
@@ -1028,7 +803,7 @@ function renderIndianFactor() {
         });
     });
 }
-
+ 
 // ── EFFICIENCY ──
 function renderEfficiency() {
     const labels=['Facebook 2025','Facebook 2026','Instagram 2025','Instagram 2026','YouTube 2025','YouTube 2026'];
@@ -1040,7 +815,7 @@ function renderEfficiency() {
         options: { ...defaultChartOpts, plugins:{ ...defaultChartOpts.plugins, legend:{ display:false } }, indexAxis:'y' }
     });
 }
-
+ 
 // ── TOP 3 ──
 function renderTop3() {
     const container=document.getElementById('top3-cards');
@@ -1060,7 +835,7 @@ function renderTop3() {
         </div>
     `).join('');
 }
-
+ 
 // ── EMAIL CHARTS ──
 function renderEmailCharts() {
     const el=document.getElementById('emailOpenRateChart'); if(!el)return;
@@ -1075,7 +850,7 @@ function renderEmailCharts() {
         options: { ...defaultChartOpts, scales: { ...defaultChartOpts.scales, y: { ...defaultChartOpts.scales.y, suggestedMin:15, suggestedMax:50, ticks:{ ...defaultChartOpts.scales.y.ticks, callback:v=>v+'%' } } } }
     });
 }
-
+ 
 // ── PASS CHARTS ──
 function renderPassCharts() {
     const wEl=document.getElementById('walletPlatformChart');
@@ -1085,7 +860,7 @@ function renderPassCharts() {
             options: { responsive:true, plugins:{ legend:{ position:'bottom', labels:{ color:'#8a8578', font:{ family:"'DM Sans'", size:11 }, padding:16 } } }, cutout:'60%' }
         });
     }
-
+ 
     const cEl=document.getElementById('country-ranking');
     if(cEl) {
         const countries=[
@@ -1102,19 +877,19 @@ function renderPassCharts() {
             </div>
         `).join('');
     }
-
+ 
     const fEl=document.getElementById('fanCardsGrowthChart');
     if(fEl) {
         new Chart(fEl, {
-            type:'bar', data: { labels:['Fanouškovská karta (CZ)','Fans Card (EN)'], datasets:[
-                { label:'Apple Wallet', data:[31,29], backgroundColor:'rgba(229,224,216,0.6)', borderRadius:4 },
-                { label:'Google Wallet', data:[22,35], backgroundColor:'rgba(72,187,120,0.5)', borderRadius:4 }
+            type:'bar', data: { labels:['Player Card (EN)','Hráčská karta (CZ)','Fanouškovská (CZ)','Fans Card (EN)'], datasets:[
+                { label:'Apple Wallet', data:[125,61,31,29], backgroundColor:'rgba(229,224,216,0.6)', borderRadius:4, barPercentage:0.7 },
+                { label:'Google Wallet', data:[87,66,22,35], backgroundColor:'rgba(72,187,120,0.5)', borderRadius:4, barPercentage:0.7 }
             ] },
-            options: { ...defaultChartOpts, indexAxis:'y', plugins:{ ...defaultChartOpts.plugins }, scales:{ x:{ ...defaultChartOpts.scales.x, stacked:true }, y:{ ...defaultChartOpts.scales.y, stacked:true } } }
+            options: { ...defaultChartOpts, plugins:{ ...defaultChartOpts.plugins }, scales:{ x:{ ...defaultChartOpts.scales.x, stacked:true }, y:{ ...defaultChartOpts.scales.y, stacked:true } } }
         });
     }
 }
-
+ 
 // ── INIT ──
 renderKPIs();
 renderPlatform('youtube');
