@@ -1,293 +1,1167 @@
 <!DOCTYPE html>
-<html lang="cs" class="dark">
+<html lang="cs">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PICF 2025–2026 | Digitální Audit</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
-                    colors: {
-                        brand: { 50: '#fdf4ff', 100: '#fae8ff', 200: '#f5d0fe', 400: '#e879f9', 500: '#d946ef', 600: '#c026d3', 700: '#a21caf' },
-                        surface: { 800: '#1e1b2e', 900: '#13111c', 950: '#0c0a14' }
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        body { background: #0c0a14; }
-        .glass { background: rgba(30, 27, 46, 0.7); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.06); }
-        .glow { box-shadow: 0 0 40px rgba(217, 70, 239, 0.08); }
-        .stat-card:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(217, 70, 239, 0.15); }
-        .stat-card { transition: all 0.3s ease; }
-        .gradient-text { background: linear-gradient(135deg, #e879f9, #818cf8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .section-divider { height: 1px; background: linear-gradient(90deg, transparent, rgba(217,70,239,0.3), transparent); }
-        .platform-tab { cursor: pointer; transition: all 0.2s; }
-        .platform-tab.active { background: rgba(217,70,239,0.2); border-color: #d946ef; color: #e879f9; }
-        .platform-tab:not(.active):hover { background: rgba(255,255,255,0.05); }
-        .fade-in { animation: fadeIn 0.5s ease-in; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-        .yoy-positive { color: #4ade80; }
-        .yoy-negative { color: #f87171; }
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: #13111c; }
-        ::-webkit-scrollbar-thumb { background: #3b3558; border-radius: 3px; }
-    </style>
-</head>
-<body class="text-gray-200 font-sans antialiased min-h-screen">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PICF 2026 — Digitální Audit</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after { margin:0; padding:0; box-sizing:border-box; }
 
-<!-- Hero -->
-<header class="relative overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-transparent to-indigo-900/20"></div>
-    <div class="max-w-7xl mx-auto px-6 py-16 relative z-10">
-        <div class="flex items-center gap-4 mb-4">
-            <div id="logo-container"></div>
-            <div>
-                <p class="text-sm font-medium text-purple-400 tracking-widest uppercase">Digitální Audit & Analýza</p>
-                <h1 class="text-4xl md:text-5xl font-black tracking-tight">
-                    <span class="gradient-text">Prague International Chess Festival</span>
-                </h1>
-            </div>
-        </div>
-        <p class="text-lg text-gray-400 mt-4 max-w-2xl">Komplexní meziroční srovnání digitální performance 2025 vs 2026 napříč YouTube, Facebookem a Instagramem.</p>
-        <div class="flex gap-3 mt-6 text-sm">
-            <span class="px-3 py-1 rounded-full glass text-purple-300">♟ Porovnání 2025–2026</span>
-            <span class="px-3 py-1 rounded-full glass text-purple-300">📊 3 platformy</span>           
+:root {
+    --bg: #0e0e0e;
+    --card: #161616;
+    --card-hover: #1a1a1a;
+    --border: #252525;
+    --border-light: #333;
+    --text: #e5e0d8;
+    --text-muted: #8a8578;
+    --text-dim: #5a5650;
+    --red: #c53030;
+    --red-light: #e74c4c;
+    --red-bg: rgba(197,48,48,0.1);
+    --gold: #d4af37;
+    --gold-light: #e8c550;
+    --gold-bg: rgba(212,175,55,0.08);
+    --gold-muted: rgba(212,175,55,0.5);
+    --green: #48bb78;
+    --green-bg: rgba(72,187,120,0.1);
+    --blue: #63b3ed;
+    --font-display: 'Playfair Display', Georgia, serif;
+    --font-body: 'DM Sans', -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+}
+
+body { background: var(--bg); color: var(--text); font-family: var(--font-body); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+
+/* ── LAYOUT ── */
+.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+@media (max-width: 768px) { .container { padding: 0 16px; } }
+
+/* ── HEADER ── */
+.site-header {
+    border-bottom: 1px solid var(--border);
+    padding: 40px 0 32px;
+    background: linear-gradient(180deg, #141414 0%, var(--bg) 100%);
+}
+.header-inner {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+.header-logo { height: 72px; width: auto; filter: brightness(1.1); }
+.header-text { flex: 1; }
+.header-text .label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 4px;
+}
+.header-text h1 {
+    font-family: var(--font-display);
+    font-size: clamp(24px, 4vw, 38px);
+    font-weight: 900;
+    color: #fff;
+    line-height: 1.15;
+}
+.header-text .subtitle {
+    color: var(--text-muted);
+    font-size: 14px;
+    margin-top: 6px;
+    font-weight: 300;
+}
+.header-badges {
+    display: flex;
+    gap: 8px;
+    margin-top: 14px;
+}
+.badge {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 3px;
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    background: var(--card);
+}
+
+/* ── NAVIGATION ── */
+.main-nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(14,14,14,0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+}
+.nav-inner {
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+.nav-inner::-webkit-scrollbar { display: none; }
+.nav-tab {
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    padding: 16px 24px;
+    color: var(--text-dim);
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    white-space: nowrap;
+    transition: color 0.2s;
+}
+.nav-tab:hover { color: var(--text-muted); }
+.nav-tab.active { color: var(--gold); }
+.nav-tab.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 24px;
+    right: 24px;
+    height: 2px;
+    background: var(--gold);
+}
+@media (max-width: 640px) {
+    .nav-tab { padding: 14px 16px; font-size: 12px; }
+}
+
+/* ── CARDS ── */
+.card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 24px;
+    transition: border-color 0.2s, background 0.2s;
+}
+.card:hover {
+    border-color: var(--border-light);
+    background: var(--card-hover);
+}
+.card-label {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 8px;
+}
+.card-value {
+    font-family: var(--font-display);
+    font-size: 32px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.1;
+}
+.card-sub {
+    font-size: 12px;
+    color: var(--text-dim);
+    margin-top: 6px;
+}
+
+/* ── GRIDS ── */
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+@media (max-width: 900px) {
+    .grid-4 { grid-template-columns: repeat(2, 1fr); }
+    .grid-3 { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+    .grid-4 { grid-template-columns: 1fr 1fr; }
+    .grid-2 { grid-template-columns: 1fr; }
+}
+
+/* ── SECTIONS ── */
+.tab-panel { display: none; }
+.tab-panel.active { display: block; }
+.section { padding: 48px 0; border-bottom: 1px solid var(--border); }
+.section:last-child { border-bottom: none; }
+.section-label {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 8px;
+}
+.section-title {
+    font-family: var(--font-display);
+    font-size: clamp(20px, 3vw, 28px);
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 6px;
+}
+.section-desc {
+    color: var(--text-muted);
+    font-size: 14px;
+    max-width: 600px;
+    margin-bottom: 32px;
+}
+
+/* ── UTILITIES ── */
+.up { color: var(--green); }
+.down { color: var(--red-light); }
+.gold-text { color: var(--gold); }
+.red-text { color: var(--red); }
+.mono { font-family: var(--font-mono); }
+.serif { font-family: var(--font-display); }
+.small { font-size: 12px; }
+.muted { color: var(--text-muted); }
+.dim { color: var(--text-dim); }
+.mt-32 { margin-top: 32px; }
+.mb-16 { margin-bottom: 16px; }
+.mb-24 { margin-bottom: 24px; }
+.mb-32 { margin-bottom: 32px; }
+
+/* ── STAT BLOCK (for platform tabs) ── */
+.stat-block {
+    padding: 14px;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+}
+.stat-block .label { font-size: 11px; color: var(--text-dim); margin-bottom: 4px; }
+.stat-block .value { font-family: var(--font-display); font-size: 20px; font-weight: 700; color: #fff; }
+.stat-block .delta { font-size: 11px; margin-top: 2px; }
+
+/* ── PLATFORM TABS (inner) ── */
+.ptab-row { display: flex; gap: 2px; margin-bottom: 24px; }
+.ptab {
+    font-size: 12px;
+    font-weight: 600;
+    padding: 8px 18px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    background: transparent;
+    color: var(--text-dim);
+    cursor: pointer;
+    transition: all 0.15s;
+}
+.ptab.active { background: var(--gold-bg); border-color: var(--gold-muted); color: var(--gold); }
+.ptab:hover:not(.active) { border-color: var(--border-light); color: var(--text-muted); }
+
+/* ── GROWTH MATRIX ── */
+.matrix-card { padding: 20px; }
+.matrix-card h4 { font-size: 14px; font-weight: 600; margin-bottom: 16px; }
+.metric-row { margin-bottom: 12px; }
+.metric-row .top { display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 4px; }
+.metric-row .bar { height: 6px; border-radius: 3px; background: rgba(255,255,255,0.04); overflow: hidden; }
+.metric-row .bar-fill { height: 100%; border-radius: 3px; transition: width 0.6s ease; }
+.metric-row .numbers { font-size: 10px; color: var(--text-dim); margin-top: 3px; }
+
+/* ── TOP3 ── */
+.moment-card { position: relative; overflow: hidden; }
+.moment-card .rank {
+    font-family: var(--font-display);
+    font-size: 48px;
+    font-weight: 900;
+    color: rgba(255,255,255,0.04);
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    line-height: 1;
+}
+.moment-card .platform-tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 2px;
+    margin-bottom: 10px;
+}
+.indian-tag {
+    display: inline-block;
+    font-size: 10px;
+    padding: 2px 8px;
+    border-radius: 2px;
+    background: rgba(255,152,0,0.12);
+    color: #ffb74d;
+    margin-left: 6px;
+}
+
+/* ── INSIGHT BOX ── */
+.insight-box {
+    border-left: 3px solid var(--gold);
+    padding: 28px 28px 28px 24px;
+    background: var(--card);
+    border-radius: 0 6px 6px 0;
+}
+.insight-box h3 {
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 12px;
+}
+.insight-box p { color: var(--text-muted); font-size: 14px; line-height: 1.7; margin-bottom: 12px; }
+.insight-box p:last-child { margin-bottom: 0; }
+.insight-box strong { color: var(--text); font-weight: 600; }
+
+/* ── FUNNEL ── */
+.funnel-step { margin-bottom: 12px; }
+.funnel-label { display: flex; justify-content: space-between; font-size: 13px; margin-bottom: 6px; }
+.funnel-bar { height: 40px; border-radius: 4px; display: flex; align-items: center; padding: 0 14px; transition: width 0.8s ease; }
+.funnel-bar span { font-family: var(--font-mono); font-size: 11px; font-weight: 600; }
+
+/* ── COUNTRY RANKING ── */
+.country-row { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+.country-row .flag { font-size: 18px; width: 28px; text-align: center; }
+.country-row .info { flex: 1; }
+.country-row .name { font-size: 13px; color: var(--text); }
+.country-row .bar-wrap { height: 5px; border-radius: 3px; background: rgba(255,255,255,0.04); margin-top: 4px; overflow: hidden; }
+.country-row .bar-fill { height: 100%; border-radius: 3px; background: var(--gold-muted); }
+.country-row .count { font-family: var(--font-mono); font-size: 13px; color: #fff; min-width: 32px; text-align: right; }
+
+/* ── LIVESTREAM PLACEHOLDER ── */
+.placeholder-box {
+    border: 2px dashed var(--border);
+    border-radius: 6px;
+    padding: 48px 24px;
+    text-align: center;
+    color: var(--text-dim);
+    font-size: 13px;
+}
+.placeholder-box .icon { font-size: 32px; margin-bottom: 12px; }
+
+/* ── TOP EMAIL ROWS ── */
+.email-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 14px 16px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    margin-bottom: 8px;
+    transition: border-color 0.2s;
+}
+.email-row:hover { border-color: var(--border-light); }
+.email-row .medal { font-size: 22px; }
+.email-row .info { flex: 1; }
+.email-row .info .date { font-size: 13px; font-weight: 600; color: #fff; }
+.email-row .info .detail { font-size: 11px; color: var(--text-dim); }
+.email-row .rate { text-align: right; }
+.email-row .rate .val { font-family: var(--font-display); font-size: 20px; font-weight: 700; color: var(--green); }
+.email-row .rate .lbl { font-size: 10px; color: var(--text-dim); }
+
+/* ── FOOTER ── */
+.site-footer {
+    padding: 40px 0;
+    text-align: center;
+    border-top: 1px solid var(--border);
+    color: var(--text-dim);
+    font-size: 12px;
+}
+
+/* ── ANIMATIONS ── */
+.fade-in { animation: fadeIn 0.4s ease; }
+@keyframes fadeIn { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:translateY(0); } }
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border-light); border-radius: 3px; }
+</style>
+</head>
+<body>
+
+<!-- ═══ HEADER ═══ -->
+<header class="site-header">
+<div class="container header-inner">
+    <img src="data:image/jpeg;base64,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
+ftR/+xN+gexl1FZNVtIrlR2mshraC80T0o6lqLy+Eau7HdU39bI1N/aOZ5WvBjqtjlkwm4Yrld+o
+rX6DqvD0L6uZI2vjk9kxqr06PRV2/wCMGNHcPsE1Nr3ilNURuimiurGSMcmytciqiovn3Ki48PEx
+R+7cHxUxpTILlhdp4wKLIrRf7fPYJ7nDXT1UT+aGF703k3cnT2e7t06JzeZSpL7qFovfqNKK+ZRh
+t0pWvSRIayeGZiORFRHcrt032VevnUDnADoJ6ZcNXk0y+DUn6Jofi+qtKai04+3T5MX9FpPKtStm
+iiavg+Vu3OsaInb2b+fbvAnMABQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH/2Q==" alt="PICF" class="header-logo">
+    <div class="header-text">
+        <div class="label">Digitální audit 2025 → 2026</div>
+        <h1>Prague International<br>Chess Festival</h1>
+        <p class="subtitle">Komplexní analýza: Social Media · Livestream · Newsletter · Mobile Passes</p>
+        <div class="header-badges">
+            <span class="badge">Sezóna 2025–2026</span>
+            <span class="badge">4 analytické sekce</span>
+            <span class="badge">47+ zemí</span>
         </div>
     </div>
+</div>
 </header>
 
-<!-- KPI Summary Bar -->
-<section class="max-w-7xl mx-auto px-6 -mt-4 mb-12">
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <div class="glass rounded-2xl p-5 stat-card text-center">
-            <p class="text-xs text-gray-500 uppercase tracking-wider mb-1">Celkový dosah 2026</p>
-            <p class="text-3xl font-black gradient-text" id="kpi-reach">—</p>
-            <p class="text-sm mt-1" id="kpi-reach-yoy"></p>
+<!-- ═══ NAVIGATION ═══ -->
+<nav class="main-nav">
+<div class="container nav-inner">
+    <button onclick="switchMainTab('social')" id="mtab-social" class="nav-tab active">Social Media</button>
+    <button onclick="switchMainTab('livestream')" id="mtab-livestream" class="nav-tab">Livestream & Broadcasting</button>
+    <button onclick="switchMainTab('email')" id="mtab-email" class="nav-tab">Email Marketing</button>
+    <button onclick="switchMainTab('passes')" id="mtab-passes" class="nav-tab">Mobile Passes</button>
+</div>
+</nav>
+
+<!-- ════════════════════════════════════════════════ -->
+<!-- TAB 1: SOCIAL MEDIA                             -->
+<!-- ════════════════════════════════════════════════ -->
+<div id="panel-social" class="tab-panel active">
+
+<!-- KPI BAR -->
+<div class="section container" style="padding-top:36px; padding-bottom:36px;">
+    <div class="grid-4">
+        <div class="card" style="text-align:center;">
+            <div class="card-label">Celkový dosah 2026</div>
+            <div class="card-value" id="kpi-reach">—</div>
+            <div class="card-sub" id="kpi-reach-yoy"></div>
         </div>
-        <div class="glass rounded-2xl p-5 stat-card text-center">
-            <p class="text-xs text-gray-500 uppercase tracking-wider mb-1">YouTube zhlédnutí</p>
-            <p class="text-3xl font-black gradient-text" id="kpi-yt-views">—</p>
-            <p class="text-sm mt-1" id="kpi-yt-yoy"></p>
+        <div class="card" style="text-align:center;">
+            <div class="card-label">YouTube zhlédnutí</div>
+            <div class="card-value" id="kpi-yt-views">—</div>
+            <div class="card-sub" id="kpi-yt-yoy"></div>
         </div>
-        <div class="glass rounded-2xl p-5 stat-card text-center">
-            <p class="text-xs text-gray-500 uppercase tracking-wider mb-1">Watch Time (hod)</p>
-            <p class="text-3xl font-black gradient-text" id="kpi-watchtime">—</p>
-            <p class="text-sm mt-1" id="kpi-wt-yoy"></p>
+        <div class="card" style="text-align:center;">
+            <div class="card-label">Watch Time (hod)</div>
+            <div class="card-value" id="kpi-watchtime">—</div>
+            <div class="card-sub" id="kpi-wt-yoy"></div>
         </div>
-        <div class="glass rounded-2xl p-5 stat-card text-center">
-            <p class="text-xs text-gray-500 uppercase tracking-wider mb-1">Noví odběratelé YT</p>
-            <p class="text-3xl font-black gradient-text" id="kpi-subs">—</p>
-            <p class="text-sm mt-1" id="kpi-subs-yoy"></p>
+        <div class="card" style="text-align:center;">
+            <div class="card-label">Noví odběratelé YT</div>
+            <div class="card-value" id="kpi-subs">—</div>
+            <div class="card-sub" id="kpi-subs-yoy"></div>
         </div>
     </div>
-</section>
+</div>
 
-<div class="section-divider max-w-7xl mx-auto"></div>
+<!-- PLATFORM STATS -->
+<div class="section container">
+    <div class="section-label">Platformy</div>
+    <div class="section-title">Statistiky podle platformy</div>
+    <div class="section-desc">Meziroční porovnání klíčových metrik YouTube, Facebook & Instagram.</div>
+    <div class="ptab-row">
+        <button onclick="switchPlatform('youtube')" id="tab-youtube" class="ptab active">YouTube</button>
+        <button onclick="switchPlatform('facebook')" id="tab-facebook" class="ptab">Facebook</button>
+        <button onclick="switchPlatform('instagram')" id="tab-instagram" class="ptab">Instagram</button>
+    </div>
+    <div id="platform-content"></div>
+</div>
 
-<!-- Platform Tabs -->
-<section class="max-w-7xl mx-auto px-6 py-12">
-    <h2 class="text-2xl font-bold mb-6">📊 Statistiky podle platformy</h2>
-    <div class="flex gap-2 mb-8">
-        <button onclick="switchPlatform('youtube')" id="tab-youtube" class="platform-tab active px-5 py-2.5 rounded-xl border border-transparent text-sm font-semibold">
-            📺 YouTube
-        </button>
-        <button onclick="switchPlatform('facebook')" id="tab-facebook" class="platform-tab px-5 py-2.5 rounded-xl border border-transparent text-sm font-semibold">
-            📘 Facebook
-        </button>
-        <button onclick="switchPlatform('instagram')" id="tab-instagram" class="platform-tab px-5 py-2.5 rounded-xl border border-transparent text-sm font-semibold">
-            📸 Instagram
-        </button>
+<!-- PULSE -->
+<div class="section container">
+    <div class="section-label">Multi-Platform</div>
+    <div class="section-title">Denní dosah napříč platformami</div>
+    <div class="section-desc">Vývoj dosahu únor–březen 2026.</div>
+    <div class="card"><canvas id="pulseChart" height="100"></canvas></div>
+</div>
+
+<!-- YOY MATRIX -->
+<div class="section container">
+    <div class="section-label">Meziroční růst</div>
+    <div class="section-title">YoY Growth Matrix</div>
+    <div class="section-desc">Změna klíčových metrik 2025 → 2026 napříč platformami.</div>
+    <div class="grid-3" id="yoy-matrix"></div>
+</div>
+
+<!-- INDIAN FACTOR -->
+<div class="section container">
+    <div class="section-label">Geografie</div>
+    <div class="section-title">The Indian Factor</div>
+    <div class="section-desc">Vliv indických velmistrů (Gukesh, Praggnanandhaa, Vidit, Erigaisi, Sasikiran) na dosah.</div>
+    <div class="grid-3">
+        <div class="card">
+            <div class="card-label">Instagram</div>
+            <div style="display:flex;gap:20px;align-items:flex-end;margin-bottom:12px;">
+                <div><div class="small dim">S indickými hráči</div><div class="card-value" style="font-size:22px;" id="ig-indian-reach">—</div></div>
+                <div><div class="small dim">Ostatní</div><div style="font-family:var(--font-display);font-size:22px;font-weight:700;color:var(--text-dim);" id="ig-other-reach">—</div></div>
+            </div>
+            <div class="small" style="font-weight:600;" id="ig-indian-mult">—</div>
+            <canvas id="indianChartIG" height="120" style="margin-top:12px;"></canvas>
+        </div>
+        <div class="card">
+            <div class="card-label">YouTube</div>
+            <div style="display:flex;gap:20px;align-items:flex-end;margin-bottom:12px;">
+                <div><div class="small dim">S indickými hráči</div><div class="card-value" style="font-size:22px;" id="yt-indian-reach">—</div></div>
+                <div><div class="small dim">Ostatní</div><div style="font-family:var(--font-display);font-size:22px;font-weight:700;color:var(--text-dim);" id="yt-other-reach">—</div></div>
+            </div>
+            <div class="small" style="font-weight:600;" id="yt-indian-mult">—</div>
+            <canvas id="indianChartYT" height="120" style="margin-top:12px;"></canvas>
+        </div>
+        <div class="card">
+            <div class="card-label">Facebook</div>
+            <div style="display:flex;gap:20px;align-items:flex-end;margin-bottom:12px;">
+                <div><div class="small dim">S indickými hráči</div><div class="card-value" style="font-size:22px;" id="fb-indian-reach">—</div></div>
+                <div><div class="small dim">Ostatní</div><div style="font-family:var(--font-display);font-size:22px;font-weight:700;color:var(--text-dim);" id="fb-other-reach">—</div></div>
+            </div>
+            <div class="small" style="font-weight:600;" id="fb-indian-mult">—</div>
+            <canvas id="indianChartFB" height="120" style="margin-top:12px;"></canvas>
+        </div>
+    </div>
+</div>
+
+<!-- EFFICIENCY -->
+<div class="section container">
+    <div class="section-label">Efektivita</div>
+    <div class="section-title">Engagement Efficiency</div>
+    <div class="section-desc">Poměr příspěvků k celkovému dosahu — která platforma „pracovala" nejlépe?</div>
+    <div class="card"><canvas id="efficiencyChart" height="80"></canvas></div>
+</div>
+
+<!-- TOP 3 -->
+<div class="section container">
+    <div class="section-label">Highlights</div>
+    <div class="section-title">Top 3 momenty festivalu 2026</div>
+    <div class="section-desc">Nejúspěšnější příspěvky napříč všemi platformami dle dosahu.</div>
+    <div class="grid-3" id="top3-cards"></div>
+</div>
+
+<!-- STRATEGIC -->
+<div class="section container">
+    <div class="section-label">Strategie</div>
+    <div class="section-title">Strategický pohled analytika</div>
+    <div class="insight-box" style="margin-top:8px;">
+        <h3>Proč byl rok 2026 tak unikátní?</h3>
+        <p>PICF 2026 přinesl historický milník — poprvé v 95leté historii se pražského turnaje zúčastnil úřadující mistr světa. Příjezd <strong>Dommaraju Gukeshe</strong> vytvořil bezprecedentní mediální vlnu, zejména na Instagramu, kde jeden příspěvek dosáhl téměř <strong>96 000 lidí</strong>. YouTube zaznamenal <strong>+74 % zhlédnutí</strong> a <strong>+115 % watch time</strong>, Facebook <strong>+197 % nárůst dosahu</strong>.</p>
+        <h3 style="margin-top:20px;">Jak se změnilo publikum?</h3>
+        <p>Hlavní posun nastal v geografickém složení publika. „Indian Factor" na Instagramu ukazuje, že příspěvky zmiňující indické velmistry mají <strong>3,7× vyšší průměrný dosah</strong> než ostatní obsah. Na YouTube je multiplikátor <strong>1,9×</strong>. Indie se stala klíčovým trhem PICF. Festival také výrazně zvýšil objem obsahu (+39 % FB, +57 % IG).</p>
+        <h3 style="margin-top:20px;">3 kroky pro PICF 2027</h3>
+        <p><strong>1. Investovat do indického trhu cíleně</strong> — hindské/anglické titulky na YT, spolupráce s indickými šachovými influencery (ChessBase India, Samay Raina), cílená IG/FB reklama na indický subkontinent.</p>
+        <p><strong>2. Posílit YouTube jako primární platformu</strong> — Shorts z klíčových momentů partií, rozhovory ihned po partii, live stream s profesionálním komentářem. Cíl: 500K+ zhlédnutí v sezóně 2027.</p>
+        <p><strong>3. Optimalizovat Instagram pro engagement</strong> — méně příspěvků, vyšší kvalita. Carousel posty s analýzami partií, behind-the-scenes Reels, interaktivní Stories. Cíl: engagement rate &gt;5 %.</p>
+    </div>
+</div>
+
+</div><!-- /panel-social -->
+
+<!-- ════════════════════════════════════════════════ -->
+<!-- TAB 2: LIVESTREAM                               -->
+<!-- ════════════════════════════════════════════════ -->
+<div id="panel-livestream" class="tab-panel">
+
+<div class="section container">
+    <div class="section-label">Broadcasting</div>
+    <div class="section-title">Livestream & Broadcasting</div>
+    <div class="section-desc">Český komentovaný stream — klíčový nástroj pro lokální komunitu a sponzory.</div>
+
+    <div class="insight-box mb-32">
+        <h3>Český stream — Vlasák & Mládek</h3>
+        <p>Český komentovaný stream je jedním z nejvýznamnějších nástrojů PICF pro budování lokální fanouškovské základny. Komentátoři <strong>GM Jan Vlasák</strong> a <strong>FM Martin Mládek</strong> přinášejí profesionální, srozumitelný a zábavný český komentář, který zpřístupňuje elitní šach široké české a slovenské veřejnosti. Stream běží na YouTube kanálu festivalu a identifikujeme ho podle klíčových slov: <strong style="color:var(--gold);">CZ, Vlasák, Mládek</strong>.</p>
     </div>
 
-    <!-- Platform Content -->
-    <div id="platform-content">
-        <!-- Filled by JS -->
+    <div class="grid-3 mb-32">
+        <div class="card" style="text-align:center;">
+            <div class="card-label">Peak diváků (CZ stream)</div>
+            <div class="card-value dim">—</div>
+            <div class="card-sub">Data z YouTube Analytics</div>
+        </div>
+        <div class="card" style="text-align:center;">
+            <div class="card-label">Celková sledovanost CZ</div>
+            <div class="card-value dim">—</div>
+            <div class="card-sub">Data z YouTube Analytics</div>
+        </div>
+        <div class="card" style="text-align:center;">
+            <div class="card-label">Prům. délka sledování</div>
+            <div class="card-value dim">—</div>
+            <div class="card-sub">Data z YouTube Analytics</div>
+        </div>
     </div>
-</section>
 
-<div class="section-divider max-w-7xl mx-auto"></div>
-
-<!-- Multi-Platform Pulse -->
-<section class="max-w-7xl mx-auto px-6 py-12">
-    <h2 class="text-2xl font-bold mb-2">🫀 Multi-Platform Pulse</h2>
-    <p class="text-gray-500 mb-6">Vývoj denního dosahu napříč platformami (únor–březen 2026)</p>
-    <div class="glass rounded-2xl p-6 glow">
-        <canvas id="pulseChart" height="100"></canvas>
+    <div class="placeholder-box mb-32">
+        <div class="icon">📊</div>
+        <div>Graf sledovanosti CZ streamu v čase — čeká na data z YouTube Studio</div>
+        <div style="margin-top:6px;" class="dim">Filtr: videa obsahující "CZ", "Vlasák", "Mládek"</div>
     </div>
-</section>
 
-<div class="section-divider max-w-7xl mx-auto"></div>
-
-<!-- YoY Growth Matrix -->
-<section class="max-w-7xl mx-auto px-6 py-12">
-    <h2 class="text-2xl font-bold mb-2">📈 YoY Growth Matrix</h2>
-    <p class="text-gray-500 mb-6">Meziroční změna klíčových metrik 2025 → 2026</p>
-    <div class="grid md:grid-cols-3 gap-6" id="yoy-matrix">
-        <!-- Filled by JS -->
+    <div class="insight-box">
+        <h3>Proč je český stream zásadní?</h3>
+        <p>Český komentovaný stream není jen „překlad partií" — je to <strong>hlavní most mezi elitním šachem a českou fanouškovskou komunitou</strong>. Zatímco anglický stream cílí na globální publikum, český stream buduje emocionální vazbu s lokálními diváky.</p>
+        <div class="grid-3" style="margin:20px 0;">
+            <div style="padding:16px;background:rgba(255,255,255,0.02);border:1px solid var(--border);border-radius:4px;">
+                <div style="font-weight:600;color:#fff;margin-bottom:4px;">Prodej vstupenek</div>
+                <div class="small muted">Čeští diváci CZ streamu jsou 3–5× pravděpodobnější návštěvníci živého turnaje.</div>
+            </div>
+            <div style="padding:16px;background:rgba(255,255,255,0.02);border:1px solid var(--border);border-radius:4px;">
+                <div style="font-weight:600;color:#fff;margin-bottom:4px;">Sponzoři</div>
+                <div class="small muted">Lokální sponzoři ocení český dosah více než globální čísla v angličtině.</div>
+            </div>
+            <div style="padding:16px;background:rgba(255,255,255,0.02);border:1px solid var(--border);border-radius:4px;">
+                <div style="font-weight:600;color:#fff;margin-bottom:4px;">Mediální pokrytí</div>
+                <div class="small muted">ČT, Radiožurnál a sportovní média čerpají z českého streamu, ne z anglického.</div>
+            </div>
+        </div>
+        <p><strong style="color:var(--gold);">Doporučení pro 2027:</strong> Vytvořit dedikovaný český YouTube kanál nebo playlist, investovat do profi grafiky (overlays, stingers), a propojit stream s interaktivními prvky. Data o sledovanosti CZ streamu budou klíčová pro jednání s českými sponzory.</p>
     </div>
-</section>
+</div>
 
-<div class="section-divider max-w-7xl mx-auto"></div>
+</div><!-- /panel-livestream -->
 
-<!-- Indian Factor -->
-<section class="max-w-7xl mx-auto px-6 py-12">
-    <h2 class="text-2xl font-bold mb-2">🇮🇳 The Indian Factor</h2>
-    <p class="text-gray-500 mb-6">Vliv indických velmistrů (Gukesh, Praggnanandhaa, Vidit, Erigaisi, Sasikiran) na dosah a engagement</p>
-    <div class="grid md:grid-cols-3 gap-6">
-        <div class="glass rounded-2xl p-6 stat-card">
-            <p class="text-sm text-gray-500 mb-4">📸 Instagram</p>
-            <div class="flex items-end gap-4 mb-3">
-                <div>
-                    <p class="text-xs text-gray-500">S indickými hráči</p>
-                    <p class="text-2xl font-bold text-purple-400" id="ig-indian-reach">—</p>
+<!-- ════════════════════════════════════════════════ -->
+<!-- TAB 3: EMAIL MARKETING                          -->
+<!-- ════════════════════════════════════════════════ -->
+<div id="panel-email" class="tab-panel">
+
+<div class="section container">
+    <div class="section-label">Newsletter</div>
+    <div class="section-title">Email Marketing</div>
+    <div class="section-desc">Mailchimp kampaně PICF 2026 — období 24. 2. – 8. 3. 2026 (turnajový týden).</div>
+
+    <div class="grid-4 mb-32">
+        <div class="card" style="text-align:center;border-left:3px solid var(--gold);">
+            <div class="card-label">Celkem odesláno</div>
+            <div class="card-value">18 481</div>
+            <div class="card-sub">25 kampaní za 13 dní</div>
+        </div>
+        <div class="card" style="text-align:center;border-left:3px solid var(--green);">
+            <div class="card-label">Průměrný Open Rate</div>
+            <div class="card-value" style="color:var(--green);">31,4 %</div>
+            <div class="card-sub">8 482 otevření celkem</div>
+        </div>
+        <div class="card" style="text-align:center;border-left:3px solid var(--blue);">
+            <div class="card-label">Průměrný Click Rate</div>
+            <div class="card-value" style="color:var(--blue);">2,6 %</div>
+            <div class="card-sub">707 prokliků celkem</div>
+        </div>
+        <div class="card" style="text-align:center;border-left:3px solid var(--red);">
+            <div class="card-label">Unsubscribe Rate</div>
+            <div class="card-value" style="color:var(--text);">0,17 %</div>
+            <div class="card-sub">Velmi nízká odhlašovací míra</div>
+        </div>
+    </div>
+
+    <div class="grid-2 mb-32">
+        <!-- Funnel -->
+        <div class="card">
+            <div class="card-label">Konverzní trychtýř</div>
+            <div style="margin-top:16px;">
+                <div class="funnel-step">
+                    <div class="funnel-label"><span class="muted">Odesláno</span><span style="font-weight:700;color:#fff;">18 481</span></div>
+                    <div class="funnel-bar" style="width:100%;background:rgba(212,175,55,0.2);"><span style="color:var(--gold);">100 %</span></div>
                 </div>
-                <div>
-                    <p class="text-xs text-gray-500">Ostatní</p>
-                    <p class="text-2xl font-bold text-gray-500" id="ig-other-reach">—</p>
+                <div class="funnel-step">
+                    <div class="funnel-label"><span class="muted">Otevřeno</span><span style="font-weight:700;color:#fff;">8 482</span></div>
+                    <div class="funnel-bar" style="width:45.9%;background:rgba(99,179,237,0.2);"><span style="color:var(--blue);">45,9 %</span></div>
+                </div>
+                <div class="funnel-step">
+                    <div class="funnel-label"><span class="muted">Prokliknuto</span><span style="font-weight:700;color:#fff;">707</span></div>
+                    <div class="funnel-bar" style="width:8%;min-width:80px;background:rgba(197,48,48,0.2);"><span style="color:var(--red-light);">3,8 %</span></div>
                 </div>
             </div>
-            <p class="text-sm font-semibold" id="ig-indian-mult">—</p>
-            <canvas id="indianChartIG" height="120" class="mt-4"></canvas>
-        </div>
-        <div class="glass rounded-2xl p-6 stat-card">
-            <p class="text-sm text-gray-500 mb-4">📺 YouTube</p>
-            <div class="flex items-end gap-4 mb-3">
-                <div>
-                    <p class="text-xs text-gray-500">S indickými hráči</p>
-                    <p class="text-2xl font-bold text-purple-400" id="yt-indian-reach">—</p>
-                </div>
-                <div>
-                    <p class="text-xs text-gray-500">Ostatní</p>
-                    <p class="text-2xl font-bold text-gray-500" id="yt-other-reach">—</p>
-                </div>
+            <div style="margin-top:20px;padding:14px;background:rgba(255,255,255,0.02);border:1px solid var(--border);border-radius:4px;">
+                <p class="small muted" style="line-height:1.6;"><strong style="color:var(--gold);">Insight:</strong> Open rate 31,4 % je nadprůměrný v segmentu sportovních eventů (průměr ~25 %). Konverze otevření→proklik (8,3 %) ukazuje na relevantní obsah s prostorem pro optimalizaci CTA.</p>
             </div>
-            <p class="text-sm font-semibold" id="yt-indian-mult">—</p>
-            <canvas id="indianChartYT" height="120" class="mt-4"></canvas>
         </div>
-        <div class="glass rounded-2xl p-6 stat-card">
-            <p class="text-sm text-gray-500 mb-4">📘 Facebook</p>
-            <div class="flex items-end gap-4 mb-3">
-                <div>
-                    <p class="text-xs text-gray-500">S indickými hráči</p>
-                    <p class="text-2xl font-bold text-purple-400" id="fb-indian-reach">—</p>
-                </div>
-                <div>
-                    <p class="text-xs text-gray-500">Ostatní</p>
-                    <p class="text-2xl font-bold text-gray-500" id="fb-other-reach">—</p>
-                </div>
-            </div>
-            <p class="text-sm font-semibold" id="fb-indian-mult">—</p>
-            <canvas id="indianChartFB" height="120" class="mt-4"></canvas>
-        </div>
-    </div>
-</section>
 
-<div class="section-divider max-w-7xl mx-auto"></div>
-
-<!-- Engagement Efficiency -->
-<section class="max-w-7xl mx-auto px-6 py-12">
-    <h2 class="text-2xl font-bold mb-2">⚡ Engagement Efficiency</h2>
-    <p class="text-gray-500 mb-6">Která platforma „pracovala" nejlépe? Poměr příspěvků k celkovému dosahu.</p>
-    <div class="glass rounded-2xl p-6 glow">
-        <canvas id="efficiencyChart" height="80"></canvas>
-    </div>
-</section>
-
-<div class="section-divider max-w-7xl mx-auto"></div>
-
-<!-- Top 3 Moments -->
-<section class="max-w-7xl mx-auto px-6 py-12">
-    <h2 class="text-2xl font-bold mb-2">🌟 Top 3 momenty festivalu 2026</h2>
-    <p class="text-gray-500 mb-6">Nejúspěšnější příspěvky napříč všemi platformami dle dosahu</p>
-    <div class="grid md:grid-cols-3 gap-6" id="top3-cards">
-        <!-- Filled by JS -->
-    </div>
-</section>
-
-<div class="section-divider max-w-7xl mx-auto"></div>
-
-<!-- Executive Summary -->
-<section class="max-w-7xl mx-auto px-6 py-12">
-    <h2 class="text-2xl font-bold mb-6">🧠 Strategický pohled analytika</h2>
-    <div class="glass rounded-2xl p-8 glow">
-        <div class="prose prose-invert max-w-none">
-            <h3 class="text-lg font-bold text-purple-400 mb-3">Proč byl rok 2026 tak unikátní?</h3>
-            <p class="text-gray-300 leading-relaxed mb-4">
-                PICF 2026 přinesl historický milník — poprvé v 95leté historii se pražského turnaje zúčastnil úřadující mistr světa.
-                Příjezd <strong>Dommaraju Gukeshe</strong> vytvořil bezprecedentní mediální vlnu, zejména na Instagramu,
-                kde jeden příspěvek spojený s jeho jménem dosáhl téměř <strong>96 000 lidí</strong> — 22× více než průměrný post.
-                YouTube zaznamenal <strong>+74 % zhlédnutí</strong> a <strong>+115 % watch time</strong>, Facebook <strong>+197 % nárůst dosahu</strong>.
-            </p>
-
-            <h3 class="text-lg font-bold text-purple-400 mb-3">Jak se změnilo publikum?</h3>
-            <p class="text-gray-300 leading-relaxed mb-4">
-                Hlavní posun nastal v <strong>geografickém složení</strong> publika. „Indian Factor" na Instagramu ukazuje,
-                že příspěvky zmiňující indické velmistry mají <strong>3,7× vyšší průměrný dosah</strong> než ostatní obsah.
-                Na YouTube je multiplikátor <strong>1,9×</strong>. Indie se stala klíčovým trhem PICF — šachová komunita
-                s 1,4 miliardou obyvatel sleduje, kde hrají jejich hvězdy. Festival také výrazně zvýšil
-                objem obsahu (+39 % FB, +57 % IG), což ukazuje na profesionalizaci content týmu.
-                Zajímavý je nárůst <strong>sdílení (+100 %)</strong> a <strong>uložení (+295 %)</strong> na Instagramu,
-                signalizující posun k obsahu s vyšší hodnotou pro uživatele.
-            </p>
-
-            <h3 class="text-lg font-bold text-purple-400 mb-3">3 kroky pro digitální strategii PICF 2027</h3>
-            <div class="space-y-4">
-                <div class="flex gap-3">
-                    <span class="text-2xl">1️⃣</span>
-                    <div>
-                        <p class="font-semibold text-white">Investovat do indického trhu cíleně</p>
-                        <p class="text-gray-400 text-sm">
-                            Data jasně ukazují, že indičtí hráči = indické publikum. Pro 2027 doporučuji:
-                            hindské/anglické titulky na YT, spolupráce s indickými šachovými influencery
-                            (ChessBase India, Samay Raina), cílená IG/FB reklama na indický subkontinent
-                            v týdnu před turnajem. ROI bude enormní.
-                        </p>
+        <!-- Top 3 + Chart -->
+        <div>
+            <div class="card mb-16">
+                <div class="card-label">Top 3 emaily (Open Rate)</div>
+                <div style="margin-top:12px;">
+                    <div class="email-row">
+                        <div class="medal">🥇</div>
+                        <div class="info"><div class="date">24. 2. 2026, 12:34</div><div class="detail">866 odesláno — Den 1 turnaje (EN)</div></div>
+                        <div class="rate"><div class="val">42 %</div><div class="lbl">Open Rate</div></div>
+                    </div>
+                    <div class="email-row">
+                        <div class="medal">🥈</div>
+                        <div class="info"><div class="date">24. 2. 2026, 12:30</div><div class="detail">626 odesláno — Den 1 turnaje (CZ)</div></div>
+                        <div class="rate"><div class="val">40 %</div><div class="lbl">Open Rate</div></div>
+                    </div>
+                    <div class="email-row">
+                        <div class="medal">🥉</div>
+                        <div class="info"><div class="date">26. 2. 2026, 12:50</div><div class="detail">866 odesláno — 3. kolo (EN)</div></div>
+                        <div class="rate"><div class="val">39 %</div><div class="lbl">Open Rate</div></div>
                     </div>
                 </div>
-                <div class="flex gap-3">
-                    <span class="text-2xl">2️⃣</span>
-                    <div>
-                        <p class="font-semibold text-white">Posílit YouTube jako primární platformu</p>
-                        <p class="text-gray-400 text-sm">
-                            YouTube je jediná platforma s růstem napříč všemi metrikami (+74 % views, +115 % watch time,
-                            +114 % odběratelů). Doporučuji: krátké klipy (Shorts) z klíčových momentů partií,
-                            rozhovory s hráči ihned po partii (reakce v reálném čase), a live stream
-                            s profesionálním komentářem. Cíl: 500K+ zhlédnutí v sezóně 2027.
-                        </p>
-                    </div>
-                </div>
-                <div class="flex gap-3">
-                    <span class="text-2xl">3️⃣</span>
-                    <div>
-                        <p class="font-semibold text-white">Optimalizovat Instagram pro engagement, ne jen dosah</p>
-                        <p class="text-gray-400 text-sm">
-                            Instagram ukázal paradox: +57 % příspěvků, ale -13 % dosah a -34 % engagement.
-                            Méně je více — zaměřit se na kvalitu (carousel posty s analýzami partií,
-                            behind-the-scenes Reels, interaktivní Stories s kvízy). Nárůst uložení (+295 %)
-                            naznačuje, že publikum chce hodnotný, edukativní obsah. Cíl: engagement rate >5 %.
-                        </p>
-                    </div>
-                </div>
+            </div>
+            <div class="card">
+                <div class="card-label">Vývoj Open Rate v čase</div>
+                <canvas id="emailOpenRateChart" height="160" style="margin-top:12px;"></canvas>
             </div>
         </div>
     </div>
-</section>
 
-<!-- Footer -->
-<footer class="max-w-7xl mx-auto px-6 py-8 text-center text-gray-600 text-sm">
-    <p>Prague International Chess Festival — Digitální Audit 2025–2026</p>
-    <p class="mt-1">Generováno automaticky z dat YouTube, Facebook & Instagram</p>
+    <div class="insight-box">
+        <h3>Strategický pohled: Email marketing PICF</h3>
+        <p>Festival rozesílal <strong>každý turnajový den 2 verze</strong> emailu — jednu pro český (~650 příjemců) a druhou pro mezinárodní (~870 příjemců) segment. Celkem 25 kampaní za 13 dní.</p>
+        <p><strong style="color:var(--gold);">Klíčové zjištění:</strong> Open Rate klesá z 42 % (den 1) na ~28–30 % (den 10+). Řešení pro 2027: segmentace frekvence — hardcore fanoušci dostanou denní update, casual odběratelé jen 3× za turnaj (start, highlight, finále).</p>
+        <p>CZ verze emailů mívá <strong>vyšší Click Rate (ø 3,2 %)</strong> než EN verze (ø 1,8 %), což potvrzuje vyšší engagement lokálního publika.</p>
+    </div>
+</div>
+
+</div><!-- /panel-email -->
+
+<!-- ════════════════════════════════════════════════ -->
+<!-- TAB 4: MOBILE PASSES                            -->
+<!-- ════════════════════════════════════════════════ -->
+<div id="panel-passes" class="tab-panel">
+
+<div class="section container">
+    <div class="section-label">PassMachine</div>
+    <div class="section-title">Mobile Passes</div>
+    <div class="section-desc">Digitální karty festivalu — Player Card, Hráčská karta, Fanouškovská karta & Fans Card.</div>
+
+    <div class="grid-4 mb-32">
+        <div class="card" style="text-align:center;border-left:3px solid var(--gold);">
+            <div class="card-label">Vytvořených karet</div>
+            <div class="card-value">723</div>
+            <div class="card-sub">4 typy karet</div>
+        </div>
+        <div class="card" style="text-align:center;border-left:3px solid var(--green);">
+            <div class="card-label">Staženo do peněženky</div>
+            <div class="card-value" style="color:var(--green);">486</div>
+            <div class="card-sub">339 hráčských + 147 fan</div>
+        </div>
+        <div class="card" style="text-align:center;border-left:3px solid var(--blue);">
+            <div class="card-label">Aktuálně aktivních</div>
+            <div class="card-value" style="color:var(--blue);">415</div>
+            <div class="card-sub">268 hráčů + 147 fanoušků</div>
+        </div>
+        <div class="card" style="text-align:center;border-left:3px solid var(--red);">
+            <div class="card-label">Míra retence</div>
+            <div class="card-value">57,4 %</div>
+            <div class="card-sub">Uživatelé s aktivní kartou</div>
+        </div>
+    </div>
+
+    <div class="grid-2 mb-32">
+        <div class="card">
+            <div class="card-label">Apple Wallet vs Google Wallet</div>
+            <canvas id="walletPlatformChart" height="260" style="margin-top:12px;"></canvas>
+            <div class="grid-2" style="margin-top:16px; gap:8px;">
+                <div style="padding:10px;background:rgba(255,255,255,0.02);border:1px solid var(--border);border-radius:4px;text-align:center;">
+                    <div class="small dim"> Apple Wallet</div>
+                    <div style="font-family:var(--font-display);font-size:20px;font-weight:700;color:#fff;">246</div>
+                </div>
+                <div style="padding:10px;background:rgba(255,255,255,0.02);border:1px solid var(--border);border-radius:4px;text-align:center;">
+                    <div class="small dim">Google Wallet</div>
+                    <div style="font-family:var(--font-display);font-size:20px;font-weight:700;color:#fff;">210</div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-label">Top 10 zemí (hráčské karty)</div>
+            <div id="country-ranking" style="margin-top:16px;"></div>
+        </div>
+    </div>
+
+    <div class="grid-4 mb-32">
+        <div class="card" style="text-align:center;">
+            <div style="font-size:28px;margin-bottom:8px;">♟</div>
+            <div class="card-label">Player Card</div>
+            <div class="card-value" style="font-size:26px;">314</div>
+            <div class="card-sub">EN verze</div>
+        </div>
+        <div class="card" style="text-align:center;">
+            <div style="font-size:28px;margin-bottom:8px;">🏅</div>
+            <div class="card-label">Hráčská karta</div>
+            <div class="card-value" style="font-size:26px;">256</div>
+            <div class="card-sub">CZ verze</div>
+        </div>
+        <div class="card" style="text-align:center;">
+            <div style="font-size:28px;margin-bottom:8px;">🇨🇿</div>
+            <div class="card-label">Fanouškovská karta</div>
+            <div class="card-value" style="font-size:26px;">70</div>
+            <div class="card-sub">17→70 stažení</div>
+        </div>
+        <div class="card" style="text-align:center;">
+            <div style="font-size:28px;margin-bottom:8px;">🌐</div>
+            <div class="card-label">Fans Card</div>
+            <div class="card-value" style="font-size:26px;">77</div>
+            <div class="card-sub">13→77 stažení</div>
+        </div>
+    </div>
+
+    <div class="card mb-32">
+        <div class="card-label">Růst fanouškovských karet (1. 2. – 26. 3. 2026)</div>
+        <canvas id="fanCardsGrowthChart" height="100" style="margin-top:12px;"></canvas>
+    </div>
+
+    <div class="insight-box">
+        <h3>Potenciál mobilních karet pro mezinárodní marketing</h3>
+        <p>Data ukazují, že hráčské karty pokrývají <strong>47+ zemí světa</strong> — od Česka (205 karet) přes Německo (42), Indii (34), Slovensko (29) až po Afghánistán, Etiopii nebo Panamu. To z mobilní karty dělá <strong>unikátní mezinárodní marketingový kanál</strong>.</p>
+        <p><strong style="color:var(--gold);">Indie (34 karet, 3. místo)</strong> potvrzuje trend z analýzy sociálních sítí — indičtí hráči jsou klíčovým publikem PICF. Push notifikace na 34 kartách v Indii mají potenciál dosáhnout vyššího engagement rate než jakýkoliv sociální příspěvek, protože jde o <strong>přímý, personalizovaný kanál bez algoritmického filtru</strong>.</p>
+        <p><strong style="color:var(--gold);">Doporučení pro 2027:</strong> (1) Spustit fanouškovské karty 2 měsíce před turnajem s early-bird obsahem. (2) Push notifikace pro klíčové momenty (zahájení kola, výsledky). (3) Loyalty program — sbírání bodů za návštěvy a sdílení. (4) Acquisition kampaně na top země: Německo, Indie, Slovensko, Polsko, Španělsko.</p>
+    </div>
+</div>
+
+</div><!-- /panel-passes -->
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="site-footer">
+    <div class="container">
+        <div style="font-family:var(--font-display);font-size:14px;color:var(--text-muted);margin-bottom:4px;">Prague International Chess Festival</div>
+        <div>Digitální Audit 2025–2026 · Social Media · Livestream · Email · Mobile Passes</div>
+    </div>
 </footer>
 
+<!-- ═══════════════════════════════════ -->
+<!-- SCRIPTS                            -->
+<!-- ═══════════════════════════════════ -->
 <script>
 // ── DATA ──
 const DATA = {"generated_at": "2026-03-20T08:32:43.242820", "facebook": {"stats_2025": {"pocet_prispevku": 132, "celkovy_dosah": 72666, "celkove_zhlednuti": 162765, "celkove_reakce": 4338, "celkove_komentare": 781, "celkove_sdileni": 308, "celkove_kliknuti": 8154, "celkovy_engagement": 5427, "engagement_per_post": 41.1, "dosah_per_post": 550.5}, "stats_2026": {"pocet_prispevku": 184, "celkovy_dosah": 216140, "celkove_zhlednuti": 350098, "celkove_reakce": 5349, "celkove_komentare": 297, "celkove_sdileni": 222, "celkove_kliknuti": 17158, "celkovy_engagement": 5868, "engagement_per_post": 31.9, "dosah_per_post": 1174.7}, "daily_2025": [{"datum": "2025-01-03", "dosah": 329, "engagement": 4}, {"datum": "2025-01-10", "dosah": 356, "engagement": 7}, {"datum": "2025-01-12", "dosah": 700, "engagement": 9}, {"datum": "2025-01-19", "dosah": 323, "engagement": 10}, {"datum": "2025-01-24", "dosah": 692, "engagement": 41}, {"datum": "2025-01-25", "dosah": 287, "engagement": 4}, {"datum": "2025-01-28", "dosah": 245, "engagement": 10}, {"datum": "2025-02-01", "dosah": 0, "engagement": 0}, {"datum": "2025-02-02", "dosah": 1269, "engagement": 362}, {"datum": "2025-02-05", "dosah": 17, "engagement": 16}, {"datum": "2025-02-07", "dosah": 2645, "engagement": 372}, {"datum": "2025-02-08", "dosah": 315, "engagement": 18}, {"datum": "2025-02-10", "dosah": 2521, "engagement": 163}, {"datum": "2025-02-13", "dosah": 2107, "engagement": 45}, {"datum": "2025-02-15", "dosah": 860, "engagement": 83}, {"datum": "2025-02-16", "dosah": 1155, "engagement": 65}, {"datum": "2025-02-19", "dosah": 372, "engagement": 12}, {"datum": "2025-02-20", "dosah": 483, "engagement": 19}, {"datum": "2025-02-22", "dosah": 1211, "engagement": 34}, {"datum": "2025-02-23", "dosah": 2822, "engagement": 169}, {"datum": "2025-02-24", "dosah": 1532, "engagement": 65}, {"datum": "2025-02-25", "dosah": 6112, "engagement": 428}, {"datum": "2025-02-26", "dosah": 3891, "engagement": 148}, {"datum": "2025-02-27", "dosah": 4021, "engagement": 118}, {"datum": "2025-02-28", "dosah": 4066, "engagement": 102}, {"datum": "2025-03-01", "dosah": 2862, "engagement": 71}, {"datum": "2025-03-02", "dosah": 5117, "engagement": 138}, {"datum": "2025-03-03", "dosah": 2802, "engagement": 58}, {"datum": "2025-03-04", "dosah": 3554, "engagement": 101}, {"datum": "2025-03-05", "dosah": 4665, "engagement": 439}, {"datum": "2025-03-06", "dosah": 2718, "engagement": 75}, {"datum": "2025-03-07", "dosah": 6117, "engagement": 1902}, {"datum": "2025-03-08", "dosah": 2929, "engagement": 178}, {"datum": "2025-03-09", "dosah": 1317, "engagement": 56}, {"datum": "2025-03-11", "dosah": 516, "engagement": 30}, {"datum": "2025-03-18", "dosah": 425, "engagement": 14}, {"datum": "2025-03-21", "dosah": 194, "engagement": 3}, {"datum": "2025-03-27", "dosah": 941, "engagement": 53}, {"datum": "2025-03-29", "dosah": 178, "engagement": 5}], "daily_2026": [{"datum": "2026-01-06", "dosah": 731, "engagement": 18}, {"datum": "2026-01-07", "dosah": 847, "engagement": 98}, {"datum": "2026-01-13", "dosah": 1501, "engagement": 32}, {"datum": "2026-01-16", "dosah": 335, "engagement": 13}, {"datum": "2026-01-17", "dosah": 679, "engagement": 12}, {"datum": "2026-01-19", "dosah": 357, "engagement": 8}, {"datum": "2026-01-20", "dosah": 338, "engagement": 12}, {"datum": "2026-01-21", "dosah": 450, "engagement": 7}, {"datum": "2026-01-22", "dosah": 412, "engagement": 5}, {"datum": "2026-01-27", "dosah": 1173, "engagement": 35}, {"datum": "2026-01-28", "dosah": 632, "engagement": 24}, {"datum": "2026-01-30", "dosah": 1573, "engagement": 44}, {"datum": "2026-01-31", "dosah": 527, "engagement": 31}, {"datum": "2026-02-02", "dosah": 643, "engagement": 15}, {"datum": "2026-02-03", "dosah": 1045, "engagement": 14}, {"datum": "2026-02-04", "dosah": 518, "engagement": 9}, {"datum": "2026-02-05", "dosah": 642, "engagement": 8}, {"datum": "2026-02-06", "dosah": 572, "engagement": 17}, {"datum": "2026-02-07", "dosah": 1504, "engagement": 27}, {"datum": "2026-02-10", "dosah": 1083, "engagement": 43}, {"datum": "2026-02-11", "dosah": 2487, "engagement": 24}, {"datum": "2026-02-14", "dosah": 1810, "engagement": 134}, {"datum": "2026-02-15", "dosah": 3948, "engagement": 103}, {"datum": "2026-02-16", "dosah": 1601, "engagement": 106}, {"datum": "2026-02-17", "dosah": 2235, "engagement": 48}, {"datum": "2026-02-18", "dosah": 4925, "engagement": 429}, {"datum": "2026-02-19", "dosah": 1932, "engagement": 77}, {"datum": "2026-02-20", "dosah": 4531, "engagement": 108}, {"datum": "2026-02-21", "dosah": 9359, "engagement": 209}, {"datum": "2026-02-22", "dosah": 1185, "engagement": 22}, {"datum": "2026-02-23", "dosah": 8623, "engagement": 244}, {"datum": "2026-02-24", "dosah": 8419, "engagement": 218}, {"datum": "2026-02-25", "dosah": 10650, "engagement": 233}, {"datum": "2026-02-26", "dosah": 15306, "engagement": 235}, {"datum": "2026-02-27", "dosah": 6818, "engagement": 106}, {"datum": "2026-02-28", "dosah": 15550, "engagement": 301}, {"datum": "2026-03-01", "dosah": 22225, "engagement": 370}, {"datum": "2026-03-02", "dosah": 9690, "engagement": 222}, {"datum": "2026-03-03", "dosah": 12658, "engagement": 301}, {"datum": "2026-03-04", "dosah": 7469, "engagement": 103}, {"datum": "2026-03-05", "dosah": 14102, "engagement": 229}, {"datum": "2026-03-06", "dosah": 27501, "engagement": 1371}, {"datum": "2026-03-07", "dosah": 2917, "engagement": 56}, {"datum": "2026-03-08", "dosah": 2122, "engagement": 63}, {"datum": "2026-03-10", "dosah": 1316, "engagement": 35}, {"datum": "2026-03-11", "dosah": 690, "engagement": 39}, {"datum": "2026-03-15", "dosah": 509, "engagement": 10}], "indian_factor_2026": {"posts_with_indian": 7, "posts_without": 177, "avg_reach_indian": 739.8571428571429, "avg_reach_other": 1198.6420454545455}}, "instagram": {"stats_2025": {"pocet_prispevku": 136, "celkovy_dosah": 1032819, "celkove_zobrazeni": 1673782, "celkove_lajky": 67215, "celkove_komentare": 297, "celkove_sdileni": 1172, "celkove_ulozeni": 427, "celkovy_engagement": 69111, "engagement_per_post": 508.2, "dosah_per_post": 7594.3}, "stats_2026": {"pocet_prispevku": 214, "celkovy_dosah": 901763, "celkove_zobrazeni": 1547821, "celkove_lajky": 40944, "celkove_komentare": 554, "celkove_sdileni": 2346, "celkove_ulozeni": 1686, "celkovy_engagement": 45530, "engagement_per_post": 212.8, "dosah_per_post": 4213.8}, "daily_2025": [{"datum": "2025-01-03", "dosah": 863, "zobrazeni": 1374, "engagement": 32}, {"datum": "2025-01-10", "dosah": 3867, "zobrazeni": 16693, "engagement": 155}, {"datum": "2025-01-12", "dosah": 764, "zobrazeni": 1317, "engagement": 35}, {"datum": "2025-01-25", "dosah": 547, "zobrazeni": 824, "engagement": 24}, {"datum": "2025-01-28", "dosah": 1687, "zobrazeni": 3136, "engagement": 122}, {"datum": "2025-02-02", "dosah": 5450, "zobrazeni": 8777, "engagement": 667}, {"datum": "2025-02-05", "dosah": 2577, "zobrazeni": 4961, "engagement": 123}, {"datum": "2025-02-08", "dosah": 18661, "zobrazeni": 35262, "engagement": 1236}, {"datum": "2025-02-10", "dosah": 23695, "zobrazeni": 33899, "engagement": 1045}, {"datum": "2025-02-13", "dosah": 873, "zobrazeni": 1616, "engagement": 19}, {"datum": "2025-02-15", "dosah": 6450, "zobrazeni": 10353, "engagement": 273}, {"datum": "2025-02-16", "dosah": 32677, "zobrazeni": 54445, "engagement": 1292}, {"datum": "2025-02-19", "dosah": 1168, "zobrazeni": 2003, "engagement": 79}, {"datum": "2025-02-20", "dosah": 14950, "zobrazeni": 18191, "engagement": 386}, {"datum": "2025-02-22", "dosah": 1058, "zobrazeni": 1969, "engagement": 48}, {"datum": "2025-02-23", "dosah": 1018, "zobrazeni": 1707, "engagement": 42}, {"datum": "2025-02-24", "dosah": 1650, "zobrazeni": 3267, "engagement": 100}, {"datum": "2025-02-25", "dosah": 79565, "zobrazeni": 171629, "engagement": 4341}, {"datum": "2025-02-26", "dosah": 21053, "zobrazeni": 34455, "engagement": 813}, {"datum": "2025-02-27", "dosah": 131419, "zobrazeni": 223700, "engagement": 8875}, {"datum": "2025-02-28", "dosah": 208498, "zobrazeni": 314694, "engagement": 14692}, {"datum": "2025-03-01", "dosah": 6819, "zobrazeni": 12489, "engagement": 350}, {"datum": "2025-03-02", "dosah": 191359, "zobrazeni": 274646, "engagement": 16370}, {"datum": "2025-03-03", "dosah": 77327, "zobrazeni": 111245, "engagement": 2461}, {"datum": "2025-03-04", "dosah": 44926, "zobrazeni": 69360, "engagement": 1736}, {"datum": "2025-03-05", "dosah": 5714, "zobrazeni": 10102, "engagement": 275}, {"datum": "2025-03-06", "dosah": 7216, "zobrazeni": 12846, "engagement": 341}, {"datum": "2025-03-07", "dosah": 23089, "zobrazeni": 51594, "engagement": 902}, {"datum": "2025-03-08", "dosah": 21349, "zobrazeni": 31756, "engagement": 1030}, {"datum": "2025-03-09", "dosah": 90449, "zobrazeni": 145899, "engagement": 9089}, {"datum": "2025-03-11", "dosah": 674, "zobrazeni": 1057, "engagement": 23}, {"datum": "2025-03-12", "dosah": 2577, "zobrazeni": 3653, "engagement": 73}, {"datum": "2025-03-18", "dosah": 804, "zobrazeni": 1434, "engagement": 70}, {"datum": "2025-03-21", "dosah": 749, "zobrazeni": 1019, "engagement": 11}, {"datum": "2025-03-27", "dosah": 1277, "zobrazeni": 2410, "engagement": 85}], "daily_2026": [{"datum": "2026-01-06", "dosah": 704, "zobrazeni": 1949, "engagement": 49}, {"datum": "2026-01-07", "dosah": 4142, "zobrazeni": 6161, "engagement": 137}, {"datum": "2026-01-13", "dosah": 1001, "zobrazeni": 2735, "engagement": 90}, {"datum": "2026-01-16", "dosah": 564, "zobrazeni": 1433, "engagement": 48}, {"datum": "2026-01-17", "dosah": 571, "zobrazeni": 1476, "engagement": 48}, {"datum": "2026-01-19", "dosah": 2373, "zobrazeni": 5345, "engagement": 188}, {"datum": "2026-01-20", "dosah": 619, "zobrazeni": 1693, "engagement": 68}, {"datum": "2026-01-21", "dosah": 508, "zobrazeni": 1164, "engagement": 29}, {"datum": "2026-01-22", "dosah": 515, "zobrazeni": 1142, "engagement": 35}, {"datum": "2026-01-27", "dosah": 4611, "zobrazeni": 8346, "engagement": 212}, {"datum": "2026-01-28", "dosah": 743, "zobrazeni": 1242, "engagement": 38}, {"datum": "2026-01-30", "dosah": 527, "zobrazeni": 1508, "engagement": 42}, {"datum": "2026-01-31", "dosah": 4496, "zobrazeni": 6106, "engagement": 120}, {"datum": "2026-02-02", "dosah": 503, "zobrazeni": 1291, "engagement": 42}, {"datum": "2026-02-03", "dosah": 863, "zobrazeni": 1821, "engagement": 35}, {"datum": "2026-02-04", "dosah": 471, "zobrazeni": 1107, "engagement": 22}, {"datum": "2026-02-05", "dosah": 493, "zobrazeni": 1085, "engagement": 27}, {"datum": "2026-02-06", "dosah": 4326, "zobrazeni": 7668, "engagement": 283}, {"datum": "2026-02-07", "dosah": 1536, "zobrazeni": 3076, "engagement": 97}, {"datum": "2026-02-10", "dosah": 1277, "zobrazeni": 2442, "engagement": 64}, {"datum": "2026-02-11", "dosah": 4684, "zobrazeni": 10659, "engagement": 202}, {"datum": "2026-02-14", "dosah": 3418, "zobrazeni": 7492, "engagement": 188}, {"datum": "2026-02-15", "dosah": 1405, "zobrazeni": 3509, "engagement": 80}, {"datum": "2026-02-16", "dosah": 597, "zobrazeni": 1306, "engagement": 25}, {"datum": "2026-02-17", "dosah": 15350, "zobrazeni": 25704, "engagement": 326}, {"datum": "2026-02-18", "dosah": 41642, "zobrazeni": 84056, "engagement": 1929}, {"datum": "2026-02-19", "dosah": 1280, "zobrazeni": 2862, "engagement": 53}, {"datum": "2026-02-20", "dosah": 1942, "zobrazeni": 4285, "engagement": 101}, {"datum": "2026-02-21", "dosah": 8785, "zobrazeni": 18221, "engagement": 399}, {"datum": "2026-02-22", "dosah": 4986, "zobrazeni": 10361, "engagement": 179}, {"datum": "2026-02-23", "dosah": 10134, "zobrazeni": 22045, "engagement": 562}, {"datum": "2026-02-24", "dosah": 17920, "zobrazeni": 37944, "engagement": 1345}, {"datum": "2026-02-25", "dosah": 46048, "zobrazeni": 92202, "engagement": 2219}, {"datum": "2026-02-26", "dosah": 44241, "zobrazeni": 75430, "engagement": 1369}, {"datum": "2026-02-27", "dosah": 35740, "zobrazeni": 56952, "engagement": 1068}, {"datum": "2026-02-28", "dosah": 47784, "zobrazeni": 77076, "engagement": 1367}, {"datum": "2026-03-01", "dosah": 141068, "zobrazeni": 250929, "engagement": 6480}, {"datum": "2026-03-02", "dosah": 50743, "zobrazeni": 73351, "engagement": 2939}, {"datum": "2026-03-03", "dosah": 91218, "zobrazeni": 138715, "engagement": 1890}, {"datum": "2026-03-04", "dosah": 39354, "zobrazeni": 58944, "engagement": 1015}, {"datum": "2026-03-05", "dosah": 65390, "zobrazeni": 104708, "engagement": 1744}, {"datum": "2026-03-06", "dosah": 71736, "zobrazeni": 145404, "engagement": 5928}, {"datum": "2026-03-07", "dosah": 16266, "zobrazeni": 30561, "engagement": 1335}, {"datum": "2026-03-08", "dosah": 102675, "zobrazeni": 146015, "engagement": 6233}, {"datum": "2026-03-10", "dosah": 3180, "zobrazeni": 5068, "engagement": 116}, {"datum": "2026-03-11", "dosah": 2525, "zobrazeni": 4006, "engagement": 166}, {"datum": "2026-03-15", "dosah": 809, "zobrazeni": 1226, "engagement": 12}], "indian_factor_2026": {"posts_with_indian": 17, "posts_without": 197, "avg_reach_indian": 12945.0, "avg_reach_other": 3460.395939086294}}, "youtube": {"stats_2025": {"pocet_videi": 264, "celkove_zhlednuti": 73088, "doba_sledovani_hodin": 11837.6115, "odberatele": 263, "zobrazeni": 798930}, "stats_2026": {"pocet_videi": 282, "celkove_zhlednuti": 127401, "doba_sledovani_hodin": 25501.4109, "odberatele": 562, "zobrazeni": 1230143}, "daily_2025": [{"datum": "2025-01-01", "zhlednuti": 5}, {"datum": "2025-01-02", "zhlednuti": 18}, {"datum": "2025-01-03", "zhlednuti": 7}, {"datum": "2025-01-04", "zhlednuti": 11}, {"datum": "2025-01-05", "zhlednuti": 16}, {"datum": "2025-01-06", "zhlednuti": 15}, {"datum": "2025-01-07", "zhlednuti": 23}, {"datum": "2025-01-08", "zhlednuti": 10}, {"datum": "2025-01-09", "zhlednuti": 9}, {"datum": "2025-01-10", "zhlednuti": 16}, {"datum": "2025-01-11", "zhlednuti": 13}, {"datum": "2025-01-12", "zhlednuti": 20}, {"datum": "2025-01-13", "zhlednuti": 18}, {"datum": "2025-01-14", "zhlednuti": 16}, {"datum": "2025-01-15", "zhlednuti": 12}, {"datum": "2025-01-16", "zhlednuti": 14}, {"datum": "2025-01-17", "zhlednuti": 7}, {"datum": "2025-01-18", "zhlednuti": 11}, {"datum": "2025-01-19", "zhlednuti": 18}, {"datum": "2025-01-20", "zhlednuti": 21}, {"datum": "2025-01-21", "zhlednuti": 16}, {"datum": "2025-01-22", "zhlednuti": 11}, {"datum": "2025-01-23", "zhlednuti": 17}, {"datum": "2025-01-24", "zhlednuti": 11}, {"datum": "2025-01-25", "zhlednuti": 27}, {"datum": "2025-01-26", "zhlednuti": 14}, {"datum": "2025-01-27", "zhlednuti": 23}, {"datum": "2025-01-28", "zhlednuti": 29}, {"datum": "2025-01-29", "zhlednuti": 22}, {"datum": "2025-01-30", "zhlednuti": 27}, {"datum": "2025-01-31", "zhlednuti": 11}, {"datum": "2025-02-01", "zhlednuti": 29}, {"datum": "2025-02-02", "zhlednuti": 32}, {"datum": "2025-02-03", "zhlednuti": 45}, {"datum": "2025-02-04", "zhlednuti": 26}, {"datum": "2025-02-05", "zhlednuti": 12}, {"datum": "2025-02-06", "zhlednuti": 22}, {"datum": "2025-02-07", "zhlednuti": 17}, {"datum": "2025-02-08", "zhlednuti": 6}, {"datum": "2025-02-09", "zhlednuti": 7}, {"datum": "2025-02-10", "zhlednuti": 6}, {"datum": "2025-02-11", "zhlednuti": 10}, {"datum": "2025-02-12", "zhlednuti": 13}, {"datum": "2025-02-13", "zhlednuti": 19}, {"datum": "2025-02-14", "zhlednuti": 15}, {"datum": "2025-02-15", "zhlednuti": 9}, {"datum": "2025-02-16", "zhlednuti": 10}, {"datum": "2025-02-17", "zhlednuti": 53}, {"datum": "2025-02-18", "zhlednuti": 49}, {"datum": "2025-02-19", "zhlednuti": 55}, {"datum": "2025-02-20", "zhlednuti": 53}, {"datum": "2025-02-21", "zhlednuti": 52}, {"datum": "2025-02-22", "zhlednuti": 52}, {"datum": "2025-02-23", "zhlednuti": 49}, {"datum": "2025-02-24", "zhlednuti": 77}, {"datum": "2025-02-25", "zhlednuti": 122}, {"datum": "2025-02-26", "zhlednuti": 4664}, {"datum": "2025-02-27", "zhlednuti": 6055}, {"datum": "2025-02-28", "zhlednuti": 6827}, {"datum": "2025-03-01", "zhlednuti": 6442}, {"datum": "2025-03-02", "zhlednuti": 7956}, {"datum": "2025-03-03", "zhlednuti": 2948}, {"datum": "2025-03-04", "zhlednuti": 4375}, {"datum": "2025-03-05", "zhlednuti": 5708}, {"datum": "2025-03-06", "zhlednuti": 4702}, {"datum": "2025-03-07", "zhlednuti": 7594}, {"datum": "2025-03-08", "zhlednuti": 3495}, {"datum": "2025-03-09", "zhlednuti": 2173}, {"datum": "2025-03-10", "zhlednuti": 1256}, {"datum": "2025-03-11", "zhlednuti": 772}, {"datum": "2025-03-12", "zhlednuti": 350}, {"datum": "2025-03-13", "zhlednuti": 319}, {"datum": "2025-03-14", "zhlednuti": 173}, {"datum": "2025-03-15", "zhlednuti": 184}, {"datum": "2025-03-16", "zhlednuti": 232}, {"datum": "2025-03-17", "zhlednuti": 164}, {"datum": "2025-03-18", "zhlednuti": 84}, {"datum": "2025-03-19", "zhlednuti": 61}, {"datum": "2025-03-20", "zhlednuti": 80}, {"datum": "2025-03-21", "zhlednuti": 61}, {"datum": "2025-03-22", "zhlednuti": 98}, {"datum": "2025-03-23", "zhlednuti": 63}, {"datum": "2025-03-24", "zhlednuti": 70}, {"datum": "2025-03-25", "zhlednuti": 81}, {"datum": "2025-03-26", "zhlednuti": 68}, {"datum": "2025-03-27", "zhlednuti": 46}, {"datum": "2025-03-28", "zhlednuti": 43}, {"datum": "2025-03-29", "zhlednuti": 51}, {"datum": "2025-03-30", "zhlednuti": 46}, {"datum": "2025-03-31", "zhlednuti": 47}, {"datum": "2025-04-01", "zhlednuti": 34}, {"datum": "2025-04-02", "zhlednuti": 74}, {"datum": "2025-04-03", "zhlednuti": 177}, {"datum": "2025-04-04", "zhlednuti": 91}, {"datum": "2025-04-05", "zhlednuti": 56}, {"datum": "2025-04-06", "zhlednuti": 58}, {"datum": "2025-04-07", "zhlednuti": 29}, {"datum": "2025-04-08", "zhlednuti": 17}, {"datum": "2025-04-09", "zhlednuti": 27}, {"datum": "2025-04-10", "zhlednuti": 25}, {"datum": "2025-04-11", "zhlednuti": 27}, {"datum": "2025-04-12", "zhlednuti": 25}, {"datum": "2025-04-13", "zhlednuti": 36}, {"datum": "2025-04-14", "zhlednuti": 22}, {"datum": "2025-04-15", "zhlednuti": 26}, {"datum": "2025-04-16", "zhlednuti": 31}, {"datum": "2025-04-17", "zhlednuti": 19}, {"datum": "2025-04-18", "zhlednuti": 25}, {"datum": "2025-04-19", "zhlednuti": 23}, {"datum": "2025-04-20", "zhlednuti": 22}, {"datum": "2025-04-21", "zhlednuti": 31}, {"datum": "2025-04-22", "zhlednuti": 43}, {"datum": "2025-04-23", "zhlednuti": 22}, {"datum": "2025-04-24", "zhlednuti": 11}, {"datum": "2025-04-25", "zhlednuti": 33}, {"datum": "2025-04-26", "zhlednuti": 24}, {"datum": "2025-04-27", "zhlednuti": 22}, {"datum": "2025-04-28", "zhlednuti": 17}, {"datum": "2025-04-29", "zhlednuti": 18}, {"datum": "2025-04-30", "zhlednuti": 11}, {"datum": "2025-05-01", "zhlednuti": 14}, {"datum": "2025-05-02", "zhlednuti": 17}, {"datum": "2025-05-03", "zhlednuti": 13}, {"datum": "2025-05-04", "zhlednuti": 24}, {"datum": "2025-05-05", "zhlednuti": 17}, {"datum": "2025-05-06", "zhlednuti": 14}, {"datum": "2025-05-07", "zhlednuti": 21}, {"datum": "2025-05-08", "zhlednuti": 25}, {"datum": "2025-05-09", "zhlednuti": 15}, {"datum": "2025-05-10", "zhlednuti": 13}, {"datum": "2025-05-11", "zhlednuti": 8}, {"datum": "2025-05-12", "zhlednuti": 21}, {"datum": "2025-05-13", "zhlednuti": 15}, {"datum": "2025-05-14", "zhlednuti": 22}, {"datum": "2025-05-15", "zhlednuti": 23}, {"datum": "2025-05-16", "zhlednuti": 19}, {"datum": "2025-05-17", "zhlednuti": 10}, {"datum": "2025-05-18", "zhlednuti": 12}, {"datum": "2025-05-19", "zhlednuti": 8}, {"datum": "2025-05-20", "zhlednuti": 10}, {"datum": "2025-05-21", "zhlednuti": 13}, {"datum": "2025-05-22", "zhlednuti": 9}, {"datum": "2025-05-23", "zhlednuti": 9}, {"datum": "2025-05-24", "zhlednuti": 9}, {"datum": "2025-05-25", "zhlednuti": 17}, {"datum": "2025-05-26", "zhlednuti": 14}, {"datum": "2025-05-27", "zhlednuti": 16}, {"datum": "2025-05-28", "zhlednuti": 25}, {"datum": "2025-05-29", "zhlednuti": 21}, {"datum": "2025-05-30", "zhlednuti": 20}, {"datum": "2025-05-31", "zhlednuti": 18}, {"datum": "2025-06-01", "zhlednuti": 32}, {"datum": "2025-06-02", "zhlednuti": 18}, {"datum": "2025-06-03", "zhlednuti": 18}, {"datum": "2025-06-04", "zhlednuti": 24}, {"datum": "2025-06-05", "zhlednuti": 11}, {"datum": "2025-06-06", "zhlednuti": 13}, {"datum": "2025-06-07", "zhlednuti": 7}, {"datum": "2025-06-08", "zhlednuti": 12}, {"datum": "2025-06-09", "zhlednuti": 18}, {"datum": "2025-06-10", "zhlednuti": 19}, {"datum": "2025-06-11", "zhlednuti": 16}, {"datum": "2025-06-12", "zhlednuti": 23}, {"datum": "2025-06-13", "zhlednuti": 21}, {"datum": "2025-06-14", "zhlednuti": 18}, {"datum": "2025-06-15", "zhlednuti": 22}, {"datum": "2025-06-16", "zhlednuti": 15}, {"datum": "2025-06-17", "zhlednuti": 16}, {"datum": "2025-06-18", "zhlednuti": 19}, {"datum": "2025-06-19", "zhlednuti": 8}, {"datum": "2025-06-20", "zhlednuti": 21}, {"datum": "2025-06-21", "zhlednuti": 24}, {"datum": "2025-06-22", "zhlednuti": 20}, {"datum": "2025-06-23", "zhlednuti": 21}, {"datum": "2025-06-24", "zhlednuti": 20}, {"datum": "2025-06-25", "zhlednuti": 22}, {"datum": "2025-06-26", "zhlednuti": 21}, {"datum": "2025-06-27", "zhlednuti": 20}, {"datum": "2025-06-28", "zhlednuti": 23}, {"datum": "2025-06-29", "zhlednuti": 14}, {"datum": "2025-06-30", "zhlednuti": 16}, {"datum": "2025-07-01", "zhlednuti": 20}, {"datum": "2025-07-02", "zhlednuti": 8}, {"datum": "2025-07-03", "zhlednuti": 26}, {"datum": "2025-07-04", "zhlednuti": 15}, {"datum": "2025-07-05", "zhlednuti": 28}, {"datum": "2025-07-06", "zhlednuti": 21}, {"datum": "2025-07-07", "zhlednuti": 20}, {"datum": "2025-07-08", "zhlednuti": 16}, {"datum": "2025-07-09", "zhlednuti": 44}, {"datum": "2025-07-10", "zhlednuti": 27}, {"datum": "2025-07-11", "zhlednuti": 18}, {"datum": "2025-07-12", "zhlednuti": 31}, {"datum": "2025-07-13", "zhlednuti": 24}, {"datum": "2025-07-14", "zhlednuti": 20}, {"datum": "2025-07-15", "zhlednuti": 25}, {"datum": "2025-07-16", "zhlednuti": 19}, {"datum": "2025-07-17", "zhlednuti": 19}, {"datum": "2025-07-18", "zhlednuti": 9}, {"datum": "2025-07-19", "zhlednuti": 18}, {"datum": "2025-07-20", "zhlednuti": 24}, {"datum": "2025-07-21", "zhlednuti": 19}, {"datum": "2025-07-22", "zhlednuti": 14}, {"datum": "2025-07-23", "zhlednuti": 15}, {"datum": "2025-07-24", "zhlednuti": 19}, {"datum": "2025-07-25", "zhlednuti": 13}, {"datum": "2025-07-26", "zhlednuti": 20}, {"datum": "2025-07-27", "zhlednuti": 15}, {"datum": "2025-07-28", "zhlednuti": 15}, {"datum": "2025-07-29", "zhlednuti": 7}, {"datum": "2025-07-30", "zhlednuti": 11}, {"datum": "2025-07-31", "zhlednuti": 28}, {"datum": "2025-08-01", "zhlednuti": 18}, {"datum": "2025-08-02", "zhlednuti": 16}, {"datum": "2025-08-03", "zhlednuti": 14}, {"datum": "2025-08-04", "zhlednuti": 32}, {"datum": "2025-08-05", "zhlednuti": 10}, {"datum": "2025-08-06", "zhlednuti": 11}, {"datum": "2025-08-07", "zhlednuti": 17}, {"datum": "2025-08-08", "zhlednuti": 22}, {"datum": "2025-08-09", "zhlednuti": 15}, {"datum": "2025-08-10", "zhlednuti": 8}, {"datum": "2025-08-11", "zhlednuti": 12}, {"datum": "2025-08-12", "zhlednuti": 11}, {"datum": "2025-08-13", "zhlednuti": 22}, {"datum": "2025-08-14", "zhlednuti": 17}, {"datum": "2025-08-15", "zhlednuti": 19}, {"datum": "2025-08-16", "zhlednuti": 13}, {"datum": "2025-08-17", "zhlednuti": 20}, {"datum": "2025-08-18", "zhlednuti": 7}, {"datum": "2025-08-19", "zhlednuti": 13}, {"datum": "2025-08-20", "zhlednuti": 8}, {"datum": "2025-08-21", "zhlednuti": 15}, {"datum": "2025-08-22", "zhlednuti": 13}, {"datum": "2025-08-23", "zhlednuti": 13}, {"datum": "2025-08-24", "zhlednuti": 10}, {"datum": "2025-08-25", "zhlednuti": 9}, {"datum": "2025-08-26", "zhlednuti": 10}, {"datum": "2025-08-27", "zhlednuti": 14}, {"datum": "2025-08-28", "zhlednuti": 26}, {"datum": "2025-08-29", "zhlednuti": 8}, {"datum": "2025-08-30", "zhlednuti": 14}, {"datum": "2025-08-31", "zhlednuti": 32}, {"datum": "2025-09-01", "zhlednuti": 15}, {"datum": "2025-09-02", "zhlednuti": 15}, {"datum": "2025-09-03", "zhlednuti": 11}, {"datum": "2025-09-04", "zhlednuti": 11}, {"datum": "2025-09-05", "zhlednuti": 14}, {"datum": "2025-09-06", "zhlednuti": 11}, {"datum": "2025-09-07", "zhlednuti": 16}, {"datum": "2025-09-08", "zhlednuti": 31}, {"datum": "2025-09-09", "zhlednuti": 8}, {"datum": "2025-09-10", "zhlednuti": 13}, {"datum": "2025-09-11", "zhlednuti": 6}, {"datum": "2025-09-12", "zhlednuti": 16}, {"datum": "2025-09-13", "zhlednuti": 3}, {"datum": "2025-09-14", "zhlednuti": 13}, {"datum": "2025-09-15", "zhlednuti": 10}, {"datum": "2025-09-16", "zhlednuti": 28}, {"datum": "2025-09-17", "zhlednuti": 5}, {"datum": "2025-09-18", "zhlednuti": 6}, {"datum": "2025-09-19", "zhlednuti": 8}, {"datum": "2025-09-20", "zhlednuti": 6}, {"datum": "2025-09-21", "zhlednuti": 2}, {"datum": "2025-09-22", "zhlednuti": 9}, {"datum": "2025-09-23", "zhlednuti": 7}, {"datum": "2025-09-24", "zhlednuti": 12}, {"datum": "2025-09-25", "zhlednuti": 4}, {"datum": "2025-09-26", "zhlednuti": 7}, {"datum": "2025-09-27", "zhlednuti": 6}, {"datum": "2025-09-28", "zhlednuti": 16}, {"datum": "2025-09-29", "zhlednuti": 10}, {"datum": "2025-09-30", "zhlednuti": 3}, {"datum": "2025-10-01", "zhlednuti": 5}, {"datum": "2025-10-02", "zhlednuti": 8}, {"datum": "2025-10-03", "zhlednuti": 1}, {"datum": "2025-10-04", "zhlednuti": 4}, {"datum": "2025-10-05", "zhlednuti": 7}, {"datum": "2025-10-06", "zhlednuti": 6}, {"datum": "2025-10-07", "zhlednuti": 4}, {"datum": "2025-10-08", "zhlednuti": 11}, {"datum": "2025-10-09", "zhlednuti": 15}, {"datum": "2025-10-10", "zhlednuti": 13}, {"datum": "2025-10-11", "zhlednuti": 5}, {"datum": "2025-10-12", "zhlednuti": 14}, {"datum": "2025-10-13", "zhlednuti": 2}, {"datum": "2025-10-14", "zhlednuti": 3}, {"datum": "2025-10-15", "zhlednuti": 24}, {"datum": "2025-10-16", "zhlednuti": 20}, {"datum": "2025-10-17", "zhlednuti": 8}, {"datum": "2025-10-18", "zhlednuti": 13}, {"datum": "2025-10-19", "zhlednuti": 3}, {"datum": "2025-10-20", "zhlednuti": 6}, {"datum": "2025-10-21", "zhlednuti": 11}, {"datum": "2025-10-22", "zhlednuti": 22}, {"datum": "2025-10-23", "zhlednuti": 23}, {"datum": "2025-10-24", "zhlednuti": 12}, {"datum": "2025-10-25", "zhlednuti": 16}, {"datum": "2025-10-26", "zhlednuti": 15}, {"datum": "2025-10-27", "zhlednuti": 3}, {"datum": "2025-10-28", "zhlednuti": 19}, {"datum": "2025-10-29", "zhlednuti": 5}, {"datum": "2025-10-30", "zhlednuti": 14}, {"datum": "2025-10-31", "zhlednuti": 7}, {"datum": "2025-11-01", "zhlednuti": 11}, {"datum": "2025-11-02", "zhlednuti": 23}, {"datum": "2025-11-03", "zhlednuti": 10}, {"datum": "2025-11-04", "zhlednuti": 10}, {"datum": "2025-11-05", "zhlednuti": 4}, {"datum": "2025-11-06", "zhlednuti": 10}, {"datum": "2025-11-07", "zhlednuti": 15}, {"datum": "2025-11-08", "zhlednuti": 6}, {"datum": "2025-11-09", "zhlednuti": 9}, {"datum": "2025-11-10", "zhlednuti": 15}, {"datum": "2025-11-11", "zhlednuti": 7}, {"datum": "2025-11-12", "zhlednuti": 18}, {"datum": "2025-11-13", "zhlednuti": 11}, {"datum": "2025-11-14", "zhlednuti": 4}, {"datum": "2025-11-15", "zhlednuti": 4}, {"datum": "2025-11-16", "zhlednuti": 7}, {"datum": "2025-11-17", "zhlednuti": 19}, {"datum": "2025-11-18", "zhlednuti": 18}, {"datum": "2025-11-19", "zhlednuti": 18}, {"datum": "2025-11-20", "zhlednuti": 10}, {"datum": "2025-11-21", "zhlednuti": 12}, {"datum": "2025-11-22", "zhlednuti": 3}, {"datum": "2025-11-23", "zhlednuti": 8}, {"datum": "2025-11-24", "zhlednuti": 17}, {"datum": "2025-11-25", "zhlednuti": 20}, {"datum": "2025-11-26", "zhlednuti": 9}, {"datum": "2025-11-27", "zhlednuti": 10}, {"datum": "2025-11-28", "zhlednuti": 21}, {"datum": "2025-11-29", "zhlednuti": 9}, {"datum": "2025-11-30", "zhlednuti": 18}, {"datum": "2025-12-01", "zhlednuti": 9}, {"datum": "2025-12-02", "zhlednuti": 8}, {"datum": "2025-12-03", "zhlednuti": 6}, {"datum": "2025-12-04", "zhlednuti": 12}, {"datum": "2025-12-05", "zhlednuti": 14}, {"datum": "2025-12-06", "zhlednuti": 16}, {"datum": "2025-12-07", "zhlednuti": 7}, {"datum": "2025-12-08", "zhlednuti": 11}, {"datum": "2025-12-09", "zhlednuti": 17}, {"datum": "2025-12-10", "zhlednuti": 15}, {"datum": "2025-12-11", "zhlednuti": 7}, {"datum": "2025-12-12", "zhlednuti": 6}, {"datum": "2025-12-13", "zhlednuti": 8}, {"datum": "2025-12-14", "zhlednuti": 9}, {"datum": "2025-12-15", "zhlednuti": 6}, {"datum": "2025-12-16", "zhlednuti": 3}, {"datum": "2025-12-17", "zhlednuti": 4}, {"datum": "2025-12-18", "zhlednuti": 12}, {"datum": "2025-12-19", "zhlednuti": 2}, {"datum": "2025-12-20", "zhlednuti": 8}, {"datum": "2025-12-21", "zhlednuti": 13}, {"datum": "2025-12-22", "zhlednuti": 5}, {"datum": "2025-12-23", "zhlednuti": 7}, {"datum": "2025-12-24", "zhlednuti": 10}, {"datum": "2025-12-25", "zhlednuti": 8}, {"datum": "2025-12-26", "zhlednuti": 9}, {"datum": "2025-12-27", "zhlednuti": 14}, {"datum": "2025-12-28", "zhlednuti": 10}, {"datum": "2025-12-29", "zhlednuti": 10}, {"datum": "2025-12-30", "zhlednuti": 3}, {"datum": "2025-12-31", "zhlednuti": 9}], "daily_2026": [{"datum": "2026-01-01", "zhlednuti": 12}, {"datum": "2026-01-02", "zhlednuti": 15}, {"datum": "2026-01-03", "zhlednuti": 14}, {"datum": "2026-01-04", "zhlednuti": 12}, {"datum": "2026-01-05", "zhlednuti": 17}, {"datum": "2026-01-06", "zhlednuti": 6}, {"datum": "2026-01-07", "zhlednuti": 15}, {"datum": "2026-01-08", "zhlednuti": 16}, {"datum": "2026-01-09", "zhlednuti": 9}, {"datum": "2026-01-10", "zhlednuti": 11}, {"datum": "2026-01-11", "zhlednuti": 25}, {"datum": "2026-01-12", "zhlednuti": 14}, {"datum": "2026-01-13", "zhlednuti": 7}, {"datum": "2026-01-14", "zhlednuti": 7}, {"datum": "2026-01-15", "zhlednuti": 10}, {"datum": "2026-01-16", "zhlednuti": 16}, {"datum": "2026-01-17", "zhlednuti": 7}, {"datum": "2026-01-18", "zhlednuti": 15}, {"datum": "2026-01-19", "zhlednuti": 21}, {"datum": "2026-01-20", "zhlednuti": 10}, {"datum": "2026-01-21", "zhlednuti": 18}, {"datum": "2026-01-22", "zhlednuti": 44}, {"datum": "2026-01-23", "zhlednuti": 16}, {"datum": "2026-01-24", "zhlednuti": 24}, {"datum": "2026-01-25", "zhlednuti": 25}, {"datum": "2026-01-26", "zhlednuti": 17}, {"datum": "2026-01-27", "zhlednuti": 45}, {"datum": "2026-01-28", "zhlednuti": 39}, {"datum": "2026-01-29", "zhlednuti": 14}, {"datum": "2026-01-30", "zhlednuti": 43}, {"datum": "2026-01-31", "zhlednuti": 26}, {"datum": "2026-02-01", "zhlednuti": 17}, {"datum": "2026-02-02", "zhlednuti": 10}, {"datum": "2026-02-03", "zhlednuti": 8}, {"datum": "2026-02-04", "zhlednuti": 11}, {"datum": "2026-02-05", "zhlednuti": 10}, {"datum": "2026-02-06", "zhlednuti": 8}, {"datum": "2026-02-07", "zhlednuti": 12}, {"datum": "2026-02-08", "zhlednuti": 22}, {"datum": "2026-02-09", "zhlednuti": 249}, {"datum": "2026-02-10", "zhlednuti": 849}, {"datum": "2026-02-11", "zhlednuti": 1279}, {"datum": "2026-02-12", "zhlednuti": 169}, {"datum": "2026-02-13", "zhlednuti": 37}, {"datum": "2026-02-14", "zhlednuti": 27}, {"datum": "2026-02-15", "zhlednuti": 18}, {"datum": "2026-02-16", "zhlednuti": 24}, {"datum": "2026-02-17", "zhlednuti": 18}, {"datum": "2026-02-18", "zhlednuti": 24}, {"datum": "2026-02-19", "zhlednuti": 23}, {"datum": "2026-02-20", "zhlednuti": 18}, {"datum": "2026-02-21", "zhlednuti": 32}, {"datum": "2026-02-22", "zhlednuti": 61}, {"datum": "2026-02-23", "zhlednuti": 88}, {"datum": "2026-02-24", "zhlednuti": 1651}, {"datum": "2026-02-25", "zhlednuti": 12446}, {"datum": "2026-02-26", "zhlednuti": 8936}, {"datum": "2026-02-27", "zhlednuti": 8732}, {"datum": "2026-02-28", "zhlednuti": 9199}, {"datum": "2026-03-01", "zhlednuti": 10300}, {"datum": "2026-03-02", "zhlednuti": 3723}, {"datum": "2026-03-03", "zhlednuti": 10592}, {"datum": "2026-03-04", "zhlednuti": 15614}, {"datum": "2026-03-05", "zhlednuti": 16695}, {"datum": "2026-03-06", "zhlednuti": 13842}, {"datum": "2026-03-07", "zhlednuti": 5517}, {"datum": "2026-03-08", "zhlednuti": 2457}, {"datum": "2026-03-09", "zhlednuti": 1123}, {"datum": "2026-03-10", "zhlednuti": 573}, {"datum": "2026-03-11", "zhlednuti": 655}, {"datum": "2026-03-12", "zhlednuti": 304}, {"datum": "2026-03-13", "zhlednuti": 315}, {"datum": "2026-03-14", "zhlednuti": 327}, {"datum": "2026-03-15", "zhlednuti": 238}, {"datum": "2026-03-16", "zhlednuti": 217}, {"datum": "2026-03-17", "zhlednuti": 202}, {"datum": "2026-03-18", "zhlednuti": 159}], "indian_factor_2026": {"videos_with_indian": 17, "videos_without": 265, "avg_views_indian": 797.1176470588235, "avg_views_other": 429.5924528301887}}, "efficiency": {"Facebook_2025": {"platforma": "Facebook", "rok": 2025, "prispevky": 132, "engagement_total": 5427, "dosah_total": 72666, "engagement_per_post": 41.1, "dosah_per_post": 550.5}, "Facebook_2026": {"platforma": "Facebook", "rok": 2026, "prispevky": 184, "engagement_total": 5868, "dosah_total": 216140, "engagement_per_post": 31.9, "dosah_per_post": 1174.7}, "Instagram_2025": {"platforma": "Instagram", "rok": 2025, "prispevky": 136, "engagement_total": 69111, "dosah_total": 1032819, "engagement_per_post": 508.2, "dosah_per_post": 7594.3}, "Instagram_2026": {"platforma": "Instagram", "rok": 2026, "prispevky": 214, "engagement_total": 45530, "dosah_total": 901763, "engagement_per_post": 212.8, "dosah_per_post": 4213.8}, "YouTube_2025": {"platforma": "YouTube", "rok": 2025, "prispevky": 264, "zhlednuti_total": 73088, "zhlednuti_per_video": 276.8}, "YouTube_2026": {"platforma": "YouTube", "rok": 2026, "prispevky": 282, "zhlednuti_total": 127401, "zhlednuti_per_video": 451.8}}, "top3_moments": [{"platforma": "Instagram", "nazev": "Bylo pro mě velkou ctí zahájit partii úřadujícího mistra světa Gukeshe na Prague International Chess Festivalu, největší", "dosah": 95748, "engagement": 5967, "datum": "2026-03-08", "link": "https://www.instagram.com/reel/DVov0sMgtfX/", "indian": ["Gukesh"]}, {"platforma": "Instagram", "nazev": "📸 Pia’s move, Divya’s focus, and David’s selfies. And that’s just a glimpse of our photo highlights. Dive in! You can fi", "dosah": 45081, "engagement": 608, "datum": "2026-03-01", "link": "https://www.instagram.com/p/DVW-MaeDCRU/", "indian": []}, {"platforma": "Instagram", "nazev": "The next big event coming your way is Prague Masters 2026. The World Champion D Gukesh and defending Champion Aravindh C", "dosah": 39396, "engagement": 2051, "datum": "2026-02-18", "link": "https://www.instagram.com/p/DU5hpTskcHL/", "indian": ["Gukesh"]}]};
@@ -298,50 +1172,56 @@ const fmtFull = n => n.toLocaleString('cs-CZ');
 const yoyPct = (a, b) => b > 0 ? ((a - b) / b * 100) : 0;
 const yoyBadge = (a, b) => {
     const pct = yoyPct(a, b);
-    const cls = pct >= 0 ? 'yoy-positive' : 'yoy-negative';
+    const cls = pct >= 0 ? 'up' : 'down';
     const sign = pct >= 0 ? '+' : '';
     return `<span class="${cls}">${sign}${pct.toFixed(1)}%</span>`;
 };
+
 const chartColors = {
-    purple: 'rgba(217, 70, 239, 1)',
-    purpleLight: 'rgba(217, 70, 239, 0.2)',
-    indigo: 'rgba(129, 140, 248, 1)',
-    indigoLight: 'rgba(129, 140, 248, 0.2)',
-    green: 'rgba(74, 222, 128, 1)',
-    greenLight: 'rgba(74, 222, 128, 0.2)',
-    red: 'rgba(248, 113, 113, 0.8)',
-    gray: 'rgba(156, 163, 175, 0.5)',
+    gold: 'rgba(212,175,55,1)',
+    goldLight: 'rgba(212,175,55,0.2)',
+    red: 'rgba(197,48,48,0.8)',
+    redLight: 'rgba(197,48,48,0.15)',
+    green: 'rgba(72,187,120,0.8)',
+    blue: 'rgba(99,179,237,0.8)',
+    gray: 'rgba(138,133,120,0.4)',
+    white: 'rgba(229,224,216,0.8)',
+    whiteLight: 'rgba(229,224,216,0.1)',
 };
+
 const defaultChartOpts = {
     responsive: true,
-    plugins: { legend: { labels: { color: '#9ca3af', font: { size: 12 } } } },
+    plugins: { legend: { labels: { color: '#8a8578', font: { family: "'DM Sans'", size: 11 } } } },
     scales: {
-        x: { ticks: { color: '#6b7280', maxRotation: 45 }, grid: { color: 'rgba(255,255,255,0.04)' } },
-        y: { ticks: { color: '#6b7280' }, grid: { color: 'rgba(255,255,255,0.04)' } }
+        x: { ticks: { color: '#5a5650', font: { family: "'DM Sans'", size: 10 }, maxRotation: 45 }, grid: { color: 'rgba(255,255,255,0.03)' } },
+        y: { ticks: { color: '#5a5650', font: { family: "'DM Sans'", size: 10 } }, grid: { color: 'rgba(255,255,255,0.03)' } }
     }
 };
 
+// ── MAIN TAB SWITCHING ──
+let currentMainTab = 'social';
+function switchMainTab(tab) {
+    currentMainTab = tab;
+    document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+    document.getElementById('mtab-' + tab).classList.add('active');
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    document.getElementById('panel-' + tab).classList.add('active');
+    if (tab === 'email' && !window._emailRendered) { renderEmailCharts(); window._emailRendered = true; }
+    if (tab === 'passes' && !window._passRendered) { renderPassCharts(); window._passRendered = true; }
+}
+
 // ── KPI BAR ──
 function renderKPIs() {
-    const fb26 = DATA.facebook.stats_2026;
-    const ig26 = DATA.instagram.stats_2026;
-    const fb25 = DATA.facebook.stats_2025;
-    const ig25 = DATA.instagram.stats_2025;
-    const yt25 = DATA.youtube.stats_2025;
-    const yt26 = DATA.youtube.stats_2026;
-
-    const totalReach26 = fb26.celkovy_dosah + ig26.celkovy_dosah;
-    const totalReach25 = fb25.celkovy_dosah + ig25.celkovy_dosah;
-
-    document.getElementById('kpi-reach').textContent = fmt(totalReach26);
-    document.getElementById('kpi-reach-yoy').innerHTML = 'FB+IG ' + yoyBadge(totalReach26, totalReach25);
-
+    const fb26=DATA.facebook.stats_2026, ig26=DATA.instagram.stats_2026;
+    const fb25=DATA.facebook.stats_2025, ig25=DATA.instagram.stats_2025;
+    const yt25=DATA.youtube.stats_2025, yt26=DATA.youtube.stats_2026;
+    const tr26=fb26.celkovy_dosah+ig26.celkovy_dosah, tr25=fb25.celkovy_dosah+ig25.celkovy_dosah;
+    document.getElementById('kpi-reach').textContent = fmt(tr26);
+    document.getElementById('kpi-reach-yoy').innerHTML = 'FB+IG ' + yoyBadge(tr26, tr25);
     document.getElementById('kpi-yt-views').textContent = fmt(yt26.celkove_zhlednuti);
     document.getElementById('kpi-yt-yoy').innerHTML = yoyBadge(yt26.celkove_zhlednuti, yt25.celkove_zhlednuti);
-
     document.getElementById('kpi-watchtime').textContent = fmt(Math.round(yt26.doba_sledovani_hodin));
     document.getElementById('kpi-wt-yoy').innerHTML = yoyBadge(yt26.doba_sledovani_hodin, yt25.doba_sledovani_hodin);
-
     document.getElementById('kpi-subs').textContent = yt26.odberatele;
     document.getElementById('kpi-subs-yoy').innerHTML = yoyBadge(yt26.odberatele, yt25.odberatele);
 }
@@ -350,323 +1230,253 @@ function renderKPIs() {
 let currentPlatform = 'youtube';
 function switchPlatform(p) {
     currentPlatform = p;
-    document.querySelectorAll('.platform-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.ptab').forEach(t => t.classList.remove('active'));
     document.getElementById('tab-' + p).classList.add('active');
     renderPlatform(p);
+}
+
+function statBlock(label, v25, v26) {
+    const pct = yoyPct(v26, v25);
+    const cls = pct >= 0 ? 'up' : 'down';
+    const sign = pct >= 0 ? '+' : '';
+    return `<div class="stat-block">
+        <div class="label">${label}</div>
+        <div class="value">${fmtFull(v26)}</div>
+        <div class="delta"><span class="dim">${fmtFull(v25)} →</span> <span class="${cls}">${sign}${pct.toFixed(0)}%</span></div>
+    </div>`;
 }
 
 function renderPlatform(p) {
     const container = document.getElementById('platform-content');
     let html = '';
-
     if (p === 'youtube') {
-        const s25 = DATA.youtube.stats_2025, s26 = DATA.youtube.stats_2026;
-        html = `
-        <div class="fade-in grid md:grid-cols-2 gap-6">
-            <div class="glass rounded-2xl p-6">
-                <h3 class="font-bold text-lg mb-4">📺 YouTube — Přehled</h3>
-                <div class="grid grid-cols-2 gap-4">
-                    ${statBlock('Zhlédnutí', s25.celkove_zhlednuti, s26.celkove_zhlednuti)}
-                    ${statBlock('Watch Time (h)', Math.round(s25.doba_sledovani_hodin), Math.round(s26.doba_sledovani_hodin))}
-                    ${statBlock('Odběratelé', s25.odberatele, s26.odberatele)}
-                    ${statBlock('Zobrazení', s25.zobrazeni, s26.zobrazeni)}
-                    ${statBlock('Počet videí', s25.pocet_videi, s26.pocet_videi)}
-                    ${statBlock('Zhlédnutí/video', Math.round(s25.celkove_zhlednuti/s25.pocet_videi), Math.round(s26.celkove_zhlednuti/s26.pocet_videi))}
-                </div>
-            </div>
-            <div class="glass rounded-2xl p-6">
-                <h3 class="font-bold text-lg mb-4">Denní zhlédnutí (leden–březen)</h3>
-                <canvas id="ytDailyChart" height="200"></canvas>
-            </div>
-        </div>`;
+        const s25=DATA.youtube.stats_2025, s26=DATA.youtube.stats_2026;
+        html = `<div class="fade-in grid-2"><div class="card"><div class="card-label">YouTube — Přehled</div><div class="grid-2" style="gap:8px;margin-top:12px;">
+            ${statBlock('Zhlédnutí', s25.celkove_zhlednuti, s26.celkove_zhlednuti)}
+            ${statBlock('Watch Time (h)', Math.round(s25.doba_sledovani_hodin), Math.round(s26.doba_sledovani_hodin))}
+            ${statBlock('Odběratelé', s25.odberatele, s26.odberatele)}
+            ${statBlock('Zobrazení', s25.zobrazeni, s26.zobrazeni)}
+            ${statBlock('Počet videí', s25.pocet_videi, s26.pocet_videi)}
+            ${statBlock('Zhlédnutí/video', Math.round(s25.celkove_zhlednuti/s25.pocet_videi), Math.round(s26.celkove_zhlednuti/s26.pocet_videi))}
+        </div></div><div class="card"><div class="card-label">Denní zhlédnutí (leden–březen)</div><canvas id="ytDailyChart" height="200" style="margin-top:12px;"></canvas></div></div>`;
     } else if (p === 'facebook') {
-        const s25 = DATA.facebook.stats_2025, s26 = DATA.facebook.stats_2026;
-        html = `
-        <div class="fade-in grid md:grid-cols-2 gap-6">
-            <div class="glass rounded-2xl p-6">
-                <h3 class="font-bold text-lg mb-4">📘 Facebook — Přehled</h3>
-                <div class="grid grid-cols-2 gap-4">
-                    ${statBlock('Dosah', s25.celkovy_dosah, s26.celkovy_dosah)}
-                    ${statBlock('Zhlédnutí', s25.celkove_zhlednuti, s26.celkove_zhlednuti)}
-                    ${statBlock('Engagement', s25.celkovy_engagement, s26.celkovy_engagement)}
-                    ${statBlock('Reakce', s25.celkove_reakce, s26.celkove_reakce)}
-                    ${statBlock('Příspěvky', s25.pocet_prispevku, s26.pocet_prispevku)}
-                    ${statBlock('Dosah/příspěvek', Math.round(s25.dosah_per_post), Math.round(s26.dosah_per_post))}
-                </div>
-            </div>
-            <div class="glass rounded-2xl p-6">
-                <h3 class="font-bold text-lg mb-4">Denní dosah (leden–březen 2026)</h3>
-                <canvas id="fbDailyChart" height="200"></canvas>
-            </div>
-        </div>`;
+        const s25=DATA.facebook.stats_2025, s26=DATA.facebook.stats_2026;
+        html = `<div class="fade-in grid-2"><div class="card"><div class="card-label">Facebook — Přehled</div><div class="grid-2" style="gap:8px;margin-top:12px;">
+            ${statBlock('Dosah', s25.celkovy_dosah, s26.celkovy_dosah)}
+            ${statBlock('Zhlédnutí', s25.celkove_zhlednuti, s26.celkove_zhlednuti)}
+            ${statBlock('Engagement', s25.celkovy_engagement, s26.celkovy_engagement)}
+            ${statBlock('Reakce', s25.celkove_reakce, s26.celkove_reakce)}
+            ${statBlock('Příspěvky', s25.pocet_prispevku, s26.pocet_prispevku)}
+            ${statBlock('Dosah/příspěvek', Math.round(s25.dosah_per_post), Math.round(s26.dosah_per_post))}
+        </div></div><div class="card"><div class="card-label">Denní dosah (leden–březen 2026)</div><canvas id="fbDailyChart" height="200" style="margin-top:12px;"></canvas></div></div>`;
     } else if (p === 'instagram') {
-        const s25 = DATA.instagram.stats_2025, s26 = DATA.instagram.stats_2026;
-        html = `
-        <div class="fade-in grid md:grid-cols-2 gap-6">
-            <div class="glass rounded-2xl p-6">
-                <h3 class="font-bold text-lg mb-4">📸 Instagram — Přehled</h3>
-                <div class="grid grid-cols-2 gap-4">
-                    ${statBlock('Dosah', s25.celkovy_dosah, s26.celkovy_dosah)}
-                    ${statBlock('Zobrazení', s25.celkove_zobrazeni, s26.celkove_zobrazeni)}
-                    ${statBlock('Lajky', s25.celkove_lajky, s26.celkove_lajky)}
-                    ${statBlock('Sdílení', s25.celkove_sdileni, s26.celkove_sdileni)}
-                    ${statBlock('Uložení', s25.celkove_ulozeni, s26.celkove_ulozeni)}
-                    ${statBlock('Příspěvky', s25.pocet_prispevku, s26.pocet_prispevku)}
-                </div>
-            </div>
-            <div class="glass rounded-2xl p-6">
-                <h3 class="font-bold text-lg mb-4">Denní dosah (leden–březen 2026)</h3>
-                <canvas id="igDailyChart" height="200"></canvas>
-            </div>
-        </div>`;
+        const s25=DATA.instagram.stats_2025, s26=DATA.instagram.stats_2026;
+        html = `<div class="fade-in grid-2"><div class="card"><div class="card-label">Instagram — Přehled</div><div class="grid-2" style="gap:8px;margin-top:12px;">
+            ${statBlock('Dosah', s25.celkovy_dosah, s26.celkovy_dosah)}
+            ${statBlock('Zobrazení', s25.celkove_zobrazeni, s26.celkove_zobrazeni)}
+            ${statBlock('Lajky', s25.celkove_lajky, s26.celkove_lajky)}
+            ${statBlock('Sdílení', s25.celkove_sdileni, s26.celkove_sdileni)}
+            ${statBlock('Uložení', s25.celkove_ulozeni, s26.celkove_ulozeni)}
+            ${statBlock('Příspěvky', s25.pocet_prispevku, s26.pocet_prispevku)}
+        </div></div><div class="card"><div class="card-label">Denní dosah (leden–březen 2026)</div><canvas id="igDailyChart" height="200" style="margin-top:12px;"></canvas></div></div>`;
     }
-
     container.innerHTML = html;
-    // Render charts after DOM update
     setTimeout(() => renderPlatformChart(p), 50);
-}
-
-function statBlock(label, v25, v26) {
-    const pct = yoyPct(v26, v25);
-    const cls = pct >= 0 ? 'yoy-positive' : 'yoy-negative';
-    const sign = pct >= 0 ? '+' : '';
-    return `<div class="p-3 rounded-xl bg-white/5">
-        <p class="text-xs text-gray-500">${label}</p>
-        <p class="text-lg font-bold">${fmtFull(v26)}</p>
-        <p class="text-xs"><span class="text-gray-500">${fmtFull(v25)} →</span> <span class="${cls}">${sign}${pct.toFixed(0)}%</span></p>
-    </div>`;
 }
 
 function renderPlatformChart(p) {
     if (p === 'youtube') {
-        const el = document.getElementById('ytDailyChart');
-        if (!el) return;
-        const d25 = DATA.youtube.daily_2025.filter(x => x.datum >= '2025-01' && x.datum <= '2025-03-31');
-        const d26 = DATA.youtube.daily_2026;
-        new Chart(el, {
-            type: 'line',
-            data: {
-                labels: d26.map(x => x.datum.slice(5)),
-                datasets: [
-                    { label: '2026', data: d26.map(x => x.zhlednuti), borderColor: chartColors.purple, backgroundColor: chartColors.purpleLight, fill: true, tension: 0.3, pointRadius: 1 },
-                    { label: '2025', data: d25.slice(0, d26.length).map(x => x.zhlednuti), borderColor: chartColors.gray, backgroundColor: 'transparent', borderDash: [5,5], tension: 0.3, pointRadius: 0 },
-                ]
-            },
-            options: defaultChartOpts
-        });
+        const el=document.getElementById('ytDailyChart'); if(!el)return;
+        const d25=DATA.youtube.daily_2025.filter(x=>x.datum>='2025-01'&&x.datum<='2025-03-31');
+        const d26=DATA.youtube.daily_2026;
+        new Chart(el, { type:'line', data: {
+            labels: d26.map(x=>x.datum.slice(5)),
+            datasets: [
+                { label:'2026', data:d26.map(x=>x.zhlednuti), borderColor:chartColors.gold, backgroundColor:chartColors.goldLight, fill:true, tension:0.3, pointRadius:1 },
+                { label:'2025', data:d25.slice(0,d26.length).map(x=>x.zhlednuti), borderColor:chartColors.gray, backgroundColor:'transparent', borderDash:[5,5], tension:0.3, pointRadius:0 }
+            ]
+        }, options: defaultChartOpts });
     } else if (p === 'facebook') {
-        const el = document.getElementById('fbDailyChart');
-        if (!el) return;
-        const d26 = DATA.facebook.daily_2026;
-        new Chart(el, {
-            type: 'bar',
-            data: {
-                labels: d26.map(x => x.datum.slice(5)),
-                datasets: [
-                    { label: 'Dosah', data: d26.map(x => x.dosah), backgroundColor: chartColors.purpleLight, borderColor: chartColors.purple, borderWidth: 1 },
-                ]
-            },
-            options: defaultChartOpts
-        });
+        const el=document.getElementById('fbDailyChart'); if(!el)return;
+        new Chart(el, { type:'bar', data: {
+            labels: DATA.facebook.daily_2026.map(x=>x.datum.slice(5)),
+            datasets: [{ label:'Dosah', data:DATA.facebook.daily_2026.map(x=>x.dosah), backgroundColor:chartColors.goldLight, borderColor:chartColors.gold, borderWidth:1 }]
+        }, options: defaultChartOpts });
     } else if (p === 'instagram') {
-        const el = document.getElementById('igDailyChart');
-        if (!el) return;
-        const d26 = DATA.instagram.daily_2026;
-        new Chart(el, {
-            type: 'bar',
-            data: {
-                labels: d26.map(x => x.datum.slice(5)),
-                datasets: [
-                    { label: 'Dosah', data: d26.map(x => x.dosah), backgroundColor: chartColors.purpleLight, borderColor: chartColors.purple, borderWidth: 1 },
-                ]
-            },
-            options: defaultChartOpts
-        });
+        const el=document.getElementById('igDailyChart'); if(!el)return;
+        new Chart(el, { type:'bar', data: {
+            labels: DATA.instagram.daily_2026.map(x=>x.datum.slice(5)),
+            datasets: [{ label:'Dosah', data:DATA.instagram.daily_2026.map(x=>x.dosah), backgroundColor:chartColors.redLight, borderColor:chartColors.red, borderWidth:1 }]
+        }, options: defaultChartOpts });
     }
 }
 
-// ── PULSE CHART ──
+// ── PULSE ──
 function renderPulse() {
-    const fb = DATA.facebook.daily_2026.filter(x => x.datum >= '2026-02');
-    const ig = DATA.instagram.daily_2026.filter(x => x.datum >= '2026-02');
-    const yt = DATA.youtube.daily_2026.filter(x => x.datum >= '2026-02');
-
-    // Align to common dates
-    const allDates = [...new Set([...fb.map(x=>x.datum), ...ig.map(x=>x.datum), ...yt.map(x=>x.datum)])].sort();
-    const fbMap = Object.fromEntries(fb.map(x => [x.datum, x.dosah]));
-    const igMap = Object.fromEntries(ig.map(x => [x.datum, x.dosah]));
-    const ytMap = Object.fromEntries(yt.map(x => [x.datum, x.zhlednuti]));
-
-    new Chart(document.getElementById('pulseChart'), {
-        type: 'line',
-        data: {
-            labels: allDates.map(d => d.slice(5)),
-            datasets: [
-                { label: 'Instagram (dosah)', data: allDates.map(d => igMap[d] || 0), borderColor: '#E1306C', backgroundColor: 'rgba(225,48,108,0.1)', fill: true, tension: 0.3, pointRadius: 2 },
-                { label: 'Facebook (dosah)', data: allDates.map(d => fbMap[d] || 0), borderColor: '#1877F2', backgroundColor: 'rgba(24,119,242,0.1)', fill: true, tension: 0.3, pointRadius: 2 },
-                { label: 'YouTube (zhlédnutí)', data: allDates.map(d => ytMap[d] || 0), borderColor: '#FF0000', backgroundColor: 'rgba(255,0,0,0.1)', fill: true, tension: 0.3, pointRadius: 2 },
-            ]
-        },
-        options: { ...defaultChartOpts, interaction: { mode: 'index', intersect: false } }
-    });
+    const fb=DATA.facebook.daily_2026.filter(x=>x.datum>='2026-02');
+    const ig=DATA.instagram.daily_2026.filter(x=>x.datum>='2026-02');
+    const yt=DATA.youtube.daily_2026.filter(x=>x.datum>='2026-02');
+    const allDates=[...new Set([...fb.map(x=>x.datum),...ig.map(x=>x.datum),...yt.map(x=>x.datum)])].sort();
+    const fbMap=Object.fromEntries(fb.map(x=>[x.datum,x.dosah]));
+    const igMap=Object.fromEntries(ig.map(x=>[x.datum,x.dosah]));
+    const ytMap=Object.fromEntries(yt.map(x=>[x.datum,x.zhlednuti]));
+    new Chart(document.getElementById('pulseChart'), { type:'line', data: {
+        labels: allDates.map(d=>d.slice(5)),
+        datasets: [
+            { label:'Instagram', data:allDates.map(d=>igMap[d]||0), borderColor:'#c53030', backgroundColor:'rgba(197,48,48,0.08)', fill:true, tension:0.3, pointRadius:2 },
+            { label:'Facebook', data:allDates.map(d=>fbMap[d]||0), borderColor:'#63b3ed', backgroundColor:'rgba(99,179,237,0.08)', fill:true, tension:0.3, pointRadius:2 },
+            { label:'YouTube', data:allDates.map(d=>ytMap[d]||0), borderColor:'#d4af37', backgroundColor:'rgba(212,175,55,0.08)', fill:true, tension:0.3, pointRadius:2 }
+        ]
+    }, options: { ...defaultChartOpts, interaction: { mode:'index', intersect:false } } });
 }
 
 // ── YOY MATRIX ──
 function renderYoYMatrix() {
-    const container = document.getElementById('yoy-matrix');
+    const container=document.getElementById('yoy-matrix');
     const platforms = [
-        {
-            name: '📺 YouTube', color: '#FF0000',
-            metrics: [
-                { label: 'Zhlédnutí', v25: DATA.youtube.stats_2025.celkove_zhlednuti, v26: DATA.youtube.stats_2026.celkove_zhlednuti },
-                { label: 'Watch Time (h)', v25: Math.round(DATA.youtube.stats_2025.doba_sledovani_hodin), v26: Math.round(DATA.youtube.stats_2026.doba_sledovani_hodin) },
-                { label: 'Odběratelé', v25: DATA.youtube.stats_2025.odberatele, v26: DATA.youtube.stats_2026.odberatele },
-                { label: 'Zobrazení', v25: DATA.youtube.stats_2025.zobrazeni, v26: DATA.youtube.stats_2026.zobrazeni },
-            ]
-        },
-        {
-            name: '📘 Facebook', color: '#1877F2',
-            metrics: [
-                { label: 'Dosah', v25: DATA.facebook.stats_2025.celkovy_dosah, v26: DATA.facebook.stats_2026.celkovy_dosah },
-                { label: 'Zhlédnutí', v25: DATA.facebook.stats_2025.celkove_zhlednuti, v26: DATA.facebook.stats_2026.celkove_zhlednuti },
-                { label: 'Engagement', v25: DATA.facebook.stats_2025.celkovy_engagement, v26: DATA.facebook.stats_2026.celkovy_engagement },
-                { label: 'Kliknutí', v25: DATA.facebook.stats_2025.celkove_kliknuti, v26: DATA.facebook.stats_2026.celkove_kliknuti },
-            ]
-        },
-        {
-            name: '📸 Instagram', color: '#E1306C',
-            metrics: [
-                { label: 'Dosah', v25: DATA.instagram.stats_2025.celkovy_dosah, v26: DATA.instagram.stats_2026.celkovy_dosah },
-                { label: 'Zobrazení', v25: DATA.instagram.stats_2025.celkove_zobrazeni, v26: DATA.instagram.stats_2026.celkove_zobrazeni },
-                { label: 'Sdílení', v25: DATA.instagram.stats_2025.celkove_sdileni, v26: DATA.instagram.stats_2026.celkove_sdileni },
-                { label: 'Uložení', v25: DATA.instagram.stats_2025.celkove_ulozeni, v26: DATA.instagram.stats_2026.celkove_ulozeni },
-            ]
-        }
+        { name:'YouTube', color:'#d4af37', metrics: [
+            { label:'Zhlédnutí', v25:DATA.youtube.stats_2025.celkove_zhlednuti, v26:DATA.youtube.stats_2026.celkove_zhlednuti },
+            { label:'Watch Time (h)', v25:Math.round(DATA.youtube.stats_2025.doba_sledovani_hodin), v26:Math.round(DATA.youtube.stats_2026.doba_sledovani_hodin) },
+            { label:'Odběratelé', v25:DATA.youtube.stats_2025.odberatele, v26:DATA.youtube.stats_2026.odberatele },
+            { label:'Zobrazení', v25:DATA.youtube.stats_2025.zobrazeni, v26:DATA.youtube.stats_2026.zobrazeni },
+        ]},
+        { name:'Facebook', color:'#63b3ed', metrics: [
+            { label:'Dosah', v25:DATA.facebook.stats_2025.celkovy_dosah, v26:DATA.facebook.stats_2026.celkovy_dosah },
+            { label:'Zhlédnutí', v25:DATA.facebook.stats_2025.celkove_zhlednuti, v26:DATA.facebook.stats_2026.celkove_zhlednuti },
+            { label:'Engagement', v25:DATA.facebook.stats_2025.celkovy_engagement, v26:DATA.facebook.stats_2026.celkovy_engagement },
+            { label:'Kliknutí', v25:DATA.facebook.stats_2025.celkove_kliknuti, v26:DATA.facebook.stats_2026.celkove_kliknuti },
+        ]},
+        { name:'Instagram', color:'#c53030', metrics: [
+            { label:'Dosah', v25:DATA.instagram.stats_2025.celkovy_dosah, v26:DATA.instagram.stats_2026.celkovy_dosah },
+            { label:'Zobrazení', v25:DATA.instagram.stats_2025.celkove_zobrazeni, v26:DATA.instagram.stats_2026.celkove_zobrazeni },
+            { label:'Sdílení', v25:DATA.instagram.stats_2025.celkove_sdileni, v26:DATA.instagram.stats_2026.celkove_sdileni },
+            { label:'Uložení', v25:DATA.instagram.stats_2025.celkove_ulozeni, v26:DATA.instagram.stats_2026.celkove_ulozeni },
+        ]}
     ];
-
     container.innerHTML = platforms.map(p => `
-        <div class="glass rounded-2xl p-6 stat-card">
-            <h3 class="font-bold mb-4" style="color: ${p.color}">${p.name}</h3>
-            <div class="space-y-3">
-                ${p.metrics.map(m => {
-                    const pct = yoyPct(m.v26, m.v25);
-                    const cls = pct >= 0 ? 'yoy-positive' : 'yoy-negative';
-                    const sign = pct >= 0 ? '+' : '';
-                    const barW = Math.min(Math.abs(pct), 300) / 3;
-                    return `<div>
-                        <div class="flex justify-between text-sm mb-1">
-                            <span class="text-gray-400">${m.label}</span>
-                            <span class="${cls} font-semibold">${sign}${pct.toFixed(1)}%</span>
-                        </div>
-                        <div class="h-2 rounded-full bg-white/5 overflow-hidden">
-                            <div class="h-full rounded-full ${pct >= 0 ? 'bg-green-500' : 'bg-red-500'}" style="width: ${barW}%"></div>
-                        </div>
-                        <p class="text-xs text-gray-600 mt-1">${fmtFull(m.v25)} → ${fmtFull(m.v26)}</p>
-                    </div>`;
-                }).join('')}
-            </div>
+        <div class="card matrix-card">
+            <h4 style="color:${p.color}">${p.name}</h4>
+            ${p.metrics.map(m => {
+                const pct=yoyPct(m.v26,m.v25);
+                const cls=pct>=0?'up':'down';
+                const sign=pct>=0?'+':'';
+                const barW=Math.min(Math.abs(pct),300)/3;
+                return `<div class="metric-row">
+                    <div class="top"><span class="muted">${m.label}</span><span class="${cls}" style="font-weight:600;">${sign}${pct.toFixed(1)}%</span></div>
+                    <div class="bar"><div class="bar-fill" style="width:${barW}%;background:${pct>=0?'var(--green)':'var(--red-light)'};"></div></div>
+                    <div class="numbers">${fmtFull(m.v25)} → ${fmtFull(m.v26)}</div>
+                </div>`;
+            }).join('')}
         </div>
     `).join('');
 }
 
-// ── INDIAN FACTOR CHARTS ──
+// ── INDIAN FACTOR ──
 function renderIndianFactor() {
     const platforms = [
-        { key: 'ig', data: DATA.instagram.indian_factor_2026, label: 'Prům. dosah' },
-        { key: 'yt', data: DATA.youtube.indian_factor_2026, label: 'Prům. zhlédnutí' },
-        { key: 'fb', data: DATA.facebook.indian_factor_2026, label: 'Prům. dosah' },
+        { key:'ig', data:DATA.instagram.indian_factor_2026, label:'Prům. dosah' },
+        { key:'yt', data:DATA.youtube.indian_factor_2026, label:'Prům. zhlédnutí' },
+        { key:'fb', data:DATA.facebook.indian_factor_2026, label:'Prům. dosah' },
     ];
-
     platforms.forEach(p => {
         const indian = p.data.avg_reach_indian || p.data.avg_views_indian || 0;
         const other = p.data.avg_reach_other || p.data.avg_views_other || 0;
         const mult = other > 0 ? (indian / other).toFixed(1) : '—';
-
         document.getElementById(`${p.key}-indian-reach`).textContent = fmtFull(Math.round(indian));
         document.getElementById(`${p.key}-other-reach`).textContent = fmtFull(Math.round(other));
         document.getElementById(`${p.key}-indian-mult`).innerHTML = mult !== '—'
-            ? `<span class="${parseFloat(mult) > 1 ? 'yoy-positive' : 'yoy-negative'}">${mult}× multiplikátor</span>`
-            : '—';
-
+            ? `<span class="${parseFloat(mult)>1?'up':'down'}">${mult}× multiplikátor</span>` : '—';
         new Chart(document.getElementById(`indianChart${p.key.toUpperCase()}`), {
-            type: 'doughnut',
-            data: {
-                labels: ['S indickými hráči', 'Ostatní'],
-                datasets: [{
-                    data: [indian, other],
-                    backgroundColor: [chartColors.purple, 'rgba(75,85,99,0.4)'],
-                    borderWidth: 0
-                }]
-            },
-            options: {
-                responsive: true,
-                plugins: { legend: { display: false } },
-                cutout: '65%'
-            }
+            type:'doughnut', data: { labels:['S indickými hráči','Ostatní'], datasets:[{ data:[indian,other], backgroundColor:[chartColors.gold,'rgba(75,85,99,0.3)'], borderWidth:0 }] },
+            options: { responsive:true, plugins:{ legend:{ display:false } }, cutout:'65%' }
         });
     });
 }
 
-// ── EFFICIENCY CHART ──
+// ── EFFICIENCY ──
 function renderEfficiency() {
-    const labels = ['Facebook 2025', 'Facebook 2026', 'Instagram 2025', 'Instagram 2026', 'YouTube 2025', 'YouTube 2026'];
-    const posts = [
-        DATA.facebook.stats_2025.pocet_prispevku, DATA.facebook.stats_2026.pocet_prispevku,
-        DATA.instagram.stats_2025.pocet_prispevku, DATA.instagram.stats_2026.pocet_prispevku,
-        DATA.youtube.stats_2025.pocet_videi, DATA.youtube.stats_2026.pocet_videi
-    ];
-    const reach = [
-        DATA.facebook.stats_2025.celkovy_dosah, DATA.facebook.stats_2026.celkovy_dosah,
-        DATA.instagram.stats_2025.celkovy_dosah, DATA.instagram.stats_2026.celkovy_dosah,
-        DATA.youtube.stats_2025.zobrazeni, DATA.youtube.stats_2026.zobrazeni
-    ];
-    const perPost = reach.map((r, i) => posts[i] > 0 ? Math.round(r / posts[i]) : 0);
-
+    const labels=['Facebook 2025','Facebook 2026','Instagram 2025','Instagram 2026','YouTube 2025','YouTube 2026'];
+    const posts=[DATA.facebook.stats_2025.pocet_prispevku,DATA.facebook.stats_2026.pocet_prispevku,DATA.instagram.stats_2025.pocet_prispevku,DATA.instagram.stats_2026.pocet_prispevku,DATA.youtube.stats_2025.pocet_videi,DATA.youtube.stats_2026.pocet_videi];
+    const reach=[DATA.facebook.stats_2025.celkovy_dosah,DATA.facebook.stats_2026.celkovy_dosah,DATA.instagram.stats_2025.celkovy_dosah,DATA.instagram.stats_2026.celkovy_dosah,DATA.youtube.stats_2025.zobrazeni,DATA.youtube.stats_2026.zobrazeni];
+    const perPost=reach.map((r,i)=>posts[i]>0?Math.round(r/posts[i]):0);
     new Chart(document.getElementById('efficiencyChart'), {
-        type: 'bar',
-        data: {
-            labels: labels,
-            datasets: [
-                { label: 'Dosah/Zobrazení na příspěvek', data: perPost, backgroundColor: ['#1877F2aa','#1877F2','#E1306Caa','#E1306C','#FF0000aa','#FF0000'], borderWidth: 0, borderRadius: 6 }
-            ]
-        },
-        options: {
-            ...defaultChartOpts,
-            plugins: { ...defaultChartOpts.plugins, legend: { display: false } },
-            indexAxis: 'y'
-        }
+        type:'bar', data: { labels, datasets:[{ label:'Dosah/Zobrazení na příspěvek', data:perPost, backgroundColor:['rgba(99,179,237,0.4)','rgba(99,179,237,0.7)','rgba(197,48,48,0.4)','rgba(197,48,48,0.7)','rgba(212,175,55,0.4)','rgba(212,175,55,0.7)'], borderWidth:0, borderRadius:4 }] },
+        options: { ...defaultChartOpts, plugins:{ ...defaultChartOpts.plugins, legend:{ display:false } }, indexAxis:'y' }
     });
 }
 
-// ── TOP 3 CARDS ──
+// ── TOP 3 ──
 function renderTop3() {
-    const container = document.getElementById('top3-cards');
-    const icons = { Instagram: '📸', Facebook: '📘', YouTube: '📺' };
-    const colors = { Instagram: '#E1306C', Facebook: '#1877F2', YouTube: '#FF0000' };
-
-    container.innerHTML = DATA.top3_moments.map((m, i) => `
-        <div class="glass rounded-2xl p-6 stat-card relative overflow-hidden">
-            <div class="absolute top-0 right-0 w-20 h-20 rounded-bl-full" style="background: ${colors[m.platforma]}22"></div>
-            <div class="flex items-center gap-2 mb-3">
-                <span class="text-2xl">${i === 0 ? '🥇' : i === 1 ? '🥈' : '🥉'}</span>
-                <span class="text-sm font-semibold" style="color: ${colors[m.platforma]}">${icons[m.platforma]} ${m.platforma}</span>
-                ${m.indian && m.indian.length > 0 ? '<span class="text-xs px-2 py-0.5 rounded-full bg-orange-500/20 text-orange-400">🇮🇳 ' + m.indian.join(', ') + '</span>' : ''}
+    const container=document.getElementById('top3-cards');
+    const colors = { Instagram:'#c53030', Facebook:'#63b3ed', YouTube:'#d4af37' };
+    container.innerHTML = DATA.top3_moments.map((m,i) => `
+        <div class="card moment-card">
+            <div class="rank">${i+1}</div>
+            <span class="platform-tag" style="background:${colors[m.platforma]}22;color:${colors[m.platforma]};">${m.platforma}</span>
+            ${m.indian && m.indian.length > 0 ? '<span class="indian-tag">🇮🇳 ' + m.indian.join(', ') + '</span>' : ''}
+            <p class="small muted" style="margin:10px 0;line-height:1.5;">${m.nazev}</p>
+            <div style="display:flex;gap:20px;">
+                <div><div class="small dim">Dosah</div><div style="font-family:var(--font-display);font-size:20px;font-weight:700;color:var(--gold);">${fmtFull(m.dosah)}</div></div>
+                <div><div class="small dim">Engagement</div><div style="font-family:var(--font-display);font-size:20px;font-weight:700;color:#fff;">${fmtFull(m.engagement)}</div></div>
             </div>
-            <p class="text-sm text-gray-300 leading-relaxed mb-4 line-clamp-3">${m.nazev}</p>
-            <div class="flex gap-4">
-                <div>
-                    <p class="text-xs text-gray-500">Dosah</p>
-                    <p class="text-xl font-bold gradient-text">${fmtFull(m.dosah)}</p>
-                </div>
-                <div>
-                    <p class="text-xs text-gray-500">Engagement</p>
-                    <p class="text-xl font-bold text-gray-300">${fmtFull(m.engagement)}</p>
-                </div>
-            </div>
-            <p class="text-xs text-gray-600 mt-3">${m.datum}</p>
-            ${m.link ? `<a href="${m.link}" target="_blank" class="text-xs text-purple-400 hover:text-purple-300 mt-2 inline-block">Otevřít příspěvek →</a>` : ''}
+            <div class="small dim" style="margin-top:10px;">${m.datum}</div>
+            ${m.link ? `<a href="${m.link}" target="_blank" style="font-size:11px;color:var(--gold);margin-top:8px;display:inline-block;text-decoration:none;">Otevřít příspěvek →</a>` : ''}
         </div>
     `).join('');
+}
+
+// ── EMAIL CHARTS ──
+function renderEmailCharts() {
+    const el=document.getElementById('emailOpenRateChart'); if(!el)return;
+    const dates=['24.2.','25.2.','26.2.','27.2.','28.2.','1.3.','2.3.','3.3.','4.3.','5.3.','6.3.','8.3.'];
+    const czData=[40,35,33,31,29,28,29,28.5,28,28,27,31];
+    const enData=[42,38,39,35,33,21,30,30,31,29,32,30];
+    new Chart(el, {
+        type:'line', data: { labels:dates, datasets:[
+            { label:'CZ verze', data:czData, borderColor:'var(--red)', backgroundColor:'rgba(197,48,48,0.1)', fill:true, tension:0.3, pointRadius:4 },
+            { label:'EN verze', data:enData, borderColor:'var(--gold)', backgroundColor:'rgba(212,175,55,0.1)', fill:true, tension:0.3, pointRadius:4 }
+        ] },
+        options: { ...defaultChartOpts, scales: { ...defaultChartOpts.scales, y: { ...defaultChartOpts.scales.y, suggestedMin:15, suggestedMax:50, ticks:{ ...defaultChartOpts.scales.y.ticks, callback:v=>v+'%' } } } }
+    });
+}
+
+// ── PASS CHARTS ──
+function renderPassCharts() {
+    const wEl=document.getElementById('walletPlatformChart');
+    if(wEl) {
+        new Chart(wEl, {
+            type:'doughnut', data: { labels:[' Apple Wallet (246)','Google Wallet (210)'], datasets:[{ data:[246,210], backgroundColor:['rgba(229,224,216,0.8)','rgba(72,187,120,0.6)'], borderWidth:2, borderColor:['rgba(229,224,216,0.15)','rgba(72,187,120,0.15)'] }] },
+            options: { responsive:true, plugins:{ legend:{ position:'bottom', labels:{ color:'#8a8578', font:{ family:"'DM Sans'", size:11 }, padding:16 } } }, cutout:'60%' }
+        });
+    }
+
+    const cEl=document.getElementById('country-ranking');
+    if(cEl) {
+        const countries=[
+            {code:'🇨🇿',name:'Česko',count:205},{code:'🇩🇪',name:'Německo',count:42},{code:'🇮🇳',name:'Indie',count:34},
+            {code:'🇸🇰',name:'Slovensko',count:29},{code:'🇵🇱',name:'Polsko',count:22},{code:'🇹🇷',name:'Turecko',count:20},
+            {code:'🇳🇴',name:'Norsko',count:20},{code:'🇪🇸',name:'Španělsko',count:18},{code:'🇫🇷',name:'Francie',count:16},{code:'🇦🇲',name:'Arménie',count:16}
+        ];
+        const max=countries[0].count;
+        cEl.innerHTML = countries.map(c => `
+            <div class="country-row">
+                <div class="flag">${c.code}</div>
+                <div class="info"><div class="name">${c.name}</div><div class="bar-wrap"><div class="bar-fill" style="width:${(c.count/max*100).toFixed(1)}%"></div></div></div>
+                <div class="count">${c.count}</div>
+            </div>
+        `).join('');
+    }
+
+    const fEl=document.getElementById('fanCardsGrowthChart');
+    if(fEl) {
+        new Chart(fEl, {
+            type:'bar', data: { labels:['Fanouškovská karta (CZ)','Fans Card (EN)'], datasets:[
+                { label:'Apple Wallet', data:[31,29], backgroundColor:'rgba(229,224,216,0.6)', borderRadius:4 },
+                { label:'Google Wallet', data:[22,35], backgroundColor:'rgba(72,187,120,0.5)', borderRadius:4 }
+            ] },
+            options: { ...defaultChartOpts, indexAxis:'y', plugins:{ ...defaultChartOpts.plugins }, scales:{ x:{ ...defaultChartOpts.scales.x, stacked:true }, y:{ ...defaultChartOpts.scales.y, stacked:true } } }
+        });
+    }
 }
 
 // ── INIT ──
@@ -678,6 +1488,5 @@ renderIndianFactor();
 renderEfficiency();
 renderTop3();
 </script>
-
 </body>
 </html>
