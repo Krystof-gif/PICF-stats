@@ -379,17 +379,15 @@ body { background: var(--bg); color: var(--text); font-family: var(--font-body);
 
 <!-- ═══ HEADER ═══ -->
 <header class="site-header">
-<div class="container header-inner">
-    <img src="logo.png" alt="PICF Logo" style="height: 48px; width: auto;">
-    <div class="header-text">
-        <div class="label">Digitální audit 2025 → 2026</div>
-        <h1>Prague International<br>Chess Festival</h1>
-        <p class="subtitle">Komplexní analýza: Social Media · Livestream · Newsletter · Mobile Passes</p>
-        <div class="header-badges">
-            <span class="badge">Sezóna 2025–2026</span>
-            <span class="badge">4 analytické sekce</span>
-            <span class="badge">47+ zemí</span>
-        </div>
+<div class="container" style="text-align:center;">
+    <img src="logo.png" alt="PICF Logo" style="height:64px;width:auto;margin-bottom:16px;border-radius:8px;background:rgba(255,255,255,0.08);padding:8px 12px;">
+    <div class="label" style="margin-bottom:6px;">Digitální audit 2025 → 2026</div>
+    <h1 style="font-family:var(--font-display);font-size:clamp(26px,4.5vw,42px);font-weight:900;color:#fff;line-height:1.15;">Prague International Chess Festival</h1>
+    <p class="subtitle" style="margin-top:8px;">Komplexní analýza: Social Media · Livestream · Newsletter · Mobile Passes · Účastníci</p>
+    <div class="header-badges" style="justify-content:center;margin-top:14px;">
+        <span class="badge">Sezóna 2025–2026</span>
+        <span class="badge">511 hráčů · 52 zemí</span>
+        <span class="badge">6 analytických sekcí</span>
     </div>
 </div>
 </header>
@@ -398,9 +396,11 @@ body { background: var(--bg); color: var(--text); font-family: var(--font-body);
 <nav class="main-nav">
 <div class="container nav-inner">
     <button onclick="switchMainTab('social')" id="mtab-social" class="nav-tab active">Social Media</button>
-    <button onclick="switchMainTab('livestream')" id="mtab-livestream" class="nav-tab">Livestream & Broadcasting</button>
+    <button onclick="switchMainTab('livestream')" id="mtab-livestream" class="nav-tab">Livestream</button>
     <button onclick="switchMainTab('email')" id="mtab-email" class="nav-tab">Email Marketing</button>
     <button onclick="switchMainTab('passes')" id="mtab-passes" class="nav-tab">Mobile Passes</button>
+    <button onclick="switchMainTab('players')" id="mtab-players" class="nav-tab">Účastníci</button>
+    <button onclick="switchMainTab('web')" id="mtab-web" class="nav-tab">Web</button>
 </div>
 </nav>
 
@@ -865,11 +865,269 @@ body { background: var(--bg); color: var(--text); font-family: var(--font-body);
 
 </div><!-- /panel-passes -->
 
+<!-- ════════════════════════════════════════════════ -->
+<!-- TAB 5: ÚČASTNÍCI & FEDERACE                     -->
+<!-- ════════════════════════════════════════════════ -->
+<div id="panel-players" class="tab-panel">
+
+<div class="section container">
+    <div class="section-label">Chess-Results.com</div>
+    <div class="section-title">Účastníci & Federace</div>
+    <div class="section-desc">Statistiky z FIDE databáze — PICF 2026 (Masters, Challengers, Futures, Open + side events).</div>
+
+    <!-- KPI -->
+    <div class="grid-4 mb-32">
+        <div class="card" style="text-align:center;border-left:3px solid var(--gold);">
+            <div class="card-label">Celkem účastníků</div>
+            <div class="card-value">511</div>
+            <div class="card-sub">Unikátní hráči napříč sekcemi</div>
+        </div>
+        <div class="card" style="text-align:center;border-left:3px solid var(--green);">
+            <div class="card-label">Zastoupených zemí</div>
+            <div class="card-value" style="color:var(--green);">52</div>
+            <div class="card-sub">Federací z celého světa</div>
+        </div>
+        <div class="card" style="text-align:center;border-left:3px solid var(--blue);">
+            <div class="card-label">Titulovaní hráči</div>
+            <div class="card-value" style="color:var(--blue);">164</div>
+            <div class="card-sub">32 % všech účastníků</div>
+        </div>
+        <div class="card" style="text-align:center;border-left:3px solid var(--red);">
+            <div class="card-label">Odehraných partií</div>
+            <div class="card-value">2 207</div>
+            <div class="card-sub">9 kol turnaje</div>
+        </div>
+    </div>
+
+    <div class="grid-2 mb-32">
+        <!-- Masters/Challengers info -->
+        <div class="card">
+            <div class="card-label">Elitní sekce</div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px;">
+                <div style="padding:14px;border:1px solid var(--border);border-radius:4px;text-align:center;">
+                    <div style="font-family:var(--font-display);font-size:14px;font-weight:700;color:var(--gold);margin-bottom:4px;">Masters</div>
+                    <div style="font-family:var(--font-display);font-size:28px;font-weight:700;color:#fff;">10</div>
+                    <div class="small dim">Ø rating 2 710</div>
+                    <div class="small dim">Ø věk 26 let</div>
+                </div>
+                <div style="padding:14px;border:1px solid var(--border);border-radius:4px;text-align:center;">
+                    <div style="font-family:var(--font-display);font-size:14px;font-weight:700;color:var(--blue);margin-bottom:4px;">Challengers</div>
+                    <div style="font-family:var(--font-display);font-size:28px;font-weight:700;color:#fff;">10</div>
+                    <div class="small dim">Ø rating 2 552</div>
+                    <div class="small dim">Ø věk 25 let</div>
+                </div>
+                <div style="padding:14px;border:1px solid var(--border);border-radius:4px;text-align:center;">
+                    <div style="font-family:var(--font-display);font-size:14px;font-weight:700;color:var(--green);margin-bottom:4px;">Futures</div>
+                    <div style="font-family:var(--font-display);font-size:28px;font-weight:700;color:#fff;">10</div>
+                    <div class="small dim">Talentované hráčky</div>
+                    <div class="small dim">Podpora ECU</div>
+                </div>
+                <div style="padding:14px;border:1px solid var(--border);border-radius:4px;text-align:center;">
+                    <div style="font-family:var(--font-display);font-size:14px;font-weight:700;color:var(--text-muted);margin-bottom:4px;">Open + side events</div>
+                    <div style="font-family:var(--font-display);font-size:28px;font-weight:700;color:#fff;">481</div>
+                    <div class="small dim">D open, rapid, blitz</div>
+                    <div class="small dim">Fischer, bughouse aj.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Title breakdown -->
+        <div class="card">
+            <div class="card-label">Tituly FIDE</div>
+            <div style="margin-top:12px;">
+                <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--border);">
+                    <span style="font-weight:600;color:#fff;">GM</span>
+                    <div style="flex:1;margin:0 16px;height:6px;border-radius:3px;background:rgba(255,255,255,0.04);overflow:hidden;">
+                        <div style="height:100%;width:18.3%;border-radius:3px;background:var(--gold);"></div>
+                    </div>
+                    <span class="mono" style="color:#fff;min-width:30px;text-align:right;">30</span>
+                </div>
+                <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--border);">
+                    <span style="font-weight:600;color:#fff;">IM</span>
+                    <div style="flex:1;margin:0 16px;height:6px;border-radius:3px;background:rgba(255,255,255,0.04);overflow:hidden;">
+                        <div style="height:100%;width:16.5%;border-radius:3px;background:var(--blue);"></div>
+                    </div>
+                    <span class="mono" style="color:#fff;min-width:30px;text-align:right;">27</span>
+                </div>
+                <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--border);">
+                    <span style="font-weight:600;color:#fff;">FM</span>
+                    <div style="flex:1;margin:0 16px;height:6px;border-radius:3px;background:rgba(255,255,255,0.04);overflow:hidden;">
+                        <div style="height:100%;width:34.8%;border-radius:3px;background:var(--green);"></div>
+                    </div>
+                    <span class="mono" style="color:#fff;min-width:30px;text-align:right;">57</span>
+                </div>
+                <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--border);">
+                    <span style="font-weight:600;color:var(--text-muted);">WGM + WIM + WFM</span>
+                    <div style="flex:1;margin:0 16px;height:6px;border-radius:3px;background:rgba(255,255,255,0.04);overflow:hidden;">
+                        <div style="height:100%;width:14.6%;border-radius:3px;background:var(--red);"></div>
+                    </div>
+                    <span class="mono" style="color:#fff;min-width:30px;text-align:right;">24</span>
+                </div>
+                <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;">
+                    <span style="font-weight:600;color:var(--text-muted);">CM + WCM</span>
+                    <div style="flex:1;margin:0 16px;height:6px;border-radius:3px;background:rgba(255,255,255,0.04);overflow:hidden;">
+                        <div style="height:100%;width:15.9%;border-radius:3px;background:var(--text-dim);"></div>
+                    </div>
+                    <span class="mono" style="color:#fff;min-width:30px;text-align:right;">26</span>
+                </div>
+                <div style="margin-top:12px;padding:10px;background:rgba(255,255,255,0.02);border-radius:4px;text-align:center;">
+                    <span class="small dim">Bez titulu:</span>
+                    <span class="small" style="color:#fff;font-weight:600;"> 347 hráčů</span>
+                    <span class="small dim"> (68 %)</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Top Federations -->
+    <div class="card mb-32">
+        <div class="card-label">Top 15 federací podle počtu hráčů</div>
+        <canvas id="federationChart" height="120" style="margin-top:12px;"></canvas>
+    </div>
+
+    <!-- Game Stats -->
+    <div class="card mb-32">
+        <div class="card-label">Statistiky partií (všechna kola)</div>
+        <div class="grid-4" style="margin-top:16px;">
+            <div style="text-align:center;padding:12px;">
+                <div style="font-family:var(--font-display);font-size:28px;font-weight:700;color:#fff;">2 207</div>
+                <div class="small dim">Celkem partií</div>
+            </div>
+            <div style="text-align:center;padding:12px;">
+                <div style="font-family:var(--font-display);font-size:28px;font-weight:700;color:var(--green);">43,0 %</div>
+                <div class="small dim">Výhry bílého (949)</div>
+            </div>
+            <div style="text-align:center;padding:12px;">
+                <div style="font-family:var(--font-display);font-size:28px;font-weight:700;color:var(--text-muted);">23,2 %</div>
+                <div class="small dim">Remízy (513)</div>
+            </div>
+            <div style="text-align:center;padding:12px;">
+                <div style="font-family:var(--font-display);font-size:28px;font-weight:700;color:var(--red-light);">33,3 %</div>
+                <div class="small dim">Výhry černého (734)</div>
+            </div>
+        </div>
+        <div style="margin-top:16px;">
+            <canvas id="gameStatsChart" height="80"></canvas>
+        </div>
+    </div>
+
+    <!-- Insight -->
+    <div class="insight-box">
+        <h3>Mezinárodní profil festivalu</h3>
+        <p><strong>52 zemí</strong> na jednom turnaji — to z PICF dělá jeden z nejkosmopolitnějších šachových festivalů v Evropě. Česko tvoří 39 % účastníků (201), následuje Slovensko (41), Německo (35), Polsko (23) a Norsko (21). Silné zastoupení Indie (17 hráčů) koreluje s daty ze sociálních sítí — indický trh je pro PICF klíčový.</p>
+        <p><strong style="color:var(--gold);">30 velmistrů</strong> a celkem 164 titulovaných hráčů (32 % účastníků) ukazuje na vysokou kvalitu startovního pole. Masters sekce s průměrným ratingem 2 710 a účastí mistra světa Gukeshe patří mezi top 10 turnajů sezóny globálně.</p>
+        <p>Zajímavé je rozložení výsledků: <strong>bílý vyhrál 43 % partií vs 33 % pro černého</strong>, což je mírně nad průměrem (typicky ~37 % bílý, ~28 % černý v open turnajích). Nízký podíl remíz (23 %) svědčí o bojovném šachu — pravidlo zákazu nabídky remízy před 40. tahem v Masters se projevuje.</p>
+    </div>
+</div>
+
+</div><!-- /panel-players -->
+
+<!-- ════════════════════════════════════════════════ -->
+<!-- TAB 6: WEB                                      -->
+<!-- ════════════════════════════════════════════════ -->
+<div id="panel-web" class="tab-panel">
+
+<div class="section container">
+    <div class="section-label">Google Analytics</div>
+    <div class="section-title">Web & Registrace</div>
+    <div class="section-desc">Návštěvnost praguechessfestival.com — data budou doplněna z Google Analytics exportu.</div>
+
+    <div class="grid-3 mb-32">
+        <div class="card" style="text-align:center;">
+            <div class="card-label">Unikátní návštěvníci</div>
+            <div class="card-value dim">—</div>
+            <div class="card-sub">Čeká na GA data</div>
+        </div>
+        <div class="card" style="text-align:center;">
+            <div class="card-label">Zobrazení stránek</div>
+            <div class="card-value dim">—</div>
+            <div class="card-sub">Čeká na GA data</div>
+        </div>
+        <div class="card" style="text-align:center;">
+            <div class="card-label">Průměrná doba návštěvy</div>
+            <div class="card-value dim">—</div>
+            <div class="card-sub">Čeká na GA data</div>
+        </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;" class="mb-32">
+        <div class="card">
+            <div class="card-label">Zdroje návštěvnosti (traffic sources)</div>
+            <div style="height:240px;display:flex;align-items:center;justify-content:center;border:2px dashed var(--border);border-radius:4px;margin-top:12px;">
+                <div style="text-align:center;color:var(--text-dim);font-size:13px;">
+                    <div style="font-size:28px;margin-bottom:8px;">📊</div>
+                    <div>Organic · Social · Direct · Referral</div>
+                    <div style="margin-top:4px;">Dodej GA export → graf se vyplní</div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-label">Top stránky</div>
+            <div style="height:240px;display:flex;align-items:center;justify-content:center;border:2px dashed var(--border);border-radius:4px;margin-top:12px;">
+                <div style="text-align:center;color:var(--text-dim);font-size:13px;">
+                    <div style="font-size:28px;margin-bottom:8px;">📄</div>
+                    <div>Nejnavštěvovanější stránky webu</div>
+                    <div style="margin-top:4px;">Dodej GA export → tabulka se vyplní</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card mb-32">
+        <div class="card-label">Vývoj návštěvnosti v čase</div>
+        <div style="height:200px;display:flex;align-items:center;justify-content:center;border:2px dashed var(--border);border-radius:4px;margin-top:12px;">
+            <div style="text-align:center;color:var(--text-dim);font-size:13px;">
+                <div style="font-size:28px;margin-bottom:8px;">📈</div>
+                <div>Denní / týdenní návštěvnost webu</div>
+                <div style="margin-top:4px;">Nahraj Google Analytics CSV/screenshot</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="insight-box">
+        <h3>Proč je webová analytika klíčová?</h3>
+        <p>Web je středobodem konverzního trychtýře: <strong>Sociální sítě → Web → Registrace/Nákup</strong>. Bez GA dat nevidíme, kolik z těch 1,1M dosahu na sociálních sítích se reálně proměnilo na návštěvu webu a následně na registraci do turnaje nebo nákup vstupenky.</p>
+        <p><strong style="color:var(--gold);">Doporučení:</strong> Propojit GA s dashboardem, aby bylo vidět celé customer journey — od IG příspěvku přes web až po registraci. To je argument pro sponzory i pro optimalizaci marketingového rozpočtu 2027.</p>
+    </div>
+</div>
+
+</div><!-- /panel-web -->
+
+<!-- ═══ RAW DATA ═══ -->
+<div style="border-top:1px solid var(--border);padding:40px 0;">
+<div class="container">
+    <div class="section-label">Zdrojová data</div>
+    <div style="font-family:var(--font-display);font-size:18px;font-weight:700;color:#fff;margin-bottom:16px;">Stažení datových podkladů</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;">
+        <a href="data/export-player-card-2026-03-26-12-01-24.csv" style="display:block;padding:14px 16px;border:1px solid var(--border);border-radius:4px;text-decoration:none;color:var(--text);transition:border-color 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--border)'">
+            <div class="small" style="color:var(--gold);font-weight:600;margin-bottom:4px;">📲 Player Card CSV</div>
+            <div class="small dim">PassMachine — export hráčských karet</div>
+        </a>
+        <a href="data/export-hracska-karta-2026-03-26-12-02-36.csv" style="display:block;padding:14px 16px;border:1px solid var(--border);border-radius:4px;text-decoration:none;color:var(--text);transition:border-color 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--border)'">
+            <div class="small" style="color:var(--gold);font-weight:600;margin-bottom:4px;">📲 Hráčská karta CSV</div>
+            <div class="small dim">PassMachine — CZ verze karet</div>
+        </a>
+        <a href="data/MailchimpEnter_report_name_-_3_26_2026.csv" style="display:block;padding:14px 16px;border:1px solid var(--border);border-radius:4px;text-decoration:none;color:var(--text);transition:border-color 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--border)'">
+            <div class="small" style="color:var(--gold);font-weight:600;margin-bottom:4px;">✉️ Mailchimp CSV</div>
+            <div class="small dim">Email kampaně PICF 2026</div>
+        </a>
+        <a href="data/chessResultsList.pdf" style="display:block;padding:14px 16px;border:1px solid var(--border);border-radius:4px;text-decoration:none;color:var(--text);transition:border-color 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--border)'">
+            <div class="small" style="color:var(--gold);font-weight:600;margin-bottom:4px;">♟ Chess-Results PDF</div>
+            <div class="small dim">Federace, tituly, statistiky partií</div>
+        </a>
+        <a href="data/hraci_podle_abecedy.pdf" style="display:block;padding:14px 16px;border:1px solid var(--border);border-radius:4px;text-decoration:none;color:var(--text);transition:border-color 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--border)'">
+            <div class="small" style="color:var(--gold);font-weight:600;margin-bottom:4px;">♟ Seznam hráčů PDF</div>
+            <div class="small dim">Abecední seznam všech účastníků</div>
+        </a>
+    </div>
+</div>
+</div>
+
 <!-- ═══ FOOTER ═══ -->
 <footer class="site-footer">
     <div class="container">
         <div style="font-family:var(--font-display);font-size:14px;color:var(--text-muted);margin-bottom:4px;">Prague International Chess Festival</div>
-        <div>Digitální Audit 2025–2026 · Social Media · Livestream · Email · Mobile Passes</div>
+        <div>Digitální Audit 2025–2026 · Social Media · Livestream · Email · Passes · Účastníci · Web</div>
     </div>
 </footer>
 
@@ -922,6 +1180,7 @@ function switchMainTab(tab) {
     document.getElementById('panel-' + tab).classList.add('active');
     if (tab === 'email' && !window._emailRendered) { renderEmailCharts(); window._emailRendered = true; }
     if (tab === 'passes' && !window._passRendered) { renderPassCharts(); window._passRendered = true; }
+    if (tab === 'players' && !window._playersRendered) { renderPlayerCharts(); window._playersRendered = true; }
 }
 
 // ── KPI BAR ──
@@ -1189,6 +1448,64 @@ function renderPassCharts() {
                 { label:'Google Wallet', data:[87,66,22,35], backgroundColor:'rgba(72,187,120,0.5)', borderRadius:4, barPercentage:0.7 }
             ] },
             options: { ...defaultChartOpts, plugins:{ ...defaultChartOpts.plugins }, scales:{ x:{ ...defaultChartOpts.scales.x, stacked:true }, y:{ ...defaultChartOpts.scales.y, stacked:true } } }
+        });
+    }
+}
+
+// ── PLAYER/FEDERATION CHARTS ──
+function renderPlayerCharts() {
+    // Federation bar chart
+    const fedEl = document.getElementById('federationChart');
+    if (fedEl) {
+        const labels = ['CZE','SVK','GER','POL','NOR','IND','ESP','TUR','ARM','FRA','ROU','UKR','NED','USA','UZB'];
+        const counts = [201,41,35,23,21,17,16,15,12,12,12,9,7,6,6];
+        new Chart(fedEl, {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Počet hráčů',
+                    data: counts,
+                    backgroundColor: counts.map((c,i) => i === 0 ? 'rgba(212,175,55,0.7)' : i < 3 ? 'rgba(212,175,55,0.4)' : 'rgba(229,224,216,0.15)'),
+                    borderRadius: 4,
+                    barPercentage: 0.7
+                }]
+            },
+            options: {
+                ...defaultChartOpts,
+                plugins: { ...defaultChartOpts.plugins, legend: { display: false } },
+                scales: {
+                    ...defaultChartOpts.scales,
+                    y: { ...defaultChartOpts.scales.y, beginAtZero: true }
+                }
+            }
+        });
+    }
+
+    // Game stats stacked bar per round
+    const gsEl = document.getElementById('gameStatsChart');
+    if (gsEl) {
+        const rounds = ['Kolo 1','Kolo 2','Kolo 3','Kolo 4','Kolo 5','Kolo 6','Kolo 7','Kolo 8','Kolo 9'];
+        const white = [115,116,120,96,112,100,115,86,89];
+        const draws = [36,43,56,67,62,64,65,71,49];
+        const black = [100,92,76,88,77,85,70,70,76];
+        new Chart(gsEl, {
+            type: 'bar',
+            data: {
+                labels: rounds,
+                datasets: [
+                    { label: 'Bílý vyhrál', data: white, backgroundColor: 'rgba(229,224,216,0.5)', borderRadius: 2 },
+                    { label: 'Remíza', data: draws, backgroundColor: 'rgba(138,133,120,0.3)', borderRadius: 2 },
+                    { label: 'Černý vyhrál', data: black, backgroundColor: 'rgba(197,48,48,0.4)', borderRadius: 2 }
+                ]
+            },
+            options: {
+                ...defaultChartOpts,
+                scales: {
+                    x: { ...defaultChartOpts.scales.x, stacked: true },
+                    y: { ...defaultChartOpts.scales.y, stacked: true }
+                }
+            }
         });
     }
 }
