@@ -380,22 +380,15 @@ body { background: var(--bg); color: var(--text); font-family: var(--font-body);
 <!-- ═══ HEADER ═══ -->
 <header class="site-header">
 <div class="container" style="text-align:center;">
-    <div class="logo-container" style="
-    width: 140px; 
-    height: 140px; 
-    background-color: #ffffff; /* Tady nastavuješ barvu loga */
-    -webkit-mask-image: url('logo.png');
-    mask-image: url('logo.png');
-    -webkit-mask-repeat: no-repeat;
-    mask-repeat: no-repeat;
-    -webkit-mask-size: contain;
-    mask-size: contain;
-    mask-position: center;
-    -webkit-mask-position: center;
-    display: inline-block;
-    transition: transform 0.3s ease;
-    cursor: pointer;
-"></div>
+  <div style="text-align: center; padding: 20px 0;">
+    <img src="logo.png" alt="PICF Logo" style="
+        height: 120px; 
+        width: auto; 
+        mix-blend-mode: screen; 
+        filter: brightness(1.2) contrast(1.1);
+        display: inline-block;
+    ">
+</div>
     <div class="label" style="margin-bottom:6px;">Report 2026</div>
     <h1 style="font-family:var(--font-display);font-size:clamp(26px,4.5vw,42px);font-weight:900;color:#fff;line-height:1.15;">Prague International Chess Festival</h1>
     <p class="subtitle" style="margin-top:8px;">Komplexní analýza: Social Media · Livestream · Newsletter · Mobile Passes · Účastníci</p>
